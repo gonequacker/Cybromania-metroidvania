@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3ydf11al56tf"]
+
+[ext_resource type="Texture2D" uid="uid://jc6o01myejgi" path="res://Sunnyland/sprites/player/idle/player-idle-1.png" id="1_hg8s8"]
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_jawor"]
+[ext_resource type="Texture2D" uid="uid://qywjbwdn06me" path="res://Sunnyland/sprites/player/idle/player-idle-2.png" id="2_elxvd"]
+[ext_resource type="Texture2D" uid="uid://cdbfihm7rrpe6" path="res://Sunnyland/sprites/player/idle/player-idle-3.png" id="3_t1oru"]
+[ext_resource type="Texture2D" uid="uid://j4sbilf4mx71" path="res://Sunnyland/sprites/player/idle/player-idle-4.png" id="4_or5l6"]
+[ext_resource type="PackedScene" uid="uid://ctjwm8jox6268" path="res://Scenes/Components/gravity_component.tscn" id="6_4qt07"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mteqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hg8s8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_elxvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t1oru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_or5l6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hk3ui"]
+radius = 8.0
+height = 20.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component")]
+script = ExtResource("1_jawor")
+gravity_component = NodePath("GravityComponent")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_mteqh")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hk3ui")
+
+[node name="GravityComponent" parent="." instance=ExtResource("6_4qt07")]
