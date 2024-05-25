@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://ce65utf3offoj"]
 
-[ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Sunnyland/environment/tileset.png" id="1_qie2m"]
-[ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Sunnyland/environment/Props/small-platform.png" id="2_10hxd"]
-[ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Sunnyland/environment/Background/back.png" id="3_gpinb"]
+[ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="1_qie2m"]
+[ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="2_10hxd"]
+[ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Assets/Sunnyland/environment/Background/back.png" id="3_gpinb"]
 [ext_resource type="PackedScene" uid="uid://b3ydf11al56tf" path="res://Scenes/player.tscn" id="4_kd64m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
