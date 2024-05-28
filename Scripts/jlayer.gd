@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal landed
+signal jumped
 
 const SPEED = 120.0
 const JUMP_VELOCITY = -350.0
@@ -11,19 +13,25 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jump = false
 var coyote = 0
 
+var airborne = false
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		# Handle coyote time.
 		if coyote > 0: coyote -= 1
+		airborne = true
 	else:
 		coyote = COYOTE_MAX
+		if airborne: emit_signal("landed")
+		airborne = false
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote > 0):
 		velocity.y = JUMP_VELOCITY
 		jump = true
+		emit_signal("jumped")
 	
 	# Handle early release jump cancel.
 	if jump and velocity.y < 0 and Input.is_action_just_released("jump") and not is_on_floor():
