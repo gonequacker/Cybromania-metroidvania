@@ -485,6 +485,7 @@ texture = ExtResource("2_10hxd")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_2y56w"]
 physics_layer_0/collision_layer = 1
@@ -512,8 +513,5 @@ texture = ExtResource("3_gpinb")
 centered = false
 
 [node name="Jlayer" parent="World" instance=ExtResource("4_lpydj")]
-position = Vector2(40, 104)
+position = Vector2(56, 123)
 script = ExtResource("5_w5j7r")
-
-[node name="Camera2D" type="Camera2D" parent="World/Jlayer"]
-position_smoothing_enabled = true
