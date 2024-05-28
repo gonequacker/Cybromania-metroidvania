@@ -35,6 +35,7 @@ position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
 animation = &"Idle"
 autoplay = "Idle"
+offset = Vector2(1, 2.08165e-12)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
