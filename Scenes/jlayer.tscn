@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dy0rspqdmmhbj"]
+[gd_scene load_steps=18 format=3 uid="uid://dy0rspqdmmhbj"]
 
 [ext_resource type="Texture2D" uid="uid://jc6o01myejgi" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-1.png" id="1_btyh2"]
 [ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="1_hbmg4"]
@@ -83,6 +83,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0arh"]
 size = Vector2(14, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gaix7"]
+size = Vector2(17, 9.25)
+
 [node name="Jlayer" type="CharacterBody2D"]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -95,3 +98,8 @@ offset = Vector2(1, 2.08165e-12)
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_p0arh")
+
+[node name="CrouchCollider" type="CollisionShape2D" parent="."]
+position = Vector2(2, 8)
+shape = SubResource("RectangleShape2D_gaix7")
+disabled = true

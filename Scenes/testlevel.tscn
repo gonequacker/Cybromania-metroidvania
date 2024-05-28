@@ -518,7 +518,7 @@ layer_0/tile_data = PackedInt32Array(786432, 196610, 3, 720896, 196610, 3, 65536
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Sky"]
 scale = Vector2(0.912401, 0.912401)
-motion_scale = Vector2(0.3, 0.3)
+motion_scale = Vector2(0.15, 0.15)
 
 [node name="TextureRect" type="TextureRect" parent="Sky/ParallaxLayer"]
 offset_left = -265.0
