@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://dy0rspqdmmhbj"]
+[gd_scene load_steps=17 format=3 uid="uid://dy0rspqdmmhbj"]
 
 [ext_resource type="Texture2D" uid="uid://jc6o01myejgi" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-1.png" id="1_btyh2"]
 [ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="1_hbmg4"]
 [ext_resource type="Texture2D" uid="uid://4munqninciuy" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-2.png" id="2_3vo02"]
 [ext_resource type="Texture2D" uid="uid://qywjbwdn06me" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-2.png" id="2_yngmb"]
+[ext_resource type="Texture2D" uid="uid://bm0f0owjk0fga" path="res://Assets/Sunnyland/sprites/player/crouch/player-crouch-1.png" id="3_7bimy"]
 [ext_resource type="Texture2D" uid="uid://cdbfihm7rrpe6" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-3.png" id="3_cwp54"]
 [ext_resource type="Texture2D" uid="uid://j4sbilf4mx71" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-4.png" id="4_ekx4a"]
+[ext_resource type="Texture2D" uid="uid://bx0vf43namkit" path="res://Assets/Sunnyland/sprites/player/crouch/player-crouch-2.png" id="4_k2ny4"]
 [ext_resource type="Texture2D" uid="uid://q2hoc1y7qfcx" path="res://Assets/Sunnyland/sprites/player/run/player-run-1.png" id="5_odbxq"]
 [ext_resource type="Texture2D" uid="uid://dbnfcb7x0e35" path="res://Assets/Sunnyland/sprites/player/run/player-run-2.png" id="6_qfj5w"]
 [ext_resource type="Texture2D" uid="uid://0iptpnnshr4y" path="res://Assets/Sunnyland/sprites/player/run/player-run-3.png" id="7_rad70"]
@@ -24,6 +26,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"Airborne",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7bimy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k2ny4")
+}],
+"loop": true,
+"name": &"Crouch",
 "speed": 5.0
 }, {
 "frames": [{
@@ -75,7 +88,7 @@ size = Vector2(14, 20)
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
-animation = &"Idle"
+animation = &"Crouch"
 autoplay = "Idle"
 offset = Vector2(1, 2.08165e-12)
 
