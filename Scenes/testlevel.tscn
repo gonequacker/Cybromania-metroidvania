@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Assets/Sunnyland/environment/Background/back.png" id="3_3lue5"]
 [ext_resource type="Texture2D" uid="uid://kxx4dv24t07r" path="res://Assets/Sunnyland/environment/Props/wooden-house.png" id="3_4bhd8"]
 [ext_resource type="Texture2D" uid="uid://bwion3j0g377" path="res://Assets/Sunnyland/environment/Background/middle.png" id="4_3wgvn"]
-[ext_resource type="Script" path="res://Scenes/TextureRect.gd" id="8_mgywh"]
+[ext_resource type="Script" path="res://Scripts/middleground.gd" id="8_s51jq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
 texture = ExtResource("1_vggql")
@@ -543,7 +543,7 @@ offset_bottom = 412.936
 scale = Vector2(1.19305, 1.19305)
 texture = ExtResource("4_3wgvn")
 stretch_mode = 1
-script = ExtResource("8_mgywh")
+script = ExtResource("8_s51jq")
 
 [node name="Mountains" type="ParallaxBackground" parent="."]
 
