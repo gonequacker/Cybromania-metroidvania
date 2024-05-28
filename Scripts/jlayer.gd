@@ -7,6 +7,7 @@ const COYOTE_MAX = 9
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 var jump = false
 var coyote = 0
 
@@ -42,5 +43,16 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED) #instant stop
 		$Sprite.set_animation("Idle")
+	
+	# Handle airborne sprite animation
+	if not is_on_floor():
+		$Sprite.set_animation("Airborne")
+		if (velocity.y < 0):
+			$Sprite.set_frame(0)
+		else:
+			$Sprite.set_frame(1)
+		$Sprite.set_speed_scale(0)
+	else:
+		$Sprite.set_speed_scale(1)
 
 	move_and_slide()
