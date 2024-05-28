@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm8vqshycoo67"]
+[gd_scene load_steps=4 format=3 uid="uid://iwjcre1t4yuo"]
 
 [ext_resource type="Script" path="res://Scripts/audio.gd" id="1_swu48"]
 [ext_resource type="AudioStream" uid="uid://ckxcr07f8yq1c" path="res://Assets/SFX/hitHurt.wav" id="2_ryce6"]

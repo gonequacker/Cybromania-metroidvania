@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://p7g5arbkyhhy"]
+[gd_scene load_steps=12 format=3 uid="uid://sk3sxa62yjwk"]
 
 [ext_resource type="Texture2D" uid="uid://bjwcoy2h2bosp" path="res://Assets/Sunnyland/environment/Props/tree.png" id="1_6pqqh"]
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="1_vggql"]

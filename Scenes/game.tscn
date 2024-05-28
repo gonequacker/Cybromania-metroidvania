@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ce65utf3offoj"]
 
-[ext_resource type="PackedScene" uid="uid://p7g5arbkyhhy" path="res://Scenes/testlevel.tscn" id="1_fy5hg"]
-[ext_resource type="PackedScene" uid="uid://dy0rspqdmmhbj" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
-[ext_resource type="PackedScene" uid="uid://bm8vqshycoo67" path="res://Scenes/audio.tscn" id="4_uymx3"]
+[ext_resource type="PackedScene" uid="uid://sk3sxa62yjwk" path="res://Scenes/testlevel.tscn" id="1_fy5hg"]
+[ext_resource type="PackedScene" uid="uid://bqebygpqsqv3y" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
+[ext_resource type="PackedScene" uid="uid://iwjcre1t4yuo" path="res://Scenes/audio.tscn" id="4_uymx3"]
 [ext_resource type="Script" path="res://Scripts/jlayer.gd" id="5_w5j7r"]
 
 [node name="Game" type="Node2D"]
