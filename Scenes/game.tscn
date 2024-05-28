@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ce65utf3offoj"]
+[gd_scene load_steps=9 format=3 uid="uid://ce65utf3offoj"]
 
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="1_qie2m"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="2_10hxd"]
 [ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Assets/Sunnyland/environment/Background/back.png" id="3_gpinb"]
-[ext_resource type="PackedScene" uid="uid://b3ydf11al56tf" path="res://Scenes/player.tscn" id="4_kd64m"]
+[ext_resource type="PackedScene" uid="uid://dy0rspqdmmhbj" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
+[ext_resource type="Script" path="res://Scripts/jlayer.gd" id="5_w5j7r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
 texture = ExtResource("1_qie2m")
@@ -510,5 +511,9 @@ position = Vector2(-2, 1)
 texture = ExtResource("3_gpinb")
 centered = false
 
-[node name="Player" parent="World/Level" instance=ExtResource("4_kd64m")]
-position = Vector2(24, 101)
+[node name="Jlayer" parent="World" instance=ExtResource("4_lpydj")]
+position = Vector2(40, 104)
+script = ExtResource("5_w5j7r")
+
+[node name="Camera2D" type="Camera2D" parent="World/Jlayer"]
+position_smoothing_enabled = true

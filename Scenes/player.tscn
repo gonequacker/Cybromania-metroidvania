@@ -39,6 +39,7 @@ gravity_component = NodePath("GravityComponent")
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_mteqh")
 animation = &"Idle"
+frame_progress = 0.433213
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_hk3ui")
