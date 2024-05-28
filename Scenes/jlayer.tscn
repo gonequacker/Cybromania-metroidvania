@@ -1,9 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy0rspqdmmhbj"]
+[gd_scene load_steps=13 format=3 uid="uid://dy0rspqdmmhbj"]
 
 [ext_resource type="Texture2D" uid="uid://jc6o01myejgi" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-1.png" id="1_btyh2"]
 [ext_resource type="Texture2D" uid="uid://qywjbwdn06me" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-2.png" id="2_yngmb"]
 [ext_resource type="Texture2D" uid="uid://cdbfihm7rrpe6" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-3.png" id="3_cwp54"]
 [ext_resource type="Texture2D" uid="uid://j4sbilf4mx71" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-4.png" id="4_ekx4a"]
+[ext_resource type="Texture2D" uid="uid://q2hoc1y7qfcx" path="res://Assets/Sunnyland/sprites/player/run/player-run-1.png" id="5_odbxq"]
+[ext_resource type="Texture2D" uid="uid://dbnfcb7x0e35" path="res://Assets/Sunnyland/sprites/player/run/player-run-2.png" id="6_qfj5w"]
+[ext_resource type="Texture2D" uid="uid://0iptpnnshr4y" path="res://Assets/Sunnyland/sprites/player/run/player-run-3.png" id="7_rad70"]
+[ext_resource type="Texture2D" uid="uid://7dvvufvxefkg" path="res://Assets/Sunnyland/sprites/player/run/player-run-4.png" id="8_krghe"]
+[ext_resource type="Texture2D" uid="uid://v4l1527yqq6y" path="res://Assets/Sunnyland/sprites/player/run/player-run-5.png" id="9_8bh01"]
+[ext_resource type="Texture2D" uid="uid://vpd6pf38j05q" path="res://Assets/Sunnyland/sprites/player/run/player-run-6.png" id="10_lxf55"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bfxpd"]
 animations = [{
@@ -23,6 +29,29 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_odbxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qfj5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rad70")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_krghe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8bh01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lxf55")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0arh"]
