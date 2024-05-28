@@ -25,9 +25,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7guej"]
-radius = 6.0
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0arh"]
+size = Vector2(14, 20)
 
 [node name="Jlayer" type="CharacterBody2D"]
 
@@ -35,7 +34,8 @@ height = 22.0
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
 animation = &"Idle"
+autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
-shape = SubResource("CapsuleShape2D_7guej")
+shape = SubResource("RectangleShape2D_p0arh")

@@ -506,6 +506,7 @@ layer_0/tile_data = PackedInt32Array(786432, 65538, 3, 720896, 65538, 3, 655360,
 [node name="ParallaxBackground" type="ParallaxBackground" parent="World/Level"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="World/Level/ParallaxBackground"]
+motion_scale = Vector2(0.49, 0.49)
 
 [node name="Sprite2D" type="Sprite2D" parent="World/Level/ParallaxBackground/ParallaxLayer"]
 position = Vector2(-2, 1)
@@ -515,3 +516,5 @@ centered = false
 [node name="Jlayer" parent="World" instance=ExtResource("4_lpydj")]
 position = Vector2(56, 123)
 script = ExtResource("5_w5j7r")
+
+[node name="Camera2D" type="Camera2D" parent="World/Jlayer"]
