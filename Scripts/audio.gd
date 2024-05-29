@@ -30,3 +30,7 @@ func _on_jlayer_wall_clinged():
 
 func _on_jlayer_wall_jumped():
 	$WallJump.play()
+
+
+func _on_jlayer_double_jumped():
+	$DoubleJump.play()

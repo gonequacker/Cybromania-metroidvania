@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://da835as1cxcxu" path="res://Assets/SFX/dash.wav" id="4_ij8wp"]
 [ext_resource type="AudioStream" uid="uid://bn53v5utta8oc" path="res://Assets/SFX/wall_jump.wav" id="5_wktb2"]
 [ext_resource type="AudioStream" uid="uid://ch7piubol242j" path="res://Assets/SFX/wall_cling.wav" id="6_y17jo"]
-[ext_resource type="AudioStream" uid="uid://bws35t2i4ukno" path="res://Assets/Music/synthwave song (first loop).wav" id="7_lqrlc"]
+[ext_resource type="AudioStream" uid="uid://dk7bd60wfaioh" path="res://Assets/SFX/double_jump.wav" id="7_rxjnr"]
 
 [node name="Audio" type="Control"]
 layout_mode = 3
@@ -41,8 +41,9 @@ stream = ExtResource("6_y17jo")
 volume_db = -2.0
 bus = &"SFX"
 
+[node name="DoubleJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rxjnr")
+volume_db = -2.0
+bus = &"SFX"
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_lqrlc")
-volume_db = -3.688
-autoplay = true
-bus = &"Music"
