@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bqebygpqsqv3y"]
+[gd_scene load_steps=21 format=3 uid="uid://bqebygpqsqv3y"]
 
 [ext_resource type="Texture2D" uid="uid://jc6o01myejgi" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-1.png" id="1_btyh2"]
 [ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="1_hbmg4"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://7dvvufvxefkg" path="res://Assets/Sunnyland/sprites/player/run/player-run-4.png" id="8_krghe"]
 [ext_resource type="Texture2D" uid="uid://v4l1527yqq6y" path="res://Assets/Sunnyland/sprites/player/run/player-run-5.png" id="9_8bh01"]
 [ext_resource type="Texture2D" uid="uid://vpd6pf38j05q" path="res://Assets/Sunnyland/sprites/player/run/player-run-6.png" id="10_lxf55"]
+[ext_resource type="Texture2D" uid="uid://cr5rgttvroq7p" path="res://Assets/Sunnyland/sprites/player/climb/player-climb-1.png" id="15_1byo8"]
+[ext_resource type="Texture2D" uid="uid://cop7u7b41d72w" path="res://Assets/Sunnyland/sprites/player/climb/player-climb-2.png" id="16_k8ykb"]
+[ext_resource type="Texture2D" uid="uid://cyh4v1si5777n" path="res://Assets/Sunnyland/sprites/player/climb/player-climb-3.png" id="17_ro7d3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bfxpd"]
 animations = [{
@@ -78,6 +81,20 @@ animations = [{
 "loop": true,
 "name": &"Run",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_1byo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_k8ykb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ro7d3")
+}],
+"loop": true,
+"name": &"Wall",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0arh"]
@@ -91,7 +108,7 @@ size = Vector2(17, 9.25)
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
-animation = &"Dash"
+animation = &"Wall"
 autoplay = "Idle"
 offset = Vector2(1, 2.08165e-12)
 
