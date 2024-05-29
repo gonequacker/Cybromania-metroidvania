@@ -62,7 +62,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 	
 	# Handle early release jump cancel.
-	if jump and velocity.y < 0 and Input.is_action_just_released("jump") and not is_on_floor():
+	if jump and velocity.y < 0 and Input.is_action_just_released("jump"):
 		velocity.y = 0
 		jump = false
 
