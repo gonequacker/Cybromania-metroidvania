@@ -91,7 +91,7 @@ size = Vector2(17, 9.25)
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
-animation = &"Crouch"
+animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(1, 2.08165e-12)
 

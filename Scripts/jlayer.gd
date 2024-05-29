@@ -4,6 +4,9 @@ signal landed
 signal jumped
 
 const SPEED = 120.0
+const DASH_SPEED = 200.0
+const DASH_MAX = 20
+const DASH_COOLDOWN_MAX = 5
 const JUMP_VELOCITY = -350.0
 const COYOTE_MAX = 9
 
@@ -11,7 +14,10 @@ const COYOTE_MAX = 9
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var jump = false
+var facing = 1.0
 var coyote = 0
+var dash = 0
+var dash_cooldown = 0
 
 var airborne = false
 
@@ -38,22 +44,31 @@ func _physics_process(delta):
 		velocity.y = 0
 		jump = false
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	# Get the input direction.
 	var direction = Input.get_axis("left", "right")
-	if direction:
+	# Dash.
+	dash -= 1
+	dash_cooldown -= 1
+	if Input.is_action_just_pressed("crouch") and dash <= 0 and dash_cooldown <= 0:
+		velocity.x = facing * DASH_SPEED
+		dash = DASH_MAX
+		dash_cooldown = DASH_MAX + DASH_COOLDOWN_MAX
+	
+	# Handle the movement/deceleration.
+	if dash > 0:
+		velocity.y = 0
+		$Sprite.set_animation("Crouch")
+	elif direction:
 		velocity.x = direction * SPEED
+		facing = sign(direction)
 		$Sprite.set_animation("Run")
-		if velocity.x < 0:
-			$Sprite.scale.x = -1
-		else:
-			$Sprite.scale.x = 1
+		$Sprite.scale.x = facing
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED) #instant stop
 		$Sprite.set_animation("Idle")
 	
-	# Handle airborne sprite animation
-	if not is_on_floor():
+	# Handle airborne sprite animation.
+	if not is_on_floor() and dash <= 0:
 		$Sprite.set_animation("Airborne")
 		if (velocity.y < 0):
 			$Sprite.set_frame(0)
