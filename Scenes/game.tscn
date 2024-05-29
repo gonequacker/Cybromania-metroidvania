@@ -19,5 +19,8 @@ script = ExtResource("5_w5j7r")
 
 [node name="AudioSystem" parent="." instance=ExtResource("4_uymx3")]
 
+[connection signal="dashed" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_dashed"]
 [connection signal="jumped" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_jumped"]
 [connection signal="landed" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_landed"]
+[connection signal="wall_clinged" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_wall_clinged"]
+[connection signal="wall_jumped" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_wall_jumped"]

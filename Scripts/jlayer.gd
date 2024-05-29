@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 signal landed
 signal jumped
+signal dashed
+signal wall_clinged
+signal wall_jumped
 
 const SPEED = 120.0
 const DASH_SPEED = 200.0
@@ -24,6 +27,7 @@ var dash_cooldown = 0
 var wall_cooldown = 0
 
 var airborne = false
+var wall_slide = false
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -63,6 +67,9 @@ func _physics_process(delta):
 	# Wall jumping.
 	wall_cooldown -= 1
 	if is_on_wall_only() and velocity.y > 0:
+		if not wall_slide:
+			wall_slide = true
+			emit_signal("wall_clinged")
 		if velocity.y > WALL_SLIDE_SPEED:
 			velocity.y = WALL_SLIDE_SPEED
 			if Input.is_action_just_pressed("jump"):
@@ -71,11 +78,13 @@ func _physics_process(delta):
 				velocity.y = JUMP_VELOCITY
 				jump = true
 				emit_signal("wall_jumped")
+	else:
+		wall_slide = false
 	
 	# Handle the movement/deceleration.
 	if dash > 0:
 		velocity.y = 0
-	if wall_cooldown > 0:
+	elif wall_cooldown > 0:
 		velocity.x = -facing * SPEED
 	elif direction:
 		velocity.x = direction * SPEED

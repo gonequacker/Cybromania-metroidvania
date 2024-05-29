@@ -18,3 +18,15 @@ func _on_jlayer_landed():
 
 func _on_jlayer_jumped():
 	$Jump.play()
+
+
+func _on_jlayer_dashed():
+	$Dash.play()
+
+
+func _on_jlayer_wall_clinged():
+	$WallCling.play()
+
+
+func _on_jlayer_wall_jumped():
+	$WallJump.play()
