@@ -36,7 +36,7 @@ animations = [{
 "texture": ExtResource("4_k2ny4")
 }],
 "loop": true,
-"name": &"Crouch",
+"name": &"Dash",
 "speed": 5.0
 }, {
 "frames": [{
@@ -91,7 +91,7 @@ size = Vector2(17, 9.25)
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
-animation = &"Idle"
+animation = &"Dash"
 autoplay = "Idle"
 offset = Vector2(1, 2.08165e-12)
 

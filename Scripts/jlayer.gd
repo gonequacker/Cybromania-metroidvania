@@ -49,7 +49,7 @@ func _physics_process(delta):
 	# Dash.
 	dash -= 1
 	dash_cooldown -= 1
-	if Input.is_action_just_pressed("crouch") and dash <= 0 and dash_cooldown <= 0:
+	if Input.is_action_just_pressed("dash") and dash <= 0 and dash_cooldown <= 0:
 		velocity.x = facing * DASH_SPEED
 		dash = DASH_MAX
 		dash_cooldown = DASH_MAX + DASH_COOLDOWN_MAX
@@ -57,7 +57,7 @@ func _physics_process(delta):
 	# Handle the movement/deceleration.
 	if dash > 0:
 		velocity.y = 0
-		$Sprite.set_animation("Crouch")
+		$Sprite.set_animation("Dash")
 	elif direction:
 		velocity.x = direction * SPEED
 		facing = sign(direction)
