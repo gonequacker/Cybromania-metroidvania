@@ -127,7 +127,12 @@ func _physics_process(delta):
 	# Handle dash sprite animation.
 	if dash > 0:
 		$Sprite.set_animation("Dash")
-		
+		$Collider.disabled = true
+		$CrouchCollider.disabled = false
+	else:
+		$Collider.disabled = false
+		$CrouchCollider.disabled = true
+	
 	if double_jump_cooldown > 0:
 		$Sprite.set_animation("Doublejump")
 

@@ -114,15 +114,16 @@ animations = [{
 radius = 7.0
 height = 18.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gaix7"]
-size = Vector2(17, 9.25)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ro3kf"]
+radius = 5.0
+height = 18.0
 
 [node name="Jlayer" type="CharacterBody2D"]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
-animation = &"Doublejump"
+animation = &"Dash"
 autoplay = "Idle"
 offset = Vector2(1, 2.08165e-12)
 
@@ -131,6 +132,7 @@ position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_e8b0w")
 
 [node name="CrouchCollider" type="CollisionShape2D" parent="."]
-position = Vector2(2, 8)
-shape = SubResource("RectangleShape2D_gaix7")
+position = Vector2(2, 7)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_ro3kf")
 disabled = true
