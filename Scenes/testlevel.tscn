@@ -657,4 +657,4 @@ autoplay = "move"
 position = Vector2(651, 5)
 
 [node name="Pawsome" parent="Enemies" instance=ExtResource("12_oc40p")]
-position = Vector2(147, 179)
+position = Vector2(147, 178)
