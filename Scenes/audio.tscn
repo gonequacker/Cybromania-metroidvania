@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://iwjcre1t4yuo"]
+[gd_scene load_steps=8 format=3 uid="uid://iwjcre1t4yuo"]
 
 [ext_resource type="Script" path="res://Scripts/audio.gd" id="1_swu48"]
 [ext_resource type="AudioStream" uid="uid://ckxcr07f8yq1c" path="res://Assets/SFX/land.wav" id="2_ryce6"]
@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://bn53v5utta8oc" path="res://Assets/SFX/wall_jump.wav" id="5_wktb2"]
 [ext_resource type="AudioStream" uid="uid://ch7piubol242j" path="res://Assets/SFX/wall_cling.wav" id="6_y17jo"]
 [ext_resource type="AudioStream" uid="uid://dk7bd60wfaioh" path="res://Assets/SFX/double_jump.wav" id="7_rxjnr"]
-[ext_resource type="AudioStream" uid="uid://srfxcusikqgf" path="res://Assets/Music/fohad.mp3" id="8_sr760"]
 
 [node name="Audio" type="Control"]
 layout_mode = 3
@@ -46,8 +45,3 @@ bus = &"SFX"
 stream = ExtResource("7_rxjnr")
 volume_db = -2.0
 bus = &"SFX"
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_sr760")
-autoplay = true
-bus = &"Music"

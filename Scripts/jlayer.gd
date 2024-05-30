@@ -114,11 +114,11 @@ func _physics_process(delta):
 	elif direction:
 		velocity.x = direction * movespeed
 		facing = sign(direction)
-		$Sprite.set_animation("Run")
+		if not crouched: $Sprite.set_animation("Run")
 		$Sprite.scale.x = facing
 	else:
 		velocity.x = move_toward(velocity.x, 0, movespeed) #instant stop
-		$Sprite.set_animation("Idle")
+		if not crouched: $Sprite.set_animation("Idle")
 	
 	# Handle airborne sprite animation.
 	if not is_on_floor() and not crouched:
