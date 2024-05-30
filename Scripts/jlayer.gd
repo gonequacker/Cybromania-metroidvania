@@ -116,12 +116,13 @@ func _physics_process(delta):
 		facing = sign(direction)
 		if not crouched: $Sprite.set_animation("Run")
 		$Sprite.scale.x = facing
+		$CrouchCollider.scale.x = facing
 	else:
 		velocity.x = move_toward(velocity.x, 0, movespeed) #instant stop
 		if not crouched: $Sprite.set_animation("Idle")
 	
 	# Handle airborne sprite animation.
-	if not is_on_floor() and not crouched:
+	if not is_on_floor() and not crouched and dash <= 0:
 		$Sprite.set_animation("Airborne")
 		if (velocity.y < 0):
 			$Sprite.set_frame(0)
@@ -134,10 +135,10 @@ func _physics_process(delta):
 	
 	# Handle crouch sprite animation.
 	if crouched:
-		$Sprite.set_animation("Crouch")
-	
-	if dash > 0:
-		$Sprite.set_animation("Dash")
+		if dash <= 0:
+			$Sprite.set_animation("Crouch")
+		else:
+			$Sprite.set_animation("Dash")
 	
 	if double_jump_cooldown > 0:
 		$Sprite.set_animation("Doublejump")
