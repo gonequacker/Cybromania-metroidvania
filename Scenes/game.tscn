@@ -12,7 +12,7 @@ unique_name_in_owner = true
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Level" parent="World" instance=ExtResource("1_fy5hg")]
+[node name="TestLevel" parent="World" instance=ExtResource("1_fy5hg")]
 
 [node name="Jlayer" parent="World" instance=ExtResource("4_lpydj")]
 position = Vector2(56, 123)

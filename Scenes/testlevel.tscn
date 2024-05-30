@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://sk3sxa62yjwk"]
+[gd_scene load_steps=18 format=3 uid="uid://sk3sxa62yjwk"]
 
 [ext_resource type="Texture2D" uid="uid://bjwcoy2h2bosp" path="res://Assets/Sunnyland/environment/Props/tree.png" id="1_6pqqh"]
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="1_vggql"]
@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://kxx4dv24t07r" path="res://Assets/Sunnyland/environment/Props/wooden-house.png" id="3_4bhd8"]
 [ext_resource type="Texture2D" uid="uid://bwion3j0g377" path="res://Assets/Sunnyland/environment/Background/middle.png" id="4_3wgvn"]
 [ext_resource type="Script" path="res://Scripts/middleground.gd" id="8_s51jq"]
-[ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="9_h8kx0"]
-[ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/coin.tscn" id="10_bpdxc"]
+[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="9_h8kx0"]
+[ext_resource type="PackedScene" path="res://Scenes/coin.tscn" id="10_bpdxc"]
+[ext_resource type="PackedScene" uid="uid://rtnempcj6noa" path="res://Scenes/jnemy.tscn" id="11_hd4p1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
 texture = ExtResource("1_vggql")
@@ -497,6 +498,21 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_bby6d")
 sources/3 = SubResource("TileSetAtlasSource_1lclc")
 
+[sub_resource type="Animation" id="Animation_xhkep"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(495, 24)]
+}
+
 [sub_resource type="Animation" id="Animation_bx6r5"]
 resource_name = "move"
 length = 3.0
@@ -514,28 +530,13 @@ tracks/0/keys = {
 "values": [Vector2(495, 24), Vector2(241.11, 24)]
 }
 
-[sub_resource type="Animation" id="Animation_xhkep"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(495, 24)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iodpw"]
 _data = {
 "RESET": SubResource("Animation_xhkep"),
 "move": SubResource("Animation_bx6r5")
 }
 
-[node name="Level" type="Node2D"]
+[node name="TestLevel" type="Node2D"]
 
 [node name="Sky" type="ParallaxBackground" parent="."]
 
@@ -648,3 +649,6 @@ libraries = {
 "": SubResource("AnimationLibrary_iodpw")
 }
 autoplay = "move"
+
+[node name="Jnemy" parent="." instance=ExtResource("11_hd4p1")]
+position = Vector2(218, 181)

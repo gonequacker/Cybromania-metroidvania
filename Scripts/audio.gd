@@ -6,7 +6,6 @@ extends Control
 @onready var dash = $SFX/Dash
 @onready var wall_jump = $SFX/WallJump
 @onready var wall_cling = $SFX/WallCling
-@onready var collect_coin = $SFX/CollectCoin
 @onready var double_jump = $SFX/DoubleJump
 
 
