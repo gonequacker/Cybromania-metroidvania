@@ -8,7 +8,7 @@ signal wall_clinged
 signal wall_jumped
 
 const SPEED = 120.0 # force of walking/moving left and right.
-const CROUCH_SPEED = 80.0 # force of walking while crouched.
+const CROUCH_SPEED = 60.0 # force of walking while crouched.
 const DASH_SPEED = 200.0 # force of dash.
 const DASH_MAX = 20 # number of frames that the dash lasts for.
 const DASH_COOLDOWN_MAX = 8 # number of frames after dash wherein player cannot dash.
@@ -108,6 +108,7 @@ func _physics_process(delta):
 	# Handle the movement/deceleration.
 	if dash > 0:
 		velocity.y = 0
+		crouch()
 	elif wall_cooldown > 0:
 		velocity.x = -facing * movespeed
 	elif direction:
@@ -120,25 +121,22 @@ func _physics_process(delta):
 		$Sprite.set_animation("Idle")
 	
 	# Handle airborne sprite animation.
-	if not is_on_floor():
+	if not is_on_floor() and not crouched:
 		$Sprite.set_animation("Airborne")
 		if (velocity.y < 0):
 			$Sprite.set_frame(0)
 		else:
 			$Sprite.set_frame(1)
-		$Sprite.set_speed_scale(0)
-	else:
-		$Sprite.set_speed_scale(1)
 	
 	# Handle wall riding.
 	if is_on_wall_only() and velocity.y > 0:
 		$Sprite.set_animation("Wall")
 	
-	# Handle dash sprite animation.
-	if dash > 0:
-		crouch()
-		
+	# Handle crouch sprite animation.
 	if crouched:
+		$Sprite.set_animation("Crouch")
+	
+	if dash > 0:
 		$Sprite.set_animation("Dash")
 	
 	if double_jump_cooldown > 0:

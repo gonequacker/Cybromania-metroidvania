@@ -41,8 +41,19 @@ animations = [{
 "texture": ExtResource("4_k2ny4")
 }],
 "loop": true,
-"name": &"Dash",
+"name": &"Crouch",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7bimy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k2ny4")
+}],
+"loop": true,
+"name": &"Dash",
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
