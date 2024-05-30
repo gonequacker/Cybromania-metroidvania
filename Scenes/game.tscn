@@ -16,6 +16,11 @@ position = Vector2(56, 123)
 script = ExtResource("5_w5j7r")
 
 [node name="Camera2D" type="Camera2D" parent="World/Jlayer"]
+limit_left = -29
+limit_top = -308
+limit_right = 726
+limit_bottom = 279
+limit_smoothed = true
 position_smoothing_speed = 8.0
 
 [node name="AudioSystem" parent="." instance=ExtResource("4_uymx3")]

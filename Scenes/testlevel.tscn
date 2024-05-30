@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://sk3sxa62yjwk"]
+[gd_scene load_steps=17 format=3 uid="uid://sk3sxa62yjwk"]
 
 [ext_resource type="Texture2D" uid="uid://bjwcoy2h2bosp" path="res://Assets/Sunnyland/environment/Props/tree.png" id="1_6pqqh"]
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="1_vggql"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bwion3j0g377" path="res://Assets/Sunnyland/environment/Background/middle.png" id="4_3wgvn"]
 [ext_resource type="Script" path="res://Scripts/middleground.gd" id="8_s51jq"]
 [ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="9_h8kx0"]
+[ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/coin.tscn" id="10_bpdxc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
 texture = ExtResource("1_vggql")
@@ -617,3 +618,24 @@ position = Vector2(175, -104)
 
 [node name="Platform3" parent="." instance=ExtResource("9_h8kx0")]
 position = Vector2(175, -169)
+
+[node name="Coin" parent="." instance=ExtResource("10_bpdxc")]
+position = Vector2(633, -7)
+
+[node name="Coin2" parent="." instance=ExtResource("10_bpdxc")]
+position = Vector2(669, -7)
+
+[node name="Coin3" parent="." instance=ExtResource("10_bpdxc")]
+position = Vector2(651, -20)
+
+[node name="Coin4" parent="." instance=ExtResource("10_bpdxc")]
+position = Vector2(365, -239)
+
+[node name="Coin5" parent="." instance=ExtResource("10_bpdxc")]
+position = Vector2(302, -230)
+
+[node name="Coin6" parent="." instance=ExtResource("10_bpdxc")]
+position = Vector2(224, -240)
+
+[node name="Coin7" parent="." instance=ExtResource("10_bpdxc")]
+position = Vector2(431, -230)
