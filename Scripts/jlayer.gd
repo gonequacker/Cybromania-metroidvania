@@ -150,7 +150,10 @@ func crouch():
 	$CrouchCollider.disabled = false
 	crouched = true
 func uncrouch():
-	if not $HeadBonker.is_colliding():
+	if not is_bonking():
 		$Collider.disabled = false
 		$CrouchCollider.disabled = true
 		crouched = false
+
+func is_bonking():
+	return $HeadBonker.is_colliding() or $HeadBonker2.is_colliding()

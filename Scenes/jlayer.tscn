@@ -149,5 +149,11 @@ shape = SubResource("CapsuleShape2D_ro3kf")
 disabled = true
 
 [node name="HeadBonker" type="RayCast2D" parent="."]
+position = Vector2(3, 0)
+target_position = Vector2(0, -8.77)
+hit_from_inside = true
+
+[node name="HeadBonker2" type="RayCast2D" parent="."]
+position = Vector2(-3, 0)
 target_position = Vector2(0, -8.77)
 hit_from_inside = true
