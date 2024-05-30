@@ -5,7 +5,7 @@ resource_name = "Reverb"
 room_size = 1.0
 damping = 0.0
 hipass = 0.29
-wet = 0.06
+wet = 0.02
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_3tvvu"]
 resource_name = "Reverb"

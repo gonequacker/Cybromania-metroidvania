@@ -136,7 +136,7 @@ collision_layer = 2
 z_index = 5
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
-animation = &"Dash"
+animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(1, 2.08165e-12)
 
