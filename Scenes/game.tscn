@@ -7,6 +7,9 @@
 
 [node name="Game" type="Node2D"]
 
+[node name="AudioSystem" parent="." instance=ExtResource("4_uymx3")]
+unique_name_in_owner = true
+
 [node name="World" type="Node2D" parent="."]
 
 [node name="Level" parent="World" instance=ExtResource("1_fy5hg")]
@@ -21,8 +24,6 @@ limit_top = -308
 limit_right = 726
 limit_bottom = 279
 position_smoothing_speed = 8.0
-
-[node name="AudioSystem" parent="." instance=ExtResource("4_uymx3")]
 
 [connection signal="dashed" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_dashed"]
 [connection signal="double_jumped" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_double_jumped"]

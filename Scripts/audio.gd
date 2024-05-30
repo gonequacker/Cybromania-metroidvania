@@ -1,6 +1,14 @@
 extends Control
 
 
+@onready var land = $SFX/Land
+@onready var jump = $SFX/Jump
+@onready var dash = $SFX/Dash
+@onready var wall_jump = $SFX/WallJump
+@onready var wall_cling = $SFX/WallCling
+@onready var collect_coin = $SFX/CollectCoin
+@onready var double_jump = $SFX/DoubleJump
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,28 +21,24 @@ func _process(delta):
 
 
 func _on_jlayer_landed():
-	$Land.play()
+	land.play()
 
 
 func _on_jlayer_jumped():
-	$Jump.play()
+	jump.play()
 
 
 func _on_jlayer_dashed():
-	$Dash.play()
+	dash.play()
 
 
 func _on_jlayer_wall_clinged():
-	$WallCling.play()
+	wall_cling.play()
 
 
 func _on_jlayer_wall_jumped():
-	$WallJump.play()
+	wall_jump.play()
 
 
 func _on_jlayer_double_jumped():
-	$DoubleJump.play()
-
-
-func collect_coin():
-	$CollectCoin.play()
+	double_jump.play()

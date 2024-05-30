@@ -133,6 +133,7 @@ height = 14.0
 collision_layer = 2
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = 5
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
 animation = &"Dash"
