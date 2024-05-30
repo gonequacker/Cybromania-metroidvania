@@ -34,3 +34,7 @@ func _on_jlayer_wall_jumped():
 
 func _on_jlayer_double_jumped():
 	$DoubleJump.play()
+
+
+func collect_coin():
+	$CollectCoin.play()
