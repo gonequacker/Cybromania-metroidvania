@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://bqebygpqsqv3y"]
+[gd_scene load_steps=24 format=3 uid="uid://bqebygpqsqv3y"]
 
 [ext_resource type="Texture2D" uid="uid://jc6o01myejgi" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-1.png" id="1_btyh2"]
+[ext_resource type="Script" path="res://Scripts/jlayer.gd" id="1_exlcj"]
 [ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="1_hbmg4"]
 [ext_resource type="Texture2D" uid="uid://4munqninciuy" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-2.png" id="2_3vo02"]
 [ext_resource type="Texture2D" uid="uid://qywjbwdn06me" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-2.png" id="2_yngmb"]
@@ -119,6 +120,7 @@ radius = 5.0
 height = 18.0
 
 [node name="Jlayer" type="CharacterBody2D"]
+script = ExtResource("1_exlcj")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
@@ -136,7 +138,3 @@ position = Vector2(2, 7)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_ro3kf")
 disabled = true
-
-[node name="HeadBonker" type="RayCast2D" parent="."]
-target_position = Vector2(0, -8.77)
-hit_from_inside = true

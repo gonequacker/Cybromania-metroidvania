@@ -8,6 +8,7 @@ signal wall_clinged
 signal wall_jumped
 
 const SPEED = 120.0 # force of walking/moving left and right.
+const CROUCH_SPEED = 80.0 # force of walking while crouched.
 const DASH_SPEED = 200.0 # force of dash.
 const DASH_MAX = 20 # number of frames that the dash lasts for.
 const DASH_COOLDOWN_MAX = 8 # number of frames after dash wherein player cannot dash.
@@ -32,8 +33,17 @@ var double_jump_cooldown = 0 # number of frames left to fall before actually dou
 
 var airborne = false # true if airborne.
 var wall_slide = false # true if sliding along a wall.
+var crouched = false # true if crouched, making hitbox shorter. also true if dashing.
 
 func _physics_process(delta):
+	
+	if Input.is_action_pressed("crouch") and is_on_floor():
+		crouch()
+	else:
+		uncrouch()
+	
+	var movespeed = CROUCH_SPEED if crouched else SPEED
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -88,7 +98,7 @@ func _physics_process(delta):
 			velocity.y = WALL_SLIDE_SPEED
 			if Input.is_action_just_pressed("jump"):
 				wall_cooldown = WALL_COOLDOWN_MAX
-				velocity.x = -facing * SPEED
+				velocity.x = -facing * movespeed
 				velocity.y = JUMP_VELOCITY
 				jump = true
 				emit_signal("wall_jumped")
@@ -99,14 +109,14 @@ func _physics_process(delta):
 	if dash > 0:
 		velocity.y = 0
 	elif wall_cooldown > 0:
-		velocity.x = -facing * SPEED
+		velocity.x = -facing * movespeed
 	elif direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * movespeed
 		facing = sign(direction)
 		$Sprite.set_animation("Run")
 		$Sprite.scale.x = facing
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED) #instant stop
+		velocity.x = move_toward(velocity.x, 0, movespeed) #instant stop
 		$Sprite.set_animation("Idle")
 	
 	# Handle airborne sprite animation.
@@ -126,14 +136,23 @@ func _physics_process(delta):
 	
 	# Handle dash sprite animation.
 	if dash > 0:
+		crouch()
+		
+	if crouched:
 		$Sprite.set_animation("Dash")
-		$Collider.disabled = true
-		$CrouchCollider.disabled = false
-	else:
-		$Collider.disabled = false
-		$CrouchCollider.disabled = true
 	
 	if double_jump_cooldown > 0:
 		$Sprite.set_animation("Doublejump")
 
 	move_and_slide()
+
+
+func crouch():
+	$Collider.disabled = true
+	$CrouchCollider.disabled = false
+	crouched = true
+func uncrouch():
+	if not $HeadBonker.is_colliding():
+		$Collider.disabled = false
+		$CrouchCollider.disabled = true
+		crouched = false
