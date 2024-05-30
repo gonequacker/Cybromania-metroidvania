@@ -135,10 +135,10 @@ func _physics_process(delta):
 	
 	# Handle crouch sprite animation.
 	if crouched:
-		if dash <= 0:
-			$Sprite.set_animation("Crouch")
-		else:
+		if dash > 0:
 			$Sprite.set_animation("Dash")
+		else:
+			$Sprite.set_animation("Crouch")
 	
 	if double_jump_cooldown > 0:
 		$Sprite.set_animation("Doublejump")
