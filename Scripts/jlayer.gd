@@ -42,9 +42,9 @@ var crouched = false # true if crouched, making hitbox shorter. also true if das
 
 func _physics_process(delta):
 	# Handle crouch.
-	if Input.is_action_pressed("crouch") and is_on_floor() and has_crouch:
+	if Input.is_action_pressed("crouch") and is_on_floor() and has_crouch: # Player explicitly tries to crouch.
 		crouch()
-	else:
+	else: # Try to uncrouch every frame. Uncrouch will automatically fail if there is a low ceiling.
 		uncrouch()
 	var movespeed = CROUCH_SPEED if crouched else SPEED
 	

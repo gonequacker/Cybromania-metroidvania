@@ -616,16 +616,22 @@ position = Vector2(147, 178)
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("9_h8kx0")]
-position = Vector2(175, -46)
+position = Vector2(175, -26)
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("9_h8kx0")]
+position = Vector2(192, -75)
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("9_h8kx0")]
-position = Vector2(175, -104)
+position = Vector2(175, -127)
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("9_h8kx0")]
-position = Vector2(175, -169)
+position = Vector2(192, -177)
 
 [node name="Platform4" parent="Platforms" instance=ExtResource("9_h8kx0")]
 position = Vector2(283, 70)
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("9_h8kx0")]
+position = Vector2(352, 106)
 
 [node name="MovingPlatform" parent="Platforms" instance=ExtResource("9_h8kx0")]
 position = Vector2(495, 24)

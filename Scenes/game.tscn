@@ -17,6 +17,8 @@ unique_name_in_owner = true
 [node name="Jlayer" parent="World" instance=ExtResource("4_lpydj")]
 position = Vector2(56, 123)
 script = ExtResource("5_w5j7r")
+SPEED = 110.0
+JUMP_VELOCITY = -310.0
 
 [node name="Camera2D" type="Camera2D" parent="World/Jlayer"]
 limit_left = -29
