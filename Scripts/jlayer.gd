@@ -7,17 +7,22 @@ signal dashed
 signal wall_clinged
 signal wall_jumped
 
-const SPEED = 120.0 # force of walking/moving left and right.
-const CROUCH_SPEED = 60.0 # force of walking while crouched.
-const DASH_SPEED = 200.0 # force of dash.
-const DASH_MAX = 20 # number of frames that the dash lasts for.
-const DASH_COOLDOWN_MAX = 8 # number of frames after dash wherein player cannot dash.
-const JUMP_VELOCITY = -350.0 # force of a regular jump.
-const COYOTE_MAX = 9 # number of frames given for coyote time.
-const WALL_SLIDE_SPEED = 100 # wall cling fall speed cap.
-const WALL_COOLDOWN_MAX = 5 # number of frames during which the player moves away from a wall after a wall jump.
-const FALL_SPEED_MAX = 350 # fall speed cap.
-const DOUBLE_JUMP_MAX = 10 # number of frames to fall before actually double jumping.
+@export var SPEED = 120.0 # force of walking/moving left and right.
+@export var CROUCH_SPEED = 60.0 # force of walking while crouched.
+@export var DASH_SPEED = 200.0 # force of dash.
+@export var DASH_MAX = 20 # number of frames that the dash lasts for.
+@export var DASH_COOLDOWN_MAX = 8 # number of frames after dash wherein player cannot dash.
+@export var JUMP_VELOCITY = -350.0 # force of a regular jump.
+@export var COYOTE_MAX = 9 # number of frames given for coyote time.
+@export var WALL_SLIDE_SPEED = 100 # wall cling fall speed cap.
+@export var WALL_COOLDOWN_MAX = 5 # number of frames during which the player moves away from a wall after a wall jump.
+@export var FALL_SPEED_MAX = 350 # fall speed cap.
+@export var DOUBLE_JUMP_MAX = 10 # number of frames to fall before actually double jumping.
+
+@export var has_crouch = false
+@export var has_dash = false
+@export var has_double_jump = false
+@export var has_wall_jump = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -36,12 +41,11 @@ var wall_slide = false # true if sliding along a wall.
 var crouched = false # true if crouched, making hitbox shorter. also true if dashing.
 
 func _physics_process(delta):
-	
-	if Input.is_action_pressed("crouch") and is_on_floor():
+	# Handle crouch.
+	if Input.is_action_pressed("crouch") and is_on_floor() and has_crouch:
 		crouch()
 	else:
 		uncrouch()
-	
 	var movespeed = CROUCH_SPEED if crouched else SPEED
 	
 	# Add the gravity.
@@ -63,12 +67,12 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		jump = true
 		emit_signal("jumped")
-	elif Input.is_action_just_pressed("jump") and not double_jump and not wall_slide and dash < 0:
+	elif Input.is_action_just_pressed("jump") and not double_jump and not wall_slide and dash < 0 and has_double_jump:
 		double_jump_cooldown = DOUBLE_JUMP_MAX
 		double_jump = true
 		emit_signal("double_jumped")
 	
-	if double_jump_cooldown == 0:
+	if double_jump_cooldown == 0 and has_double_jump:
 		velocity.y = JUMP_VELOCITY
 	
 	# Handle early release jump cancel.
@@ -81,7 +85,7 @@ func _physics_process(delta):
 	# Dash.
 	dash -= 1
 	dash_cooldown -= 1
-	if Input.is_action_just_pressed("dash") and dash <= 0 and dash_cooldown <= 0:
+	if Input.is_action_just_pressed("dash") and dash <= 0 and dash_cooldown <= 0 and has_dash:
 		velocity.x = facing * DASH_SPEED
 		dash = DASH_MAX
 		dash_cooldown = DASH_MAX + DASH_COOLDOWN_MAX
@@ -89,7 +93,7 @@ func _physics_process(delta):
 	
 	# Wall jumping.
 	wall_cooldown -= 1
-	if is_on_wall_only() and velocity.y > 0:
+	if is_on_wall_only() and velocity.y > 0 and has_wall_jump:
 		if not wall_slide and dash <= 0:
 			wall_slide = true
 			emit_signal("wall_clinged")
@@ -130,7 +134,7 @@ func _physics_process(delta):
 			$Sprite.set_frame(1)
 	
 	# Handle wall riding.
-	if is_on_wall_only() and velocity.y > 0:
+	if is_on_wall_only() and velocity.y > 0 and has_wall_jump:
 		$Sprite.set_animation("Wall")
 	
 	# Handle crouch sprite animation.
