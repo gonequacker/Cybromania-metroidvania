@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://kxx4dv24t07r" path="res://Assets/Sunnyland/environment/Props/wooden-house.png" id="3_4bhd8"]
 [ext_resource type="Texture2D" uid="uid://bwion3j0g377" path="res://Assets/Sunnyland/environment/Background/middle.png" id="4_3wgvn"]
 [ext_resource type="Script" path="res://Scripts/middleground.gd" id="8_s51jq"]
-[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="9_h8kx0"]
-[ext_resource type="PackedScene" path="res://Scenes/coin.tscn" id="10_bpdxc"]
+[ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="9_h8kx0"]
+[ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/coin.tscn" id="10_bpdxc"]
 [ext_resource type="PackedScene" uid="uid://rtnempcj6noa" path="res://Scenes/stationary_enemy.tscn" id="11_6f8bg"]
 [ext_resource type="PackedScene" uid="uid://chn408wsd17td" path="res://Scenes/moving_enemy.tscn" id="12_oc40p"]
 
