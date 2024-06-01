@@ -1,0 +1,204 @@
+[gd_scene load_steps=26 format=3 uid="uid://bqebygpqsqv3y"]
+
+[ext_resource type="Texture2D" uid="uid://jc6o01myejgi" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-1.png" id="1_btyh2"]
+[ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="1_hbmg4"]
+[ext_resource type="Texture2D" uid="uid://4munqninciuy" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-2.png" id="2_3vo02"]
+[ext_resource type="Texture2D" uid="uid://qywjbwdn06me" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-2.png" id="2_yngmb"]
+[ext_resource type="Texture2D" uid="uid://bm0f0owjk0fga" path="res://Assets/Sunnyland/sprites/player/crouch/player-crouch-1.png" id="3_7bimy"]
+[ext_resource type="Texture2D" uid="uid://cdbfihm7rrpe6" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-3.png" id="3_cwp54"]
+[ext_resource type="Texture2D" uid="uid://j4sbilf4mx71" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-4.png" id="4_ekx4a"]
+[ext_resource type="Texture2D" uid="uid://bx0vf43namkit" path="res://Assets/Sunnyland/sprites/player/crouch/player-crouch-2.png" id="4_k2ny4"]
+[ext_resource type="Texture2D" uid="uid://bqda2g5nravtv" path="res://Assets/Sunnyland/sprites/player/hurt/player-hurt-2.png" id="5_gtnuw"]
+[ext_resource type="Texture2D" uid="uid://q2hoc1y7qfcx" path="res://Assets/Sunnyland/sprites/player/run/player-run-1.png" id="5_odbxq"]
+[ext_resource type="Texture2D" uid="uid://bsq3akdjggq7b" path="res://Assets/Sunnyland/sprites/player/hurt/player-hurt-1.png" id="6_3shfu"]
+[ext_resource type="Texture2D" uid="uid://dbnfcb7x0e35" path="res://Assets/Sunnyland/sprites/player/run/player-run-2.png" id="6_qfj5w"]
+[ext_resource type="Texture2D" uid="uid://0iptpnnshr4y" path="res://Assets/Sunnyland/sprites/player/run/player-run-3.png" id="7_rad70"]
+[ext_resource type="Texture2D" uid="uid://7dvvufvxefkg" path="res://Assets/Sunnyland/sprites/player/run/player-run-4.png" id="8_krghe"]
+[ext_resource type="Texture2D" uid="uid://v4l1527yqq6y" path="res://Assets/Sunnyland/sprites/player/run/player-run-5.png" id="9_8bh01"]
+[ext_resource type="Texture2D" uid="uid://vpd6pf38j05q" path="res://Assets/Sunnyland/sprites/player/run/player-run-6.png" id="10_lxf55"]
+[ext_resource type="Texture2D" uid="uid://cr5rgttvroq7p" path="res://Assets/Sunnyland/sprites/player/climb/player-climb-1.png" id="15_1byo8"]
+[ext_resource type="Texture2D" uid="uid://cop7u7b41d72w" path="res://Assets/Sunnyland/sprites/player/climb/player-climb-2.png" id="16_k8ykb"]
+[ext_resource type="Texture2D" uid="uid://cyh4v1si5777n" path="res://Assets/Sunnyland/sprites/player/climb/player-climb-3.png" id="17_ro7d3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bfxpd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hbmg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3vo02")
+}],
+"loop": false,
+"name": &"Airborne",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7bimy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k2ny4")
+}],
+"loop": true,
+"name": &"Crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7bimy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k2ny4")
+}],
+"loop": true,
+"name": &"Dash",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gtnuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3shfu")
+}],
+"loop": true,
+"name": &"Doublejump",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_btyh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yngmb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cwp54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ekx4a")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_odbxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qfj5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rad70")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_krghe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8bh01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lxf55")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_1byo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_k8ykb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ro7d3")
+}],
+"loop": true,
+"name": &"Wall",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e8b0w"]
+radius = 7.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ro3kf"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="Animation" id="Animation_7s04b"]
+resource_name = "invuln"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_3wct3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60bpu"]
+_data = {
+"RESET": SubResource("Animation_3wct3"),
+"invuln": SubResource("Animation_7s04b")
+}
+
+[node name="Jlayer" type="CharacterBody2D"]
+collision_layer = 2
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_bfxpd")
+animation = &"Doublejump"
+autoplay = "Idle"
+offset = Vector2(1, 2.08165e-12)
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_e8b0w")
+
+[node name="CrouchCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_ro3kf")
+disabled = true
+
+[node name="HeadBonker" type="RayCast2D" parent="."]
+position = Vector2(3, 0)
+target_position = Vector2(0, -8.77)
+hit_from_inside = true
+
+[node name="HeadBonker2" type="RayCast2D" parent="."]
+position = Vector2(-3, 0)
+target_position = Vector2(0, -8.77)
+hit_from_inside = true
+
+[node name="InvulnAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_60bpu")
+}
