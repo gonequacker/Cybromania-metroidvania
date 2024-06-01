@@ -90,6 +90,7 @@ func handle_inputs(delta):
 	elif Input.is_action_just_pressed("jump") and not double_jump and not wall_slide and dash < 0 and has_double_jump():
 		double_jump_cooldown = DOUBLE_JUMP_MAX
 		double_jump = true
+		jump = true
 		emit_signal("double_jumped")
 	
 	# Handle double jump.
