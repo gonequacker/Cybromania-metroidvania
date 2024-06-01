@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bqebygpqsqv3y"]
+[gd_scene load_steps=26 format=3 uid="uid://bqebygpqsqv3y"]
 
 [ext_resource type="Texture2D" uid="uid://jc6o01myejgi" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-1.png" id="1_btyh2"]
 [ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="1_hbmg4"]
@@ -129,6 +129,44 @@ height = 18.0
 radius = 5.0
 height = 14.0
 
+[sub_resource type="Animation" id="Animation_7s04b"]
+resource_name = "invuln"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_3wct3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60bpu"]
+_data = {
+"RESET": SubResource("Animation_3wct3"),
+"invuln": SubResource("Animation_7s04b")
+}
+
 [node name="Jlayer" type="CharacterBody2D"]
 collision_layer = 2
 
@@ -159,3 +197,8 @@ hit_from_inside = true
 position = Vector2(-3, 0)
 target_position = Vector2(0, -8.77)
 hit_from_inside = true
+
+[node name="InvulnAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_60bpu")
+}

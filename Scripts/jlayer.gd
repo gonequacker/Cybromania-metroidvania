@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var pickup_rect = $ColorRect
+@onready var invuln_anim = $InvulnAnim
 
 signal landed
 signal jumped
@@ -21,6 +22,8 @@ signal wall_jumped
 @export var WALL_COOLDOWN_MAX = 5 # number of frames during which the player moves away from a wall after a wall jump.
 @export var FALL_SPEED_MAX = 350 # fall speed cap.
 @export var DOUBLE_JUMP_MAX = 10 # number of frames to fall before actually double jumping.
+@export var MAX_HEALTH = 10 # max health, to be given at the start of the game.
+@export var INVULN_MAX = 60 * 3 # number of invulnerability frames to be given after damage.
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -33,6 +36,8 @@ var dash = 0 # number of frames left in the current dash.
 var dash_cooldown = 0 # number of frames left before player can dash again.
 var wall_cooldown = 0 # number of frames left to jump away from wall immediately after wall jump.
 var double_jump_cooldown = 0 # number of frames left to fall before actually double jumping.
+var health = MAX_HEALTH # player's current health.
+var invuln = 0 # number of frames of invulnerability left.
 
 var airborne = false # true if airborne.
 var wall_slide = false # true if sliding along a wall.
@@ -148,6 +153,12 @@ func _physics_process(delta):
 	
 	if double_jump_cooldown > 0:
 		$Sprite.set_animation("Doublejump")
+	
+	# Handle invulnerability.
+	invuln -= 1
+	# Disable invuln anim if not invulnerable.
+	if invuln <= 0:
+		invuln_anim.play("RESET")
 
 	move_and_slide()
 
@@ -173,3 +184,11 @@ func has_wall_jump():
 	return Global.inventory["wall_jump"] > 0
 func has_double_jump():
 	return Global.inventory["double_jump"] > 0
+
+
+func take_damage():
+	if invuln <= 0:
+		health -= 1
+		print(str(health) + "/" + str(MAX_HEALTH))
+		invuln = INVULN_MAX
+		invuln_anim.play("invuln")
