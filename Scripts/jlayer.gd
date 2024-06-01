@@ -25,7 +25,7 @@ signal hurt
 @export var DOUBLE_JUMP_VELOCITY = -420.0 # force of a double jump.
 @export var COYOTE_MAX = 9 # number of frames given for coyote time.
 @export var WALL_SLIDE_SPEED = 100 # wall cling fall speed cap.
-@export var WALL_COOLDOWN_MAX = 5 # number of frames during which the player moves away from a wall after a wall jump.
+@export var WALL_COOLDOWN_MAX = 7 # number of frames during which the player moves away from a wall after a wall jump.
 @export var FALL_SPEED_MAX = 350 # fall speed cap.
 @export var DOUBLE_JUMP_MAX = 10 # number of frames to fall before actually double jumping.
 @export var MAX_HEALTH = 10 # max health, to be given at the start of the game.
@@ -115,33 +115,33 @@ func handle_inputs(delta):
 	# Wall jumping.
 	wall_cooldown -= 1
 	if is_on_wall_only() and velocity.y > 0 and has_wall_jump():
-		if not wall_slide and dash <= 0:
+		if not wall_slide and dash <= 0: # Can grab wall if not dashing
 			wall_slide = true
 			emit_signal("wall_clinged")
 			double_jump = false
-		if velocity.y > WALL_SLIDE_SPEED:
+		if velocity.y > WALL_SLIDE_SPEED: # Slow descent when grabbing wall
 			velocity.y = WALL_SLIDE_SPEED
-			if Input.is_action_just_pressed("jump"):
-				wall_cooldown = WALL_COOLDOWN_MAX
-				velocity.x = -facing * movespeed
-				velocity.y = JUMP_VELOCITY
-				jump = true
-				emit_signal("wall_jumped")
+		if Input.is_action_just_pressed("jump"): # Initiate wall jump
+			wall_cooldown = WALL_COOLDOWN_MAX
+			velocity.x = -facing * movespeed
+			velocity.y = JUMP_VELOCITY
+			jump = true
+			emit_signal("wall_jumped")
 	else:
 		wall_slide = false
 	
 	# Handle the movement/deceleration.
-	if dash > 0:
-		velocity.y = 0
-		crouch()
-	elif wall_cooldown > 0:
-		velocity.x = -facing * movespeed
-	elif direction:
+	if dash > 0: # Dashing
+		velocity.y = 0 # Halt vertical movement
+		crouch() # Activate smaller hitbox
+	elif wall_cooldown > 0: # Currently jumping off of wall
+		velocity.x = -facing * movespeed # Moving away from wall
+	elif direction: # Just plain moving left/right
 		velocity.x = direction * movespeed
 		facing = sign(direction)
 		sprite.scale.x = facing
 		crouch_collider.scale.x = facing
-	else:
+	else: # Not moving at all
 		velocity.x = move_toward(velocity.x, 0, movespeed) #instant stop
 
 
