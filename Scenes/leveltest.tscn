@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://sk3sxa62yjwk"]
+[gd_scene load_steps=21 format=3 uid="uid://sk3sxa62yjwk"]
 
 [ext_resource type="Texture2D" uid="uid://bjwcoy2h2bosp" path="res://Assets/Sunnyland/environment/Props/tree.png" id="1_6pqqh"]
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="1_vggql"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/coin.tscn" id="10_bpdxc"]
 [ext_resource type="PackedScene" uid="uid://rtnempcj6noa" path="res://Scenes/stationary_enemy.tscn" id="11_6f8bg"]
 [ext_resource type="PackedScene" uid="uid://chn408wsd17td" path="res://Scenes/moving_enemy.tscn" id="12_oc40p"]
+[ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="13_l75k5"]
+[ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="14_b5t6o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
 texture = ExtResource("1_vggql")
@@ -667,3 +669,10 @@ position = Vector2(431, -230)
 
 [node name="Coin8" parent="Coins" instance=ExtResource("10_bpdxc")]
 position = Vector2(182, 155)
+
+[node name="Items" type="Node" parent="."]
+
+[node name="CrouchPickup" parent="Items" instance=ExtResource("13_l75k5")]
+position = Vector2(537, -2)
+item_name = "crouch"
+item_texture = ExtResource("14_b5t6o")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ce65utf3offoj"]
 
-[ext_resource type="PackedScene" uid="uid://sk3sxa62yjwk" path="res://Scenes/testlevel.tscn" id="1_fy5hg"]
+[ext_resource type="PackedScene" uid="uid://suwu6iie7uoa" path="res://Scenes/levelzoo.tscn" id="3_sss2f"]
 [ext_resource type="PackedScene" uid="uid://bqebygpqsqv3y" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
 [ext_resource type="PackedScene" uid="uid://iwjcre1t4yuo" path="res://Scenes/audio.tscn" id="4_uymx3"]
 [ext_resource type="Script" path="res://Scripts/jlayer.gd" id="5_w5j7r"]
@@ -12,20 +12,15 @@ unique_name_in_owner = true
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="TestLevel" parent="World" instance=ExtResource("1_fy5hg")]
-
 [node name="Jlayer" parent="World" instance=ExtResource("4_lpydj")]
 position = Vector2(56, 123)
 script = ExtResource("5_w5j7r")
 SPEED = 110.0
-JUMP_VELOCITY = -310.0
 
 [node name="Camera2D" type="Camera2D" parent="World/Jlayer"]
-limit_left = -29
-limit_top = -308
-limit_right = 726
-limit_bottom = 279
 position_smoothing_speed = 8.0
+
+[node name="ZooLevel" parent="World" instance=ExtResource("3_sss2f")]
 
 [connection signal="dashed" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_dashed"]
 [connection signal="double_jumped" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_double_jumped"]

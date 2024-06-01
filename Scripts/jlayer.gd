@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var pickup_rect = $ColorRect
+
 signal landed
 signal jumped
 signal double_jumped
@@ -12,17 +14,13 @@ signal wall_jumped
 @export var DASH_SPEED = 200.0 # force of dash.
 @export var DASH_MAX = 20 # number of frames that the dash lasts for.
 @export var DASH_COOLDOWN_MAX = 8 # number of frames after dash wherein player cannot dash.
-@export var JUMP_VELOCITY = -350.0 # force of a regular jump.
+@export var JUMP_VELOCITY = -280.0 # force of a regular jump.
+@export var DOUBLE_JUMP_VELOCITY = -420.0 # force of a double jump.
 @export var COYOTE_MAX = 9 # number of frames given for coyote time.
 @export var WALL_SLIDE_SPEED = 100 # wall cling fall speed cap.
 @export var WALL_COOLDOWN_MAX = 5 # number of frames during which the player moves away from a wall after a wall jump.
 @export var FALL_SPEED_MAX = 350 # fall speed cap.
 @export var DOUBLE_JUMP_MAX = 10 # number of frames to fall before actually double jumping.
-
-@export var has_crouch = false
-@export var has_dash = false
-@export var has_double_jump = false
-@export var has_wall_jump = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -40,9 +38,12 @@ var airborne = false # true if airborne.
 var wall_slide = false # true if sliding along a wall.
 var crouched = false # true if crouched, making hitbox shorter. also true if dashing.
 
+func _ready():
+	Global.set_player_reference(self)
+
 func _physics_process(delta):
 	# Handle crouch.
-	if Input.is_action_pressed("crouch") and is_on_floor() and has_crouch: # Player explicitly tries to crouch.
+	if Input.is_action_pressed("crouch") and is_on_floor() and has_crouch(): # Player explicitly tries to crouch.
 		crouch()
 	else: # Try to uncrouch every frame. Uncrouch will automatically fail if there is a low ceiling.
 		uncrouch()
@@ -67,13 +68,14 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		jump = true
 		emit_signal("jumped")
-	elif Input.is_action_just_pressed("jump") and not double_jump and not wall_slide and dash < 0 and has_double_jump:
+	elif Input.is_action_just_pressed("jump") and not double_jump and not wall_slide and dash < 0 and has_double_jump():
 		double_jump_cooldown = DOUBLE_JUMP_MAX
 		double_jump = true
 		emit_signal("double_jumped")
 	
-	if double_jump_cooldown == 0 and has_double_jump:
-		velocity.y = JUMP_VELOCITY
+	# Handle double jump.
+	if double_jump_cooldown == 0 and has_double_jump():
+		velocity.y = DOUBLE_JUMP_VELOCITY
 	
 	# Handle early release jump cancel.
 	if jump and velocity.y < 0 and Input.is_action_just_released("jump"):
@@ -85,7 +87,7 @@ func _physics_process(delta):
 	# Dash.
 	dash -= 1
 	dash_cooldown -= 1
-	if Input.is_action_just_pressed("dash") and dash <= 0 and dash_cooldown <= 0 and has_dash:
+	if Input.is_action_just_pressed("dash") and dash <= 0 and dash_cooldown <= 0 and has_dash():
 		velocity.x = facing * DASH_SPEED
 		dash = DASH_MAX
 		dash_cooldown = DASH_MAX + DASH_COOLDOWN_MAX
@@ -93,7 +95,7 @@ func _physics_process(delta):
 	
 	# Wall jumping.
 	wall_cooldown -= 1
-	if is_on_wall_only() and velocity.y > 0 and has_wall_jump:
+	if is_on_wall_only() and velocity.y > 0 and has_wall_jump():
 		if not wall_slide and dash <= 0:
 			wall_slide = true
 			emit_signal("wall_clinged")
@@ -134,7 +136,7 @@ func _physics_process(delta):
 			$Sprite.set_frame(1)
 	
 	# Handle wall riding.
-	if is_on_wall_only() and velocity.y > 0 and has_wall_jump:
+	if is_on_wall_only() and velocity.y > 0 and has_wall_jump():
 		$Sprite.set_animation("Wall")
 	
 	# Handle crouch sprite animation.
@@ -162,3 +164,12 @@ func uncrouch():
 
 func is_bonking():
 	return $HeadBonker.is_colliding() or $HeadBonker2.is_colliding()
+
+func has_crouch():
+	return Global.inventory["crouch"] > 0
+func has_dash():
+	return Global.inventory["dash"] > 0
+func has_wall_jump():
+	return Global.inventory["wall_jump"] > 0
+func has_double_jump():
+	return Global.inventory["double_jump"] > 0
