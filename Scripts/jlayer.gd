@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 @onready var pickup_rect = $ColorRect
 @onready var invuln_anim = $InvulnAnim
+@onready var sprite = $Sprite
+@onready var collider = $Collider
+@onready var crouch_collider = $CrouchCollider
+@onready var head_bonker_1 = $HeadBonker
+@onready var head_bonker_2 = $HeadBonker2
 
 signal landed
 signal jumped
@@ -47,6 +52,13 @@ func _ready():
 	Global.set_player_reference(self)
 
 func _physics_process(delta):
+	handle_inputs(delta)
+	move_and_slide()
+	handle_animations()
+	handle_invulnerability()
+
+
+func handle_inputs(delta):
 	# Handle crouch.
 	if Input.is_action_pressed("crouch") and is_on_floor() and has_crouch(): # Player explicitly tries to crouch.
 		crouch()
@@ -66,6 +78,7 @@ func _physics_process(delta):
 		if airborne: emit_signal("landed")
 		airborne = false
 		double_jump = false
+		double_jump_cooldown = 0
 
 	# Handle jump.
 	double_jump_cooldown -= 1
@@ -125,57 +138,50 @@ func _physics_process(delta):
 	elif direction:
 		velocity.x = direction * movespeed
 		facing = sign(direction)
-		if not crouched: $Sprite.set_animation("Run")
-		$Sprite.scale.x = facing
-		$CrouchCollider.scale.x = facing
+		sprite.scale.x = facing
+		crouch_collider.scale.x = facing
 	else:
 		velocity.x = move_toward(velocity.x, 0, movespeed) #instant stop
-		if not crouched: $Sprite.set_animation("Idle")
-	
-	# Handle airborne sprite animation.
-	if not is_on_floor() and not crouched and dash <= 0:
-		$Sprite.set_animation("Airborne")
-		if (velocity.y < 0):
-			$Sprite.set_frame(0)
-		else:
-			$Sprite.set_frame(1)
-	
-	# Handle wall riding.
-	if is_on_wall_only() and velocity.y > 0 and has_wall_jump():
-		$Sprite.set_animation("Wall")
-	
-	# Handle crouch sprite animation.
-	if crouched:
-		if dash > 0:
-			$Sprite.set_animation("Dash")
-		else:
-			$Sprite.set_animation("Crouch")
-	
-	if double_jump_cooldown > 0:
-		$Sprite.set_animation("Doublejump")
-	
-	# Handle invulnerability.
-	invuln -= 1
-	# Disable invuln anim if not invulnerable.
-	if invuln <= 0:
-		invuln_anim.play("RESET")
-
-	move_and_slide()
 
 
+func handle_animations():
+	if crouched: # All animations to play while crouched.
+		if dash > 0: # Dashing
+			sprite.set_animation("Dash")
+		else: # Crouching
+			sprite.set_animation("Crouch")
+	elif wall_slide: # Wall sliding
+		sprite.set_animation("Wall")
+	elif double_jump_cooldown > 0: # Double jumping
+		sprite.set_animation("Doublejump")
+	elif not is_on_floor(): # Airborne
+		sprite.set_animation("Airborne")
+		if (velocity.y < 0): # Rising
+			sprite.set_frame(0)
+		else: # Falling
+			sprite.set_frame(1)
+	elif abs(velocity.x) > 0.1: # Running
+		sprite.set_animation("Run")
+	else: # Idling
+		sprite.set_animation("Idle")
+
+
+# Helper functions.
+# Try to crouch the player.
 func crouch():
-	$Collider.disabled = true
-	$CrouchCollider.disabled = false
+	collider.disabled = true
+	crouch_collider.disabled = false
 	crouched = true
+# Try to uncrouch the player (fails if low ceiling)
 func uncrouch():
 	if not is_bonking():
-		$Collider.disabled = false
-		$CrouchCollider.disabled = true
+		collider.disabled = false
+		crouch_collider.disabled = true
 		crouched = false
-
+# Check if head will bonk when uncrouching
 func is_bonking():
-	return $HeadBonker.is_colliding() or $HeadBonker2.is_colliding()
-
+	return head_bonker_1.is_colliding() or head_bonker_2.is_colliding()
+# Check inventory for key items
 func has_crouch():
 	return Global.inventory["crouch"] > 0
 func has_dash():
@@ -186,6 +192,13 @@ func has_double_jump():
 	return Global.inventory["double_jump"] > 0
 
 
+func handle_invulnerability():
+	# Handle invulnerability.
+	invuln -= 1
+	# Disable invuln anim if not invulnerable.
+	if invuln <= 0:
+		invuln_anim.play("RESET")
+# Called by killzone when player takes damage
 func take_damage():
 	if invuln <= 0:
 		health -= 1
