@@ -210,11 +210,11 @@ func handle_invulnerability():
 	if invuln <= 0:
 		invuln_anim.play("RESET")
 # Called by killzone when player takes damage
-func take_damage():
+func take_damage(amount):
 	# Check that the player is vulnerable
 	if invuln > 0: return
 	# Take damage
-	health -= 1
+	health -= amount
 	# Give player invulnerability
 	invuln = INVULN_MAX
 	invuln_anim.play("invuln")
