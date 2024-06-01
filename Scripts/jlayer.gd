@@ -24,11 +24,11 @@ signal hurt
 @export var JUMP_VELOCITY = -280.0 # force of a regular jump.
 @export var DOUBLE_JUMP_VELOCITY = -420.0 # force of a double jump.
 @export var COYOTE_MAX = 9 # number of frames given for coyote time.
-@export var WALL_SLIDE_SPEED = 100 # wall cling fall speed cap.
+@export var WALL_SLIDE_SPEED = 100.0 # wall cling fall speed cap.
 @export var WALL_COOLDOWN_MAX = 7 # number of frames during which the player moves away from a wall after a wall jump.
 @export var FALL_SPEED_MAX = 350 # fall speed cap.
 @export var DOUBLE_JUMP_MAX = 10 # number of frames to fall before actually double jumping.
-@export var MAX_HEALTH = 10 # max health, to be given at the start of the game.
+@export var HEALTH_MAX = 10 # max health, to be given at the start of the game.
 @export var INVULN_MAX = 60 * 3 # number of invulnerability frames to be given after damage.
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -42,7 +42,7 @@ var dash = 0 # number of frames left in the current dash.
 var dash_cooldown = 0 # number of frames left before player can dash again.
 var wall_cooldown = 0 # number of frames left to jump away from wall immediately after wall jump.
 var double_jump_cooldown = 0 # number of frames left to fall before actually double jumping.
-var health = MAX_HEALTH # player's current health.
+var health = HEALTH_MAX # player's current health.
 var invuln = 0 # number of frames of invulnerability left.
 
 var airborne = false # true if airborne.
@@ -203,7 +203,7 @@ func handle_invulnerability():
 func take_damage():
 	if invuln <= 0:
 		health -= 1
-		print(str(health) + "/" + str(MAX_HEALTH))
+		print(str(health) + "/" + str(HEALTH_MAX))
 		invuln = INVULN_MAX
 		invuln_anim.play("invuln")
 		emit_signal("hurt")
