@@ -39,9 +39,7 @@ func pickup_item():
 
 func _on_area_2d_body_entered(body):
 	player_in_range = true
-	body.pickup_rect.visible = true
 
 
 func _on_area_2d_body_exited(body):
 	player_in_range = false
-	body.pickup_rect.visible = false
