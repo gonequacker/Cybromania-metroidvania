@@ -14,6 +14,7 @@ signal double_jumped
 signal dashed
 signal wall_clinged
 signal wall_jumped
+signal hurt
 
 @export var SPEED = 120.0 # force of walking/moving left and right.
 @export var CROUCH_SPEED = 60.0 # force of walking while crouched.
@@ -205,3 +206,4 @@ func take_damage():
 		print(str(health) + "/" + str(MAX_HEALTH))
 		invuln = INVULN_MAX
 		invuln_anim.play("invuln")
+		emit_signal("hurt")

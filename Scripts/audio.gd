@@ -7,6 +7,7 @@ extends Control
 @onready var wall_jump = $SFX/WallJump
 @onready var wall_cling = $SFX/WallCling
 @onready var double_jump = $SFX/DoubleJump
+@onready var hurt = $SFX/Hurt
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,3 +42,7 @@ func _on_jlayer_wall_jumped():
 
 func _on_jlayer_double_jumped():
 	double_jump.play()
+
+
+func _on_jlayer_hurt():
+	hurt.play()
