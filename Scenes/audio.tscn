@@ -53,3 +53,8 @@ bus = &"SFX"
 stream = ExtResource("8_kohg3")
 volume_db = -2.0
 bus = &"SFX"
+
+[node name="Heal" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("8_kohg3")
+volume_db = -2.0
+bus = &"SFX"

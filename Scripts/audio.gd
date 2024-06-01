@@ -8,6 +8,7 @@ extends Control
 @onready var wall_cling = $SFX/WallCling
 @onready var double_jump = $SFX/DoubleJump
 @onready var hurt = $SFX/Hurt
+@onready var heal = $SFX/Heal
 
 
 func _on_jlayer_landed():
@@ -36,3 +37,7 @@ func _on_jlayer_double_jumped():
 
 func _on_jlayer_hurt():
 	hurt.play()
+
+
+func _on_jlayer_healed():
+	heal.play()

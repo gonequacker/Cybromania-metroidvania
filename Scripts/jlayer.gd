@@ -15,6 +15,7 @@ signal dashed
 signal wall_clinged
 signal wall_jumped
 signal hurt
+signal healed
 
 @export var SPEED = 120.0 # force of walking/moving left and right.
 @export var CROUCH_SPEED = 60.0 # force of walking while crouched.
@@ -48,6 +49,8 @@ var invuln = 0 # number of frames of invulnerability left.
 var airborne = false # true if airborne.
 var wall_slide = false # true if sliding along a wall.
 var crouched = false # true if crouched, making hitbox shorter. also true if dashing.
+
+var weapon = 0 # currently held weapon.
 
 func _ready():
 	Global.set_player_reference(self) # tbh im not sure why im doing this
@@ -144,28 +147,34 @@ func handle_inputs(delta):
 		crouch_collider.scale.x = facing
 	else: # Not moving at all
 		velocity.x = move_toward(velocity.x, 0, movespeed) #instant stop
+	
+	# Handle hotbar inputs.
+	if Input.is_action_just_pressed("heal"):
+		# Use a health item.
+		# Heal the player by that item's heal value.
+		heal(1)
 
 
 func handle_animations():
 	if crouched: # All animations to play while crouched.
 		if dash > 0: # Dashing
-			sprite.set_animation("Dash")
+			sprite.play("Dash")
 		else: # Crouching
-			sprite.set_animation("Crouch")
+			sprite.play("Crouch")
 	elif wall_slide: # Wall sliding
-		sprite.set_animation("Wall")
+		sprite.play("Wall")
 	elif double_jump_cooldown > 0: # Double jumping
-		sprite.set_animation("Doublejump")
+		sprite.play("Doublejump")
 	elif not is_on_floor(): # Airborne
-		sprite.set_animation("Airborne")
+		sprite.play("Airborne")
 		if (velocity.y < 0): # Rising
 			sprite.set_frame(0)
 		else: # Falling
 			sprite.set_frame(1)
 	elif abs(velocity.x) > 0.1: # Running
-		sprite.set_animation("Run")
+		sprite.play("Run")
 	else: # Idling
-		sprite.set_animation("Idle")
+		sprite.play("Idle")
 
 
 # Helper functions.
@@ -203,14 +212,26 @@ func handle_invulnerability():
 # Called by killzone when player takes damage
 func take_damage():
 	# Check that the player is vulnerable
-	if invuln <= 0:
-		# Take damage
-		health -= 1
-		# Give player invulnerability
-		invuln = INVULN_MAX
-		invuln_anim.play("invuln")
-		# Play hurt sound
-		emit_signal("hurt")
-		# Update UI
-		# TODO: Link to some UI elements
-		print(str(health) + "/" + str(HEALTH_MAX))
+	if invuln > 0: return
+	# Take damage
+	health -= 1
+	# Give player invulnerability
+	invuln = INVULN_MAX
+	invuln_anim.play("invuln")
+	# Play hurt sound
+	emit_signal("hurt")
+	# Update UI
+	# TODO: Link to some UI elements
+	print(str(health) + "/" + str(HEALTH_MAX))
+# Heal player by some amount.
+func heal(amount):
+	# Heal player
+	health += amount
+	# Cap health to the max health amount
+	if health > HEALTH_MAX:
+		health = HEALTH_MAX
+	# Play heal sound
+	emit_signal("healed")
+	# Update UI
+	# TODO: Link to some UI elements
+	print(str(health) + "/" + str(HEALTH_MAX))
