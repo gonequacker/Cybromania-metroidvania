@@ -50,7 +50,7 @@ var wall_slide = false # true if sliding along a wall.
 var crouched = false # true if crouched, making hitbox shorter. also true if dashing.
 
 func _ready():
-	Global.set_player_reference(self)
+	Global.set_player_reference(self) # tbh im not sure why im doing this
 
 func _physics_process(delta):
 	handle_inputs(delta)
@@ -202,9 +202,15 @@ func handle_invulnerability():
 		invuln_anim.play("RESET")
 # Called by killzone when player takes damage
 func take_damage():
+	# Check that the player is vulnerable
 	if invuln <= 0:
+		# Take damage
 		health -= 1
-		print(str(health) + "/" + str(HEALTH_MAX))
+		# Give player invulnerability
 		invuln = INVULN_MAX
 		invuln_anim.play("invuln")
+		# Play hurt sound
 		emit_signal("hurt")
+		# Update UI
+		# TODO: Link to some UI elements
+		print(str(health) + "/" + str(HEALTH_MAX))
