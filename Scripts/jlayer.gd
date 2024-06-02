@@ -233,6 +233,8 @@ func take_damage(amount):
 	print(str(health) + "/" + str(HEALTH_MAX))
 # Heal player by some amount.
 func heal(amount):
+	# Exit early if player is already at max health
+	if health > HEALTH_MAX: return
 	# Heal player
 	health += amount
 	# Cap health to the max health amount
