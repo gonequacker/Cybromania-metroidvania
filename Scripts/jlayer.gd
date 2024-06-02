@@ -17,12 +17,16 @@ signal wall_jumped
 signal hurt
 signal healed
 
-@export var SPEED = 120.0 # force of walking/moving left and right.
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+@export var SPEED = 110.0 # force of walking/moving left and right.
 @export var CROUCH_SPEED = 60.0 # force of walking while crouched.
 @export var DASH_SPEED = 200.0 # force of dash.
 @export var DASH_MAX = 20 # number of frames that the dash lasts for.
 @export var DASH_COOLDOWN_MAX = 8 # number of frames after dash wherein player cannot dash.
-@export var JUMP_VELOCITY = -280.0 # force of a regular jump.
+@export var JUMP_HEIGHT = 3 # jump height, in tiles.
+var JUMP_VELOCITY = -sqrt(2.0*gravity*JUMP_HEIGHT*16.0) - 0.1 # force of a regular jump.
 @export var DOUBLE_JUMP_VELOCITY = -420.0 # force of a double jump.
 @export var COYOTE_MAX = 9 # number of frames given for coyote time.
 @export var WALL_SLIDE_SPEED = 100.0 # wall cling fall speed cap.
@@ -31,9 +35,7 @@ signal healed
 @export var DOUBLE_JUMP_MAX = 10 # number of frames to fall before actually double jumping.
 @export var HEALTH_MAX = 10 # max health, to be given at the start of the game.
 @export var INVULN_MAX = 60 * 3 # number of invulnerability frames to be given after damage.
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var JUMP_BUFFER_MAX = 15 # number of frames to buffer a jump input right before landing.
 
 var jump = false # true if player is currently jumping.
 var double_jump = false # true if player has used their double jump. set to false to give it back.
@@ -45,6 +47,7 @@ var wall_cooldown = 0 # number of frames left to jump away from wall immediately
 var double_jump_cooldown = 0 # number of frames left to fall before actually double jumping.
 var health = HEALTH_MAX # player's current health.
 var invuln = 0 # number of frames of invulnerability left.
+var jump_buffer = 0 # number of frames of jump buffer left.
 
 var airborne = false # true if airborne.
 var wall_slide = false # true if sliding along a wall.
@@ -54,6 +57,7 @@ var weapon = 0 # currently held weapon.
 
 func _ready():
 	Global.set_player_reference(self) # tbh im not sure why im doing this
+	print(JUMP_VELOCITY)
 
 func _physics_process(delta):
 	handle_inputs(delta)
@@ -86,19 +90,23 @@ func handle_inputs(delta):
 
 	# Handle jump.
 	double_jump_cooldown -= 1
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote > 0):
+	jump_buffer -= 1
+	if (Input.is_action_just_pressed("jump") or jump_buffer > 0) and (is_on_floor() or coyote > 0): # Regular jump.
 		velocity.y = JUMP_VELOCITY
 		jump = true
 		emit_signal("jumped")
-	elif Input.is_action_just_pressed("jump") and not double_jump and not wall_slide and dash < 0 and has_double_jump():
+		jump_buffer = 0
+	elif Input.is_action_just_pressed("jump") and not double_jump and not wall_slide and dash < 0 and has_double_jump(): # Double jump.
 		double_jump_cooldown = DOUBLE_JUMP_MAX
 		double_jump = true
 		jump = true
-		emit_signal("double_jumped")
+	if Input.is_action_just_pressed("jump") and not is_on_floor(): # Jump buffer.
+		jump_buffer = JUMP_BUFFER_MAX
 	
 	# Handle double jump.
 	if double_jump_cooldown == 0 and has_double_jump():
 		velocity.y = DOUBLE_JUMP_VELOCITY
+		emit_signal("double_jumped")
 	
 	# Handle early release jump cancel.
 	if jump and velocity.y < 0 and Input.is_action_just_released("jump"):

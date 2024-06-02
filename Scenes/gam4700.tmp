@@ -15,6 +15,21 @@ unique_name_in_owner = true
 [node name="Jlayer" parent="World" instance=ExtResource("4_lpydj")]
 position = Vector2(56, 123)
 script = ExtResource("5_w5j7r")
+SPEED = null
+CROUCH_SPEED = null
+DASH_SPEED = null
+DASH_MAX = null
+DASH_COOLDOWN_MAX = null
+JUMP_HEIGHT = null
+DOUBLE_JUMP_VELOCITY = null
+COYOTE_MAX = null
+WALL_SLIDE_SPEED = null
+WALL_COOLDOWN_MAX = null
+FALL_SPEED_MAX = null
+DOUBLE_JUMP_MAX = null
+HEALTH_MAX = null
+INVULN_MAX = null
+JUMP_BUFFER_MAX = null
 
 [node name="Camera2D" type="Camera2D" parent="World/Jlayer"]
 position_smoothing_speed = 8.0
