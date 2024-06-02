@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://chn408wsd17td"]
+
+[ext_resource type="Texture2D" uid="uid://jk1asdqdtaiu" path="res://Assets/Sunnyland/sprites/opossum/opossum-1.png" id="1_0e2sv"]
+[ext_resource type="Script" path="res://Scripts/moving_enemy.gd" id="1_1ma8u"]
+[ext_resource type="Texture2D" uid="uid://dl1hjkauf78g3" path="res://Assets/Sunnyland/sprites/opossum/opossum-2.png" id="2_piakh"]
+[ext_resource type="Texture2D" uid="uid://bd0acu6ecpu23" path="res://Assets/Sunnyland/sprites/opossum/opossum-3.png" id="3_f7rys"]
+[ext_resource type="Texture2D" uid="uid://da2jhecswarjj" path="res://Assets/Sunnyland/sprites/opossum/opossum-4.png" id="4_xs5e4"]
+[ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="5_2ciff"]
+[ext_resource type="Texture2D" uid="uid://5d400mntmtgo" path="res://Assets/Sunnyland/sprites/opossum/opossum-5.png" id="5_njmep"]
+[ext_resource type="Texture2D" uid="uid://c0ah7q0nvgewy" path="res://Assets/Sunnyland/sprites/opossum/opossum-6.png" id="6_3126g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sf3r2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0e2sv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_piakh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f7rys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xs5e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_njmep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3126g")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok1e1"]
+size = Vector2(20, 16)
+
+[node name="MovingEnemy" type="Node2D"]
+script = ExtResource("1_1ma8u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sf3r2")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 5
+offset = Vector2(-3, 0)
+flip_h = true
+
+[node name="Killzone" parent="." instance=ExtResource("5_2ciff")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ok1e1")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-20, 2.08165e-12)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(20, 2.08165e-12)
