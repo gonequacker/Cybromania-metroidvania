@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ce65utf3offoj"]
+[gd_scene load_steps=10 format=3 uid="uid://ce65utf3offoj"]
 
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Sunnyland/environment/tileset.png" id="1_qie2m"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Sunnyland/environment/Props/small-platform.png" id="2_10hxd"]
 [ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Sunnyland/environment/Background/back.png" id="3_gpinb"]
 [ext_resource type="PackedScene" uid="uid://b3ydf11al56tf" path="res://Scenes/player.tscn" id="4_kd64m"]
 [ext_resource type="PackedScene" uid="uid://b0vs3nxx1hnuh" path="res://Scenes/Components/hud.tscn" id="5_yfcfj"]
-[ext_resource type="Script" path="res://Interface/Pause.gd" id="6_l6t8u"]
-[ext_resource type="Script" path="res://Interface/ResumeButton.gd" id="7_mtm3n"]
+[ext_resource type="PackedScene" uid="uid://cbj555cllh5ug" path="res://Interface/pause.tscn" id="6_8cgi0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
 texture = ExtResource("1_qie2m")
@@ -522,51 +521,5 @@ position = Vector2(24, 101)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
 
-[node name="Pause" type="Control" parent="CanvasLayer"]
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("6_8cgi0")]
 unique_name_in_owner = true
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("6_l6t8u")
-
-[node name="Pause BG" type="ColorRect" parent="CanvasLayer/Pause"]
-process_mode = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.698039)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -52.5
-offset_right = 60.0
-offset_bottom = 52.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 6
-
-[node name="Button" type="Button" parent="CanvasLayer/Pause/VBoxContainer"]
-layout_mode = 2
-text = "Resume"
-script = ExtResource("7_mtm3n")
-
-[node name="Button2" type="Button" parent="CanvasLayer/Pause/VBoxContainer"]
-layout_mode = 2
-text = "Info"
-
-[node name="Button3" type="Button" parent="CanvasLayer/Pause/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
