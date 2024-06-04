@@ -123,7 +123,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s102m"]
 radius = 7.0
-height = 18.0
+height = 20.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ro3kf"]
 radius = 5.0
@@ -179,7 +179,7 @@ autoplay = "Idle"
 offset = Vector2(1, 2.08165e-12)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_s102m")
 
 [node name="CrouchCollider" type="CollisionShape2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://suwu6iie7uoa"]
+[gd_scene load_steps=22 format=3 uid="uid://suwu6iie7uoa"]
 
 [ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Assets/Sunnyland/environment/Background/back.png" id="1_vcm6u"]
 [ext_resource type="Texture2D" uid="uid://bwion3j0g377" path="res://Assets/Sunnyland/environment/Background/middle.png" id="2_hwfdx"]
@@ -8,9 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://rtnempcj6noa" path="res://Scenes/stationary_enemy.tscn" id="9_5dgae"]
 [ext_resource type="PackedScene" uid="uid://chn408wsd17td" path="res://Scenes/moving_enemy.tscn" id="10_kwy41"]
 [ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_gtvvy"]
+[ext_resource type="Texture2D" uid="uid://dipkhirvj5wi4" path="res://Assets/Sunnyland/sprites/gem/gem-1.png" id="11_yl562"]
 [ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/coin.tscn" id="12_2f7e1"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="12_7f1e4"]
 [ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="13_jo8xf"]
+[ext_resource type="Texture2D" uid="uid://dug5hpfpsd1kr" path="res://Assets/Sunnyland/sprites/gem/gem-3.png" id="13_wdhmp"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="14_a64o1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
@@ -614,16 +616,8 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="MovingPlatform2" parent="Platforms" instance=ExtResource("11_gtvvy")]
-position = Vector2(288, 216)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/MovingPlatform2"]
-libraries = {
-"": SubResource("AnimationLibrary_iodpw")
-}
-autoplay = "move"
-
 [node name="Coins" type="Node" parent="."]
+process_mode = 4
 
 [node name="Coin" parent="Coins" instance=ExtResource("12_2f7e1")]
 position = Vector2(96, 119)
@@ -653,6 +647,38 @@ position = Vector2(898, -113)
 position = Vector2(916, -113)
 
 [node name="Items" type="Node" parent="."]
+
+[node name="Byte" parent="Items" instance=ExtResource("13_jo8xf")]
+position = Vector2(528, 176)
+item_name = "bytes"
+item_texture = ExtResource("11_yl562")
+
+[node name="Label" type="Label" parent="Items/Byte"]
+offset_left = -46.0
+offset_top = -32.0
+offset_right = 48.0
+offset_bottom = -9.0
+theme = SubResource("Theme_cdsd6")
+theme_override_fonts/font = ExtResource("12_7f1e4")
+theme_override_font_sizes/font_size = 8
+text = "Malware
+Byte"
+horizontal_alignment = 1
+
+[node name="Cookie" parent="Items" instance=ExtResource("13_jo8xf")]
+position = Vector2(591, 176)
+item_name = "cookies"
+item_texture = ExtResource("13_wdhmp")
+
+[node name="Label" type="Label" parent="Items/Cookie"]
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 69.0
+offset_bottom = -2.0
+theme = SubResource("Theme_cdsd6")
+theme_override_fonts/font = ExtResource("12_7f1e4")
+theme_override_font_sizes/font_size = 8
+text = "Cookie"
 
 [node name="CrouchPickup" parent="Items" instance=ExtResource("13_jo8xf")]
 position = Vector2(310, 121)
