@@ -195,6 +195,12 @@ func handle_animations():
 
 
 # Helper functions.
+# Horizontal facing (taking into account wall riding)
+func facing_horizontal():
+	var facing_horizontal = facing
+	if wall_slide:
+		facing_horizontal *= -1
+	return facing_horizontal
 # Try to crouch the player.
 func crouch():
 	collider.disabled = true
