@@ -8,6 +8,9 @@ extends CharacterBody2D
 @onready var head_bonker_1 = $HeadBonker
 @onready var head_bonker_2 = $HeadBonker2
 
+const ICON = preload("res://icon.svg")
+const PROJECTILE = preload("res://Scenes/projectile.tscn")
+
 signal landed
 signal jumped
 signal double_jumped
@@ -167,6 +170,10 @@ func handle_inputs(delta):
 	else:
 		facing_vertical = 0.0
 	
+	# Handle attack input(s).
+	if Input.is_action_just_pressed("attack") and dash <= 0 and wall_cooldown <= 0 and double_jump_cooldown <= 0:
+		attack()
+	
 	# Handle hotbar inputs.
 	if Input.is_action_just_pressed("heal"):
 		heal()
@@ -197,10 +204,7 @@ func handle_animations():
 # Helper functions.
 # Horizontal facing (taking into account wall riding)
 func facing_horizontal():
-	var facing_horizontal = facing
-	if wall_slide:
-		facing_horizontal *= -1
-	return facing_horizontal
+	return -facing if wall_slide else facing
 # Try to crouch the player.
 func crouch():
 	collider.disabled = true
@@ -261,3 +265,15 @@ func heal():
 	# Update UI
 	# TODO: Link to some UI elements
 	print(str(health) + "/" + str(HEALTH_MAX))
+
+
+func attack():
+	var direction
+	if (facing_vertical != 0.0):
+		direction = Vector2(0.0, facing_vertical)
+	else:
+		direction = Vector2(facing_horizontal(), 0.0)
+	var bullet = PROJECTILE.instantiate()
+	bullet.position = position
+	bullet.direction = direction
+	get_parent().add_child(bullet)
