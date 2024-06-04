@@ -95,7 +95,7 @@ func handle_inputs(delta):
 	# Handle jump.
 	double_jump_cooldown -= 1
 	jump_buffer -= 1
-	if (Input.is_action_just_pressed("jump") or jump_buffer > 0) and (is_on_floor() or coyote > 0): # Regular jump.
+	if (Input.is_action_just_pressed("jump") or jump_buffer > 0) and (is_on_floor() or coyote > 0) and not is_bonking(): # Regular jump.
 		velocity.y = JUMP_VELOCITY
 		jump = true
 		emit_signal("jumped")

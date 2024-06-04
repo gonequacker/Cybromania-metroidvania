@@ -121,8 +121,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m87gj"]
-size = Vector2(14, 18)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s102m"]
+radius = 7.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ro3kf"]
 radius = 5.0
@@ -173,13 +174,13 @@ collision_layer = 2
 z_index = 5
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
-animation = &"Doublejump"
+animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(1, 2.08165e-12)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_m87gj")
+shape = SubResource("CapsuleShape2D_s102m")
 
 [node name="CrouchCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
