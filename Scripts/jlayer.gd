@@ -158,9 +158,7 @@ func handle_inputs(delta):
 	
 	# Handle hotbar inputs.
 	if Input.is_action_just_pressed("heal"):
-		# Use a health item.
-		# Heal the player by that item's heal value.
-		heal(1)
+		heal()
 
 
 func handle_animations():
@@ -232,9 +230,11 @@ func take_damage(amount):
 	# TODO: Link to some UI elements
 	print(str(health) + "/" + str(HEALTH_MAX))
 # Heal player by some amount.
-func heal(amount):
+func heal():
 	# Exit early if player is already at max health
-	if health > HEALTH_MAX: return
+	if health >= HEALTH_MAX: return
+	# Use a health item.
+	var amount = Global.heal(HEALTH_MAX - health)
 	# Heal player
 	health += amount
 	# Cap health to the max health amount

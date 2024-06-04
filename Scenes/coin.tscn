@@ -224,8 +224,6 @@ script = ExtResource("1_uqxjw")
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_4l5ka")
 autoplay = "default"
-frame = 1
-frame_progress = 0.169643
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_idxeb")
