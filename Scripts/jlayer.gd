@@ -233,13 +233,12 @@ func take_damage(amount):
 func heal():
 	# Exit early if player is already at max health
 	if health >= HEALTH_MAX: return
-	# Use a health item.
+	# Use a health item
 	var amount = Global.heal(HEALTH_MAX - health)
 	# Heal player
 	health += amount
 	# Cap health to the max health amount
-	if health > HEALTH_MAX:
-		health = HEALTH_MAX
+	if health > HEALTH_MAX: health = HEALTH_MAX
 	# Play heal sound
 	emit_signal("healed")
 	# Update UI
