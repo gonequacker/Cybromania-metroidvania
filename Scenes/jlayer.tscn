@@ -202,3 +202,5 @@ hit_from_inside = true
 libraries = {
 "": SubResource("AnimationLibrary_60bpu")
 }
+
+[node name="CollectAnim" type="AnimationPlayer" parent="."]

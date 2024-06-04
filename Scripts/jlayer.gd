@@ -40,6 +40,16 @@ var JUMP_VELOCITY = -sqrt(2.0*gravity*JUMP_HEIGHT*16.0) - 0.1 # force of a regul
 @export var INVULN_MAX = 60 * 3 # number of invulnerability frames to be given after damage.
 @export var JUMP_BUFFER_MAX = 15 # number of frames to buffer a jump input right before landing.
 
+enum {HAND, STAFF, PIKE, DAGGER, LAUNCHER, ARBALEST}
+var ATTACK_MAX = {
+	HAND: 25,
+	STAFF: 60,
+	PIKE: 20,
+	DAGGER: 8,
+	LAUNCHER: 75,
+	ARBALEST: 15
+}
+
 var jump = false # true if player is currently jumping.
 var double_jump = false # true if player has used their double jump. set to false to give it back.
 var facing = 1.0 # 1.0 is right, -1.0 is left.
@@ -57,11 +67,13 @@ var airborne = false # true if airborne.
 var wall_slide = false # true if sliding along a wall.
 var crouched = false # true if crouched, making hitbox shorter. also true if dashing.
 
-var weapon = 0 # currently held weapon.
+var weapon = HAND # currently held weapon.
+var weapon_cooldown = 0 # frames until player can attack again.
+
 
 func _ready():
 	Global.set_player_reference(self) # tbh im not sure why im doing this
-	print(JUMP_VELOCITY)
+
 
 func _physics_process(delta):
 	handle_inputs(delta)
@@ -95,7 +107,7 @@ func handle_inputs(delta):
 	# Handle jump.
 	double_jump_cooldown -= 1
 	jump_buffer -= 1
-	if (Input.is_action_just_pressed("jump") or jump_buffer > 0) and (is_on_floor() or coyote > 0) and not is_bonking(): # Regular jump.
+	if (Input.is_action_just_pressed("jump") or jump_buffer > 0) and (is_on_floor() or coyote > 0): # Regular jump.
 		velocity.y = JUMP_VELOCITY
 		jump = true
 		emit_signal("jumped")
@@ -170,13 +182,34 @@ func handle_inputs(delta):
 	else:
 		facing_vertical = 0.0
 	
-	# Handle attack input(s).
-	if Input.is_action_just_pressed("attack") and dash <= 0 and wall_cooldown <= 0 and double_jump_cooldown <= 0:
-		attack()
+	# Handle hotbar inputs. (yikes)
+	if Input.is_action_just_pressed("1"):
+		weapon = HAND
+		print(weapon)
+	if Input.is_action_just_pressed("2") and has_staff():
+		weapon = STAFF
+		print(weapon)
+	if Input.is_action_just_pressed("3") and has_pike():
+		weapon = PIKE
+		print(weapon)
+	if Input.is_action_just_pressed("4") and has_dagger():
+		weapon = DAGGER
+		print(weapon)
+	if Input.is_action_just_pressed("5") and has_launcher():
+		weapon = LAUNCHER
+		print(weapon)
+	if Input.is_action_just_pressed("6") and has_arbalest():
+		weapon = ARBALEST
+		print(weapon)
 	
-	# Handle hotbar inputs.
+	# Handle item inputs.
 	if Input.is_action_just_pressed("heal"):
 		heal()
+	
+	# Handle attack input(s).
+	weapon_cooldown -= 1
+	if Input.is_action_pressed("attack") and weapon_cooldown <= 0 and dash <= 0 and wall_cooldown <= 0 and double_jump_cooldown <= 0:
+		attack()
 
 
 func handle_animations():
@@ -228,6 +261,17 @@ func has_wall_jump():
 	return Global.inventory["wall_jump"] > 0
 func has_double_jump():
 	return Global.inventory["double_jump"] > 0
+# Check inventory for weapons
+func has_staff():
+	return Global.inventory["spell"] > 0
+func has_pike():
+	return Global.inventory["pike"] > 0
+func has_dagger():
+	return Global.inventory["daggers"] > 0
+func has_launcher():
+	return Global.inventory["launcher"] > 0
+func has_arbalest():
+	return Global.inventory["arbalest"] > 0
 
 
 func handle_invulnerability():
@@ -268,12 +312,32 @@ func heal():
 
 
 func attack():
+	# Calculate direction that attack should face (based on how Hollow Knight does it)
 	var direction
 	if (facing_vertical != 0.0):
 		direction = Vector2(0.0, facing_vertical)
 	else:
 		direction = Vector2(facing_horizontal(), 0.0)
+	# Take into account current weapon.
+	match weapon:
+		HAND:
+			attack_hand(direction)
+		STAFF:
+			attack_hand(direction)
+		PIKE:
+			attack_hand(direction)
+		DAGGER:
+			attack_hand(direction)
+		LAUNCHER:
+			attack_hand(direction)
+		ARBALEST:
+			attack_hand(direction)
+	# Attack cooldown
+	weapon_cooldown = ATTACK_MAX[weapon]
+
+func attack_hand(direction):
+	# Debug projectile attack
 	var bullet = PROJECTILE.instantiate()
-	bullet.position = position
+	bullet.position = position + Vector2(0.0, 5.0 if crouched else 0.0)
 	bullet.direction = direction
 	get_parent().add_child(bullet)
