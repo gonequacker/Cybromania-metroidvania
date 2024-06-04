@@ -40,6 +40,7 @@ var JUMP_VELOCITY = -sqrt(2.0*gravity*JUMP_HEIGHT*16.0) - 0.1 # force of a regul
 var jump = false # true if player is currently jumping.
 var double_jump = false # true if player has used their double jump. set to false to give it back.
 var facing = 1.0 # 1.0 is right, -1.0 is left.
+var facing_vertical = 0.0 # 1.0 is up, -1.0 is down
 var coyote = 0 # number of frames of coyote time left.
 var dash = 0 # number of frames left in the current dash.
 var dash_cooldown = 0 # number of frames left before player can dash again.
@@ -155,6 +156,16 @@ func handle_inputs(delta):
 		crouch_collider.scale.x = facing
 	else: # Not moving at all
 		velocity.x = move_toward(velocity.x, 0, movespeed) #instant stop
+	
+	# Handle up/down look
+	if airborne:
+		facing_vertical = Input.get_axis("up", "crouch")
+		if facing_vertical != 0.0:
+			facing_vertical /= abs(facing_vertical)
+	elif Input.is_action_pressed("up"):
+		facing_vertical = -1.0
+	else:
+		facing_vertical = 0.0
 	
 	# Handle hotbar inputs.
 	if Input.is_action_just_pressed("heal"):
