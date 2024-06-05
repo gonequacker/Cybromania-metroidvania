@@ -1,10 +1,7 @@
 extends Area2D
 
-@onready var ray_cast = $RayCast2D
-@onready var timer = $Timer
-
 var direction = Vector2(1.0,0.0)
-var speed = 120.0
+var speed = 300.0
 
 func _ready():
 	if direction.x > 0.1:
@@ -14,8 +11,9 @@ func _ready():
 
 func _process(delta):
 	position = position + speed * direction * delta
-	if ray_cast.is_colliding():
-		queue_free()
+
+func _on_body_entered(body):
+	queue_free()
 
 func _on_timer_timeout():
 	queue_free()

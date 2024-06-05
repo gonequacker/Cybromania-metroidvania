@@ -10,6 +10,9 @@ extends CharacterBody2D
 const PROJECTILE_S = preload("res://Scenes/projectile.tscn")
 const FIREWALL_S = preload("res://Scenes/firewall.tscn")
 const PIKE_S = preload("res://Scenes/pike.tscn")
+const DAGGER_S = preload("res://Scenes/dagger.tscn")
+const BLACKHOLE_S = preload("res://Scenes/blackhole.tscn")
+const BOLT_S = preload("res://Scenes/bolt.tscn")
 
 signal landed
 signal jumped
@@ -321,11 +324,11 @@ func attack():
 		PIKE:
 			spawn_melee(direction, PIKE_S)
 		DAGGER:
-			spawn_proj(direction, PROJECTILE_S)
+			spawn_proj(direction, DAGGER_S)
 		LAUNCHER:
-			spawn_proj(direction, PROJECTILE_S)
+			spawn_proj(direction, BLACKHOLE_S)
 		ARBALEST:
-			spawn_proj(direction, PROJECTILE_S)
+			spawn_proj(direction, BOLT_S)
 	# Attack cooldown
 	weapon_cooldown = ATTACK_MAX[weapon]
 # Attacking functions

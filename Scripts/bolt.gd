@@ -1,10 +1,11 @@
 extends Area2D
 
-@onready var ray_cast = $RayCast2D
-@onready var timer = $Timer
+const MAX_HITS = 3
 
 var direction = Vector2(1.0,0.0)
-var speed = 120.0
+var speed = 400.0
+
+var hits = 0
 
 func _ready():
 	if direction.x > 0.1:
@@ -14,7 +15,10 @@ func _ready():
 
 func _process(delta):
 	position = position + speed * direction * delta
-	if ray_cast.is_colliding():
+
+func _on_body_entered(body):
+	hits += 1
+	if hits >= MAX_HITS:
 		queue_free()
 
 func _on_timer_timeout():
