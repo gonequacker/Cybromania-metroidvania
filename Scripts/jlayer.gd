@@ -297,6 +297,8 @@ func heal():
 	if health >= HEALTH_MAX: return
 	# Use a health item
 	var amount = Global.heal(HEALTH_MAX - health)
+	# Exit early if player is out of health items
+	if amount <= 0: return
 	# Heal player
 	health += amount
 	# Cap health to the max health amount
