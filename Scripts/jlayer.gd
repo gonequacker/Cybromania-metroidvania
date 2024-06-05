@@ -7,12 +7,12 @@ extends CharacterBody2D
 @onready var head_bonker_1 = $HeadBonker
 @onready var head_bonker_2 = $HeadBonker2
 
-const PROJECTILE_S = preload("res://Scenes/projectile.tscn")
-const FIREWALL_S = preload("res://Scenes/firewall.tscn")
-const PIKE_S = preload("res://Scenes/pike.tscn")
-const DAGGER_S = preload("res://Scenes/dagger.tscn")
-const BLACKHOLE_S = preload("res://Scenes/blackhole.tscn")
-const BOLT_S = preload("res://Scenes/bolt.tscn")
+const PROJECTILE_S = preload("res://Scenes/Projectiles/projectile.tscn")
+const FIREWALL_S = preload("res://Scenes/Projectiles/firewall.tscn")
+const PIKE_S = preload("res://Scenes/Projectiles/pike.tscn")
+const DAGGER_S = preload("res://Scenes/Projectiles/dagger.tscn")
+const BLACKHOLE_S = preload("res://Scenes/Projectiles/blackhole.tscn")
+const BOLT_S = preload("res://Scenes/Projectiles/bolt.tscn")
 
 signal landed
 signal jumped

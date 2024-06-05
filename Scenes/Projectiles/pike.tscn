@@ -1,7 +1,22 @@
 [gd_scene load_steps=7 format=3 uid="uid://drn7gm2x2slyc"]
 
-[ext_resource type="Script" path="res://Scripts/pike.gd" id="1_upom5"]
-[ext_resource type="Texture2D" uid="uid://c3ogi40mnly1f" path="res://icon.svg" id="2_avan0"]
+[ext_resource type="Script" path="res://Scripts/pike.gd" id="1_hqhir"]
+[ext_resource type="Texture2D" uid="uid://c3ogi40mnly1f" path="res://icon.svg" id="2_qxupv"]
+
+[sub_resource type="Animation" id="Animation_fc43i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OriginArea2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_7a002"]
 resource_name = "attack"
@@ -33,21 +48,6 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(-45, 0), Vector2(-45, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_fc43i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("OriginArea2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_242qr"]
 _data = {
 "RESET": SubResource("Animation_fc43i"),
@@ -59,7 +59,7 @@ size = Vector2(76, 8)
 
 [node name="Pike" type="Node2D"]
 z_index = 3
-script = ExtResource("1_upom5")
+script = ExtResource("1_hqhir")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -71,7 +71,7 @@ speed_scale = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="OriginArea2D"]
 scale = Vector2(0.546875, 0.046875)
-texture = ExtResource("2_avan0")
+texture = ExtResource("2_qxupv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OriginArea2D"]
 shape = SubResource("RectangleShape2D_ugwlq")
