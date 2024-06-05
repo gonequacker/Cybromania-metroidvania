@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://dgt15dtho8llq"]
+
+[ext_resource type="Texture2D" uid="uid://jk1asdqdtaiu" path="res://Assets/Sunnyland/sprites/opossum/opossum-1.png" id="1_f4e4v"]
+[ext_resource type="Script" path="res://grav_enemy.gd" id="1_gen8x"]
+[ext_resource type="Texture2D" uid="uid://dl1hjkauf78g3" path="res://Assets/Sunnyland/sprites/opossum/opossum-2.png" id="2_j5sy4"]
+[ext_resource type="Texture2D" uid="uid://bd0acu6ecpu23" path="res://Assets/Sunnyland/sprites/opossum/opossum-3.png" id="3_4rted"]
+[ext_resource type="Texture2D" uid="uid://da2jhecswarjj" path="res://Assets/Sunnyland/sprites/opossum/opossum-4.png" id="4_03efw"]
+[ext_resource type="Texture2D" uid="uid://5d400mntmtgo" path="res://Assets/Sunnyland/sprites/opossum/opossum-5.png" id="5_ieoik"]
+[ext_resource type="Texture2D" uid="uid://c0ah7q0nvgewy" path="res://Assets/Sunnyland/sprites/opossum/opossum-6.png" id="6_snvwe"]
+[ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="7_wvx6j"]
+[ext_resource type="Script" path="res://Components/gravity_component.gd" id="9_rxysn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqtql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f4e4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j5sy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4rted")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_03efw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ieoik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_snvwe")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qo4s"]
+size = Vector2(20, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vnfi3"]
+radius = 49.0408
+
+[node name="Porcupine" type="CharacterBody2D"]
+script = ExtResource("1_gen8x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yqtql")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.50491
+offset = Vector2(-3, 0)
+flip_h = true
+
+[node name="Killzone" parent="." instance=ExtResource("7_wvx6j")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_5qo4s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_5qo4s")
+
+[node name="GravityComponent" type="Node" parent="."]
+script = ExtResource("9_rxysn")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-20, 2.08165e-12)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(20, 2.08165e-12)
+
+[node name="player_detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_vnfi3")
+
+[connection signal="area_entered" from="player_detection" to="." method="_on_player_detection_zone_area_entered"]
