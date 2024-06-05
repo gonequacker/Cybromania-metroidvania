@@ -8,8 +8,8 @@ extends CharacterBody2D
 @onready var head_bonker_1 = $HeadBonker
 @onready var head_bonker_2 = $HeadBonker2
 
-const ICON = preload("res://icon.svg")
 const PROJECTILE = preload("res://Scenes/projectile.tscn")
+const FIREWALL = preload("res://Scenes/firewall.tscn")
 
 signal landed
 signal jumped
@@ -321,23 +321,22 @@ func attack():
 	# Take into account current weapon.
 	match weapon:
 		HAND:
-			attack_hand(direction)
+			spawn_proj(direction, PROJECTILE)
 		STAFF:
-			attack_hand(direction)
+			spawn_proj(direction, FIREWALL)
 		PIKE:
-			attack_hand(direction)
+			spawn_proj(direction, PROJECTILE)
 		DAGGER:
-			attack_hand(direction)
+			spawn_proj(direction, PROJECTILE)
 		LAUNCHER:
-			attack_hand(direction)
+			spawn_proj(direction, PROJECTILE)
 		ARBALEST:
-			attack_hand(direction)
+			spawn_proj(direction, PROJECTILE)
 	# Attack cooldown
 	weapon_cooldown = ATTACK_MAX[weapon]
-
-func attack_hand(direction):
-	# Debug projectile attack
-	var bullet = PROJECTILE.instantiate()
-	bullet.position = position + Vector2(0.0, 5.0 if crouched else 0.0)
-	bullet.direction = direction
-	get_parent().add_child(bullet)
+# Attacking functions
+func spawn_proj(direction, projectile):
+	var proj = projectile.instantiate()
+	proj.position = position + Vector2(0.0, 5.0 if crouched else 1.0)
+	proj.direction = direction
+	get_parent().add_child(proj)

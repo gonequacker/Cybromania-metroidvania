@@ -742,7 +742,7 @@ theme_override_font_sizes/font_size = 8
 text = "Double Jump"
 
 [node name="Staff" parent="Items" instance=ExtResource("13_jo8xf")]
-position = Vector2(416, 311)
+position = Vector2(123, 120)
 item_name = "spell"
 item_texture = ExtResource("14_a64o1")
 

@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 var direction = Vector2(1.0,0.0)
 var speed = 300.0
