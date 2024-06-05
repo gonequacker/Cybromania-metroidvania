@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://drn7gm2x2slyc"]
+
+[ext_resource type="Script" path="res://Scripts/pike.gd" id="1_upom5"]
+[ext_resource type="Texture2D" uid="uid://c3ogi40mnly1f" path="res://icon.svg" id="2_avan0"]
+
+[sub_resource type="Animation" id="Animation_7a002"]
+resource_name = "attack"
+length = 0.75
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OriginArea2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.55, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-45, 0), Vector2(-45, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fc43i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OriginArea2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_242qr"]
+_data = {
+"RESET": SubResource("Animation_fc43i"),
+"attack": SubResource("Animation_7a002")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugwlq"]
+size = Vector2(76, 8)
+
+[node name="Pike" type="Node2D"]
+z_index = 3
+script = ExtResource("1_upom5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_242qr")
+}
+speed_scale = 2.0
+
+[node name="OriginArea2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="OriginArea2D"]
+scale = Vector2(0.546875, 0.046875)
+texture = ExtResource("2_avan0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OriginArea2D"]
+shape = SubResource("RectangleShape2D_ugwlq")

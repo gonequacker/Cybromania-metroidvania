@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@onready var pickup_rect = $ColorRect
 @onready var invuln_anim = $InvulnAnim
 @onready var sprite = $Sprite
 @onready var collider = $Collider
@@ -8,8 +7,9 @@ extends CharacterBody2D
 @onready var head_bonker_1 = $HeadBonker
 @onready var head_bonker_2 = $HeadBonker2
 
-const PROJECTILE = preload("res://Scenes/projectile.tscn")
-const FIREWALL = preload("res://Scenes/firewall.tscn")
+const PROJECTILE_S = preload("res://Scenes/projectile.tscn")
+const FIREWALL_S = preload("res://Scenes/firewall.tscn")
+const PIKE_S = preload("res://Scenes/pike.tscn")
 
 signal landed
 signal jumped
@@ -44,7 +44,7 @@ enum {HAND, STAFF, PIKE, DAGGER, LAUNCHER, ARBALEST}
 var ATTACK_MAX = {
 	HAND: 25,
 	STAFF: 60,
-	PIKE: 20,
+	PIKE: 30,
 	DAGGER: 8,
 	LAUNCHER: 75,
 	ARBALEST: 15
@@ -185,22 +185,16 @@ func handle_inputs(delta):
 	# Handle hotbar inputs. (yikes)
 	if Input.is_action_just_pressed("1"):
 		weapon = HAND
-		print(weapon)
 	if Input.is_action_just_pressed("2") and has_staff():
 		weapon = STAFF
-		print(weapon)
 	if Input.is_action_just_pressed("3") and has_pike():
 		weapon = PIKE
-		print(weapon)
 	if Input.is_action_just_pressed("4") and has_dagger():
 		weapon = DAGGER
-		print(weapon)
 	if Input.is_action_just_pressed("5") and has_launcher():
 		weapon = LAUNCHER
-		print(weapon)
 	if Input.is_action_just_pressed("6") and has_arbalest():
 		weapon = ARBALEST
-		print(weapon)
 	
 	# Handle item inputs.
 	if Input.is_action_just_pressed("heal"):
@@ -321,17 +315,17 @@ func attack():
 	# Take into account current weapon.
 	match weapon:
 		HAND:
-			spawn_proj(direction, PROJECTILE)
+			spawn_proj(direction, PROJECTILE_S)
 		STAFF:
-			spawn_proj(direction, FIREWALL)
+			spawn_proj(direction, FIREWALL_S)
 		PIKE:
-			spawn_proj(direction, PROJECTILE)
+			spawn_melee(direction, PIKE_S)
 		DAGGER:
-			spawn_proj(direction, PROJECTILE)
+			spawn_proj(direction, PROJECTILE_S)
 		LAUNCHER:
-			spawn_proj(direction, PROJECTILE)
+			spawn_proj(direction, PROJECTILE_S)
 		ARBALEST:
-			spawn_proj(direction, PROJECTILE)
+			spawn_proj(direction, PROJECTILE_S)
 	# Attack cooldown
 	weapon_cooldown = ATTACK_MAX[weapon]
 # Attacking functions
@@ -340,3 +334,8 @@ func spawn_proj(direction, projectile):
 	proj.position = position + Vector2(0.0, 5.0 if crouched else 1.0)
 	proj.direction = direction
 	get_parent().add_child(proj)
+func spawn_melee(direction, melee):
+	var proj = melee.instantiate()
+	proj.position = Vector2(0.0, 5.0 if crouched else 1.0)
+	proj.direction = direction
+	add_child(proj)
