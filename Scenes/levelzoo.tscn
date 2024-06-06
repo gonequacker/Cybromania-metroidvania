@@ -1,16 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://bte131drj8i23"]
+[gd_scene load_steps=21 format=3 uid="uid://suwu6iie7uoa"]
 
 [ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Assets/Sunnyland/environment/Background/back.png" id="1_vcm6u"]
 [ext_resource type="Texture2D" uid="uid://bwion3j0g377" path="res://Assets/Sunnyland/environment/Background/middle.png" id="2_hwfdx"]
 [ext_resource type="Script" path="res://Scripts/middleground.gd" id="3_afbuk"]
+[ext_resource type="PackedScene" uid="uid://dgt15dtho8llq" path="res://Scenes/enemies/porcupine.tscn" id="7_burj3"]
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="7_c13uj"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="8_sgwk4"]
-[ext_resource type="PackedScene" uid="uid://rtnempcj6noa" path="res://Scenes/stationary_enemy.tscn" id="9_5dgae"]
-[ext_resource type="PackedScene" uid="uid://chn408wsd17td" path="res://Scenes/moving_enemy.tscn" id="10_kwy41"]
-[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="11_gtvvy"]
-[ext_resource type="PackedScene" path="res://Scenes/coin.tscn" id="12_2f7e1"]
+[ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_gtvvy"]
+[ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/coin.tscn" id="12_2f7e1"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="12_7f1e4"]
-[ext_resource type="PackedScene" path="res://Scenes/inventory_item.tscn" id="13_jo8xf"]
+[ext_resource type="PackedScene" uid="uid://cxqiut0ew5sdl" path="res://Scenes/enemies/static_fishing_hook.tscn" id="12_n8wre"]
+[ext_resource type="PackedScene" uid="uid://dh123d6i6yucc" path="res://Scenes/enemies/dynamic_fishing_hook.tscn" id="13_3d4xa"]
+[ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="13_jo8xf"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="14_a64o1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
@@ -599,12 +600,14 @@ layer_0/tile_data = PackedInt32Array(589825, 1114114, 7, 589826, 1114114, 7, 589
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Froge" parent="Enemies" instance=ExtResource("9_5dgae")]
-position = Vector2(62, 213)
-scale = Vector2(-1, 1)
+[node name="Porcupine" parent="Enemies" instance=ExtResource("7_burj3")]
+position = Vector2(213, 177)
 
-[node name="Pawsome" parent="Enemies" instance=ExtResource("10_kwy41")]
-position = Vector2(145, 225)
+[node name="StaticFishingHook" parent="Enemies" instance=ExtResource("12_n8wre")]
+position = Vector2(400, 89)
+
+[node name="DynamicFishingHook" parent="Enemies" instance=ExtResource("13_3d4xa")]
+position = Vector2(550, 130)
 
 [node name="Platforms" type="Node" parent="."]
 

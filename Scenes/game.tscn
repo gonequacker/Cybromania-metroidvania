@@ -17,6 +17,7 @@ unique_name_in_owner = true
 
 [node name="Jlayer" parent="World" instance=ExtResource("4_lpydj")]
 position = Vector2(56, 123)
+scale = Vector2(1.00174, 1)
 script = ExtResource("5_w5j7r")
 SPEED = 110.0
 
