@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="7_c13uj"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="8_sgwk4"]
 [ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_gtvvy"]
-[ext_resource type="Texture2D" uid="uid://dipkhirvj5wi4" path="res://Assets/Sunnyland/sprites/gem/gem-1.png" id="11_yl562"]
 [ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/coin.tscn" id="12_2f7e1"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="12_7f1e4"]
 [ext_resource type="PackedScene" uid="uid://cxqiut0ew5sdl" path="res://Scenes/enemies/static_fishing_hook.tscn" id="12_n8wre"]
@@ -622,7 +621,6 @@ libraries = {
 autoplay = "move"
 
 [node name="Coins" type="Node" parent="."]
-process_mode = 4
 
 [node name="Coin" parent="Coins" instance=ExtResource("12_2f7e1")]
 position = Vector2(96, 119)
@@ -652,23 +650,6 @@ position = Vector2(898, -113)
 position = Vector2(916, -113)
 
 [node name="Items" type="Node" parent="."]
-
-[node name="Byte" parent="Items" instance=ExtResource("13_jo8xf")]
-position = Vector2(528, 176)
-item_name = "bytes"
-item_texture = ExtResource("11_yl562")
-
-[node name="Label" type="Label" parent="Items/Byte"]
-offset_left = -46.0
-offset_top = -32.0
-offset_right = 48.0
-offset_bottom = -9.0
-theme = SubResource("Theme_cdsd6")
-theme_override_fonts/font = ExtResource("12_7f1e4")
-theme_override_font_sizes/font_size = 8
-text = "Malware
-Byte"
-horizontal_alignment = 1
 
 [node name="Cookie" parent="Items" instance=ExtResource("13_jo8xf")]
 position = Vector2(591, 176)
