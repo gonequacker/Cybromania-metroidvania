@@ -12,7 +12,6 @@ func life_changed(player_health):
 		print(player_health)
 		print(lives_displayed)
 		if lives_displayed > player_health:
-			print("reached")
 			get_children()[-1].queue_free()
 			lives_displayed-=1
 		elif lives_displayed < player_health:
