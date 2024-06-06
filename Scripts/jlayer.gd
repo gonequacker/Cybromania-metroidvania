@@ -55,6 +55,7 @@ var weapon = 0 # currently held weapon.
 func _ready():
 	Global.set_player_reference(self) # tbh im not sure why im doing this
 	connect("hurt", get_parent().get_parent().get_node("CanvasLayer/HUD/Lives").life_changed)
+	connect("hurt", get_parent().get_parent().get_node("CanvasLayer/GameOver").life_changed)
 	connect("healed", get_parent().get_parent().get_node("CanvasLayer/HUD/Lives").life_changed)
 	emit_signal("healed", HEALTH_MAX)
 
