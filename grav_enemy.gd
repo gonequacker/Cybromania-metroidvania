@@ -11,7 +11,7 @@ extends CharacterBody2D
 @onready var ray_cast_left = $RayCastLeft
 @onready var gravity_comp = get_node("GravityComponent")
 
-var facing = 1
+var facing = -1
 var attack_timer = 0 # 0 = not attacking, positive = countdown to attack
 @export var speed = 50
 @export var attack_time = 50
