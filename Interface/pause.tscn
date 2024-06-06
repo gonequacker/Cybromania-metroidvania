@@ -39,6 +39,7 @@ grow_vertical = 2
 theme_override_constants/separation = 6
 
 [node name="Button" type="Button" parent="VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Resume"
 script = ExtResource("2_e7afy")
