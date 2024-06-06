@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bte131drj8i23"]
+[gd_scene load_steps=22 format=3 uid="uid://bte131drj8i23"]
 
 [ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Assets/Sunnyland/environment/Background/back.png" id="1_vcm6u"]
 [ext_resource type="Texture2D" uid="uid://bwion3j0g377" path="res://Assets/Sunnyland/environment/Background/middle.png" id="2_hwfdx"]
