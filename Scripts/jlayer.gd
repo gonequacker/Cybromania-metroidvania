@@ -14,8 +14,8 @@ signal double_jumped
 signal dashed
 signal wall_clinged
 signal wall_jumped
-signal hurt
-signal healed
+signal hurt(player_health)
+signal healed(player_health)
 
 @export var SPEED = 120.0 # force of walking/moving left and right.
 @export var CROUCH_SPEED = 60.0 # force of walking while crouched.
@@ -54,6 +54,9 @@ var weapon = 0 # currently held weapon.
 
 func _ready():
 	Global.set_player_reference(self) # tbh im not sure why im doing this
+	connect("hurt", get_parent().get_parent().get_node("CanvasLayer/HUD/Lives").life_changed)
+	connect("healed", get_parent().get_parent().get_node("CanvasLayer/HUD/Lives").life_changed)
+	emit_signal("healed", HEALTH_MAX)
 
 func _physics_process(delta):
 	handle_inputs(delta)
@@ -219,7 +222,7 @@ func take_damage(amount):
 	invuln = INVULN_MAX
 	invuln_anim.play("invuln")
 	# Play hurt sound
-	emit_signal("hurt")
+	emit_signal("hurt", health)
 	# Update UI
 	# TODO: Link to some UI elements
 	print(str(health) + "/" + str(HEALTH_MAX))
@@ -231,7 +234,7 @@ func heal(amount):
 	if health > HEALTH_MAX:
 		health = HEALTH_MAX
 	# Play heal sound
-	emit_signal("healed")
+	emit_signal("healed", health)
 	# Update UI
 	# TODO: Link to some UI elements
 	print(str(health) + "/" + str(HEALTH_MAX))
