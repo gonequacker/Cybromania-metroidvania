@@ -1,97 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://ce65utf3offoj"]
+[gd_scene load_steps=6 format=3 uid="uid://ce65utf3offoj"]
 
+[ext_resource type="PackedScene" uid="uid://bbb1w0bphnmcb" path="res://Scenes/ui.tscn" id="1_10yyv"]
 [ext_resource type="PackedScene" uid="uid://bte131drj8i23" path="res://Scenes/levelzoo.tscn" id="3_sss2f"]
-[ext_resource type="PackedScene" path="res://Scenes/life_frame.tscn" id="3_wrrlq"]
-[ext_resource type="Script" path="res://Scripts/BytesCounter.gd" id="4_g3x82"]
-[ext_resource type="PackedScene" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
+[ext_resource type="PackedScene" uid="uid://bqebygpqsqv3y" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
 [ext_resource type="PackedScene" path="res://Scenes/audio.tscn" id="4_uymx3"]
-[ext_resource type="Texture2D" uid="uid://dmyk8nyiqjjnu" path="res://Assets/Sunnyland/sprites/gem/gem-4.png" id="5_kp1k5"]
 [ext_resource type="Script" path="res://Scripts/jlayer.gd" id="5_w5j7r"]
-[ext_resource type="Script" path="res://Interface/Lives.gd" id="6_5nu4w"]
-[ext_resource type="FontFile" uid="uid://cpl2r6041cult" path="res://Assets/Fonts/dogicapixel.ttf" id="6_6y6kp"]
-[ext_resource type="PackedScene" uid="uid://cbj555cllh5ug" path="res://Interface/pause.tscn" id="6_8cgi0"]
-[ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="6_hcng2"]
-[ext_resource type="PackedScene" uid="uid://b6suea47mt61r" path="res://Scenes/game_over.tscn" id="8_beknr"]
 
 [node name="Game" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Lives" type="BoxContainer" parent="CanvasLayer/HUD"]
-layout_mode = 1
-offset_right = 75.0
-offset_bottom = 40.0
-size_flags_horizontal = 0
-theme_override_constants/separation = -4
-script = ExtResource("6_5nu4w")
-
-[node name="TextureRect" parent="CanvasLayer/HUD/Lives" instance=ExtResource("3_wrrlq")]
-layout_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/Lives"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-texture = ExtResource("6_hcng2")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HUD/Lives"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-texture = ExtResource("6_hcng2")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/HUD/Lives"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-texture = ExtResource("6_hcng2")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="MarginContainer (Bytes)" type="MarginContainer" parent="CanvasLayer/HUD"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -42.0
-offset_bottom = 40.0
-grow_horizontal = 0
-theme_override_constants/margin_left = -10
-theme_override_constants/margin_top = -15
-
-[node name="Bytes" type="BoxContainer" parent="CanvasLayer/HUD/MarginContainer (Bytes)"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource("4_g3x82")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer (Bytes)/Bytes"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("5_kp1k5")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer (Bytes)/Bytes"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_6y6kp")
-theme_override_font_sizes/font_size = 16
-text = "x1"
-
-[node name="Pause" parent="CanvasLayer" instance=ExtResource("6_8cgi0")]
-visible = false
-top_level = true
-
-[node name="GameOver" parent="CanvasLayer" instance=ExtResource("8_beknr")]
+[node name="UI" parent="." instance=ExtResource("1_10yyv")]
 
 [node name="AudioSystem" parent="." instance=ExtResource("4_uymx3")]
 unique_name_in_owner = true
