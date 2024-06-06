@@ -20,8 +20,8 @@ signal double_jumped
 signal dashed
 signal wall_clinged
 signal wall_jumped
-signal hurt
-signal healed
+signal hurt(player_health)
+signal healed(player_health)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -76,6 +76,9 @@ var weapon_cooldown = 0 # frames until player can attack again.
 
 func _ready():
 	Global.set_player_reference(self) # tbh im not sure why im doing this
+	connect("hurt", get_parent().get_parent().get_node("CanvasLayer/HUD/Lives").life_changed)
+	connect("healed", get_parent().get_parent().get_node("CanvasLayer/HUD/Lives").life_changed)
+	emit_signal("healed", HEALTH_MAX)
 
 
 func _physics_process(delta):
@@ -287,7 +290,7 @@ func take_damage(amount):
 	invuln = INVULN_MAX
 	invuln_anim.play("invuln")
 	# Play hurt sound
-	emit_signal("hurt")
+	emit_signal("hurt", health)
 	# Update UI
 	# TODO: Link to some UI elements
 	print(str(health) + "/" + str(HEALTH_MAX))
@@ -304,7 +307,7 @@ func heal():
 	# Cap health to the max health amount
 	if health > HEALTH_MAX: health = HEALTH_MAX
 	# Play heal sound
-	emit_signal("healed")
+	emit_signal("healed", health)
 	# Update UI
 	# TODO: Link to some UI elements
 	print(str(health) + "/" + str(HEALTH_MAX))

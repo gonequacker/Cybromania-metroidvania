@@ -1,11 +1,59 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce65utf3offoj"]
+[gd_scene load_steps=9 format=3 uid="uid://ce65utf3offoj"]
 
-[ext_resource type="PackedScene" uid="uid://suwu6iie7uoa" path="res://Scenes/levelzoo.tscn" id="3_sss2f"]
-[ext_resource type="PackedScene" uid="uid://bqebygpqsqv3y" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
-[ext_resource type="PackedScene" uid="uid://iwjcre1t4yuo" path="res://Scenes/audio.tscn" id="4_uymx3"]
+[ext_resource type="PackedScene" path="res://Scenes/levelzoo.tscn" id="3_sss2f"]
+[ext_resource type="PackedScene" uid="uid://dnfulpiitnhun" path="res://Scenes/life_frame.tscn" id="3_wrrlq"]
+[ext_resource type="PackedScene" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
+[ext_resource type="PackedScene" path="res://Scenes/audio.tscn" id="4_uymx3"]
 [ext_resource type="Script" path="res://Scripts/jlayer.gd" id="5_w5j7r"]
+[ext_resource type="Script" path="res://Interface/Lives.gd" id="6_5nu4w"]
+[ext_resource type="PackedScene" uid="uid://cbj555cllh5ug" path="res://Interface/pause.tscn" id="6_8cgi0"]
+[ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="6_hcng2"]
 
 [node name="Game" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("6_8cgi0")]
+visible = false
+top_level = true
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Lives" type="BoxContainer" parent="CanvasLayer/HUD"]
+layout_mode = 1
+offset_right = 75.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+theme_override_constants/separation = -4
+script = ExtResource("6_5nu4w")
+
+[node name="TextureRect" parent="CanvasLayer/HUD/Lives" instance=ExtResource("3_wrrlq")]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/Lives"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("6_hcng2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HUD/Lives"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("6_hcng2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/HUD/Lives"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("6_hcng2")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="AudioSystem" parent="." instance=ExtResource("4_uymx3")]
 unique_name_in_owner = true
@@ -20,12 +68,3 @@ script = ExtResource("5_w5j7r")
 position_smoothing_speed = 8.0
 
 [node name="ZooLevel" parent="World" instance=ExtResource("3_sss2f")]
-
-[connection signal="dashed" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_dashed"]
-[connection signal="double_jumped" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_double_jumped"]
-[connection signal="healed" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_healed"]
-[connection signal="hurt" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_hurt"]
-[connection signal="jumped" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_jumped"]
-[connection signal="landed" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_landed"]
-[connection signal="wall_clinged" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_wall_clinged"]
-[connection signal="wall_jumped" from="World/Jlayer" to="AudioSystem" method="_on_jlayer_wall_jumped"]
