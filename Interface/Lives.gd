@@ -1,14 +1,11 @@
 extends BoxContainer
 @onready var lifeFrame = preload("res://Scenes/life_frame.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	life_changed(10)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
+# Update life counter
 func life_changed(player_health):
 	var lives_displayed = get_child_count()
 	while (player_health != lives_displayed):
@@ -21,4 +18,4 @@ func life_changed(player_health):
 		elif lives_displayed < player_health:
 			add_child(lifeFrame.instantiate()) 
 			lives_displayed+=1
-	
+
