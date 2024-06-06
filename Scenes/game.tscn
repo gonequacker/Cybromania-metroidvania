@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://ce65utf3offoj"]
 
 [ext_resource type="PackedScene" uid="uid://bte131drj8i23" path="res://Scenes/levelzoo.tscn" id="3_sss2f"]
-[ext_resource type="PackedScene" path="res://Scenes/life_frame.tscn" id="3_wrrlq"]
+[ext_resource type="PackedScene" uid="uid://bwdiwk2lrv3ng" path="res://Scenes/life_frame.tscn" id="3_wrrlq"]
 [ext_resource type="Script" path="res://Scripts/BytesCounter.gd" id="4_g3x82"]
-[ext_resource type="PackedScene" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
-[ext_resource type="PackedScene" path="res://Scenes/audio.tscn" id="4_uymx3"]
+[ext_resource type="PackedScene" uid="uid://bqebygpqsqv3y" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
+[ext_resource type="PackedScene" uid="uid://iwjcre1t4yuo" path="res://Scenes/audio.tscn" id="4_uymx3"]
 [ext_resource type="Texture2D" uid="uid://dmyk8nyiqjjnu" path="res://Assets/Sunnyland/sprites/gem/gem-4.png" id="5_kp1k5"]
 [ext_resource type="Script" path="res://Scripts/jlayer.gd" id="5_w5j7r"]
 [ext_resource type="Script" path="res://Interface/Lives.gd" id="6_5nu4w"]
