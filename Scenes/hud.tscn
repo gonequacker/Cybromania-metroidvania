@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://drcmaq4igepu2"]
+
+[ext_resource type="Script" path="res://Interface/Lives.gd" id="1_ajqu4"]
+[ext_resource type="PackedScene" path="res://Scenes/life_frame.tscn" id="2_wpwxj"]
+[ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="3_xykoy"]
+[ext_resource type="Script" path="res://Scripts/BytesCounter.gd" id="4_kwr12"]
+[ext_resource type="Texture2D" uid="uid://dmyk8nyiqjjnu" path="res://Assets/Sunnyland/sprites/gem/gem-4.png" id="5_ayfs7"]
+[ext_resource type="FontFile" uid="uid://cpl2r6041cult" path="res://Assets/Fonts/dogicapixel.ttf" id="6_bo8f8"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lives" type="BoxContainer" parent="."]
+layout_mode = 1
+offset_right = 75.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+theme_override_constants/separation = -4
+script = ExtResource("1_ajqu4")
+
+[node name="TextureRect" parent="Lives" instance=ExtResource("2_wpwxj")]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Lives"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_xykoy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="Lives"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_xykoy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="Lives"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_xykoy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarginContainer (Bytes)" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -42.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_left = -10
+theme_override_constants/margin_top = -15
+
+[node name="Bytes" type="BoxContainer" parent="MarginContainer (Bytes)"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("4_kwr12")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer (Bytes)/Bytes"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_ayfs7")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer (Bytes)/Bytes"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_bo8f8")
+theme_override_font_sizes/font_size = 16
+text = "x1"
