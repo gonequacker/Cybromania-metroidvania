@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://Scripts/middleground.gd" id="8_s51jq"]
 [ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="9_h8kx0"]
 [ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/coin.tscn" id="10_bpdxc"]
-[ext_resource type="PackedScene" uid="uid://rtnempcj6noa" path="res://Scenes/stationary_enemy.tscn" id="11_6f8bg"]
-[ext_resource type="PackedScene" uid="uid://chn408wsd17td" path="res://Scenes/moving_enemy.tscn" id="12_oc40p"]
+[ext_resource type="PackedScene" uid="uid://rtnempcj6noa" path="res://Scenes/enemies/stationary_enemy.tscn" id="11_6f8bg"]
+[ext_resource type="PackedScene" uid="uid://chn408wsd17td" path="res://Scenes/enemies/moving_enemy.tscn" id="12_oc40p"]
 [ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="13_l75k5"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="14_b5t6o"]
 
