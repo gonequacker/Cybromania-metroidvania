@@ -5,10 +5,6 @@ extends BoxContainer
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-func byte_picked_up(item):
-	pass
+	get_node("Label").text = "x" + str(Global.inventory["bytes"])
