@@ -17,9 +17,15 @@ func _process(delta):
 	position = position + speed * direction * delta
 
 func _on_body_entered(body):
-	hits += 1
-	if hits >= MAX_HITS:
-		queue_free()
+	# Do nothing, as I don't want the bolt to crash into walls
+	pass
+
 
 func _on_timer_timeout():
 	queue_free()
+
+func _on_area_entered(area):
+	print("Bolt hit something...")
+	if area.is_in_group("porcupine"):
+		area.take_damage(1)
+		print("Bolt hit!")

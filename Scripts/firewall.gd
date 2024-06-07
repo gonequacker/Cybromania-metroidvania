@@ -19,3 +19,9 @@ func _process(delta):
 
 func _on_timer_timeout():
 	queue_free()
+
+func _on_area_entered(area):
+	print("Firewall hit something...")
+	if area.is_in_group("porcupine"):
+		area.take_damage(1)
+		print("Firewall hit!")

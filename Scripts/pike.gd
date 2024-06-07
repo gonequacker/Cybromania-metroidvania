@@ -11,3 +11,7 @@ func _ready():
 	if direction.y != 0.0:
 		rotation = -PI/2.0 if direction.y > 0.0 else PI/2.0
 	animation_player.play("attack")
+
+func _on_area_entered(area):
+	if area.is_in_group("porcupine"):
+		area.get_parent().get_node("HitboxComponent").take_damage(1)

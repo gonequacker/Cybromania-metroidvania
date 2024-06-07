@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://drn7gm2x2slyc"]
 
 [ext_resource type="Script" path="res://Scripts/pike.gd" id="1_hqhir"]
-[ext_resource type="Texture2D" uid="uid://c3ogi40mnly1f" path="res://icon.svg" id="2_qxupv"]
+[ext_resource type="Texture2D" uid="uid://bx5r5wvw33qfq" path="res://icon.svg" id="2_qxupv"]
 
 [sub_resource type="Animation" id="Animation_fc43i"]
 length = 0.001
@@ -75,3 +75,5 @@ texture = ExtResource("2_qxupv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OriginArea2D"]
 shape = SubResource("RectangleShape2D_ugwlq")
+
+[connection signal="area_entered" from="OriginArea2D" to="." method="_on_area_entered"]

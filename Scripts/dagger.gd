@@ -17,3 +17,9 @@ func _on_body_entered(body):
 
 func _on_timer_timeout():
 	queue_free()
+
+func _on_area_entered(area):
+	print("Dagger hit something...")
+	if area.is_in_group("porcupine"):
+		area.take_damage(1)
+		print("Dagger hit!")

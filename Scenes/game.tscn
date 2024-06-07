@@ -16,7 +16,7 @@ unique_name_in_owner = true
 [node name="World" type="Node2D" parent="."]
 
 [node name="Jlayer" parent="World" instance=ExtResource("4_lpydj")]
-position = Vector2(374, 326)
+position = Vector2(48, 114)
 script = ExtResource("5_w5j7r")
 
 [node name="Camera2D" type="Camera2D" parent="World/Jlayer"]

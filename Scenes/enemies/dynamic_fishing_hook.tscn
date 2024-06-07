@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dh123d6i6yucc"]
+[gd_scene load_steps=11 format=3 uid="uid://dh123d6i6yucc"]
 
 [ext_resource type="Script" path="res://dynamic_fishing_hook.gd" id="1_ang6y"]
 [ext_resource type="Texture2D" uid="uid://ckssd6k6bdan4" path="res://Assets/Sunnyland/sprites/eagle/eagle-attack-1.png" id="2_6c2v0"]
 [ext_resource type="Texture2D" uid="uid://ddqq2awlf3jlx" path="res://Assets/Sunnyland/sprites/eagle/eagle-attack-2.png" id="3_03huh"]
 [ext_resource type="Texture2D" uid="uid://ser6h33shtl1" path="res://Assets/Sunnyland/sprites/eagle/eagle-attack-3.png" id="4_w7n6l"]
 [ext_resource type="Texture2D" uid="uid://dmhr1bbrloerh" path="res://Assets/Sunnyland/sprites/eagle/eagle-attack-4.png" id="5_chmri"]
+[ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="7_syver"]
 [ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="8_k008v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_whk3x"]
@@ -57,6 +58,9 @@ collision_mask = 2
 [node name="detection_shape" type="CollisionShape2D" parent="player_detection"]
 position = Vector2(-23, 0)
 shape = SubResource("RectangleShape2D_lrv7o")
+
+[node name="HitboxComponent" parent="." groups=["hook"] instance=ExtResource("7_syver")]
+health = 20
 
 [connection signal="body_entered" from="player_detection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="player_detection" to="." method="_on_player_detection_body_exited"]

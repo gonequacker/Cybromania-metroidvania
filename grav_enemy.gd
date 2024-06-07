@@ -13,7 +13,7 @@ extends CharacterBody2D
 
 var facing = -1
 var attack_timer = 0 # 0 = not attacking, positive = countdown to attack
-@export var speed = 50
+@export var speed = 30
 @export var attack_time = 50
 
 func attack():
@@ -38,10 +38,10 @@ func _process(delta):
 	# change direction if there is an obstacle.
 	if ray_cast_right.is_colliding():
 		facing = -1
-		sprite.flip_h = false
+		sprite.flip_h = true
 	elif ray_cast_left.is_colliding():
 		facing = 1
-		sprite.flip_h = true
+		sprite.flip_h = false
 		
 	# move x using speed, and y using gravity component.
 	velocity.x = facing * speed

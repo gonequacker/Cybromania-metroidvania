@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bep4o603743k5"]
 
 [ext_resource type="Script" path="res://Scripts/firewall.gd" id="1_s628k"]
-[ext_resource type="Texture2D" uid="uid://c3ogi40mnly1f" path="res://icon.svg" id="2_2g60i"]
+[ext_resource type="Texture2D" uid="uid://bx5r5wvw33qfq" path="res://icon.svg" id="2_2g60i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugwlq"]
 size = Vector2(6, 36)
@@ -25,5 +25,6 @@ wait_time = 0.75
 one_shot = true
 autostart = true
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

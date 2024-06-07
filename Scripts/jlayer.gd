@@ -324,7 +324,7 @@ func attack():
 	# Take into account current weapon.
 	match weapon:
 		HAND:
-			spawn_proj(direction, PROJECTILE_S)
+			pass#spawn_proj(direction, PROJECTILE_S)
 		STAFF:
 			spawn_proj(direction, FIREWALL_S)
 		PIKE:
