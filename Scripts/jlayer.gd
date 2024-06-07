@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var invuln_anim = $InvulnAnim
+@onready var collect_anim = $CollectAnim
 @onready var sprite = $Sprite
 @onready var collider = $Collider
 @onready var crouch_collider = $CrouchCollider
@@ -15,6 +16,7 @@ extends CharacterBody2D
 @onready var double_jumpSFX = $SFX/DoubleJump
 @onready var hurtSFX = $SFX/Hurt
 @onready var healSFX = $SFX/Heal
+@onready var pickupSFX = $SFX/Pickup
 
 @onready var firewallSFX = $SFX/Weapon/Firewall
 @onready var daggerSFX = $SFX/Weapon/Dagger
@@ -360,3 +362,8 @@ func spawn_melee(direction, melee):
 	proj.position = Vector2(0.0, 5.0 if crouched else 1.0)
 	proj.direction = direction
 	add_child(proj)
+
+
+func play_collect_anim():
+	pickupSFX.play()
+	collect_anim.play("collect")
