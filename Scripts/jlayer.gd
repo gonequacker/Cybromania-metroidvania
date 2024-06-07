@@ -142,7 +142,7 @@ func handle_inputs(delta):
 	
 	# Handle early release jump cancel.
 	if jump and velocity.y < 0 and Input.is_action_just_released("jump"):
-		velocity.y = 0
+		velocity.y /= 3.0
 		jump = false
 
 	# Get the input direction.
