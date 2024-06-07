@@ -1,34 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://chn408wsd17td"]
+[gd_scene load_steps=8 format=3 uid="uid://chn408wsd17td"]
 
-[ext_resource type="Texture2D" uid="uid://jk1asdqdtaiu" path="res://Assets/Sunnyland/sprites/opossum/opossum-1.png" id="1_0e2sv"]
 [ext_resource type="Script" path="res://Scripts/moving_enemy.gd" id="1_1ma8u"]
-[ext_resource type="Texture2D" uid="uid://dl1hjkauf78g3" path="res://Assets/Sunnyland/sprites/opossum/opossum-2.png" id="2_piakh"]
-[ext_resource type="Texture2D" uid="uid://bd0acu6ecpu23" path="res://Assets/Sunnyland/sprites/opossum/opossum-3.png" id="3_f7rys"]
-[ext_resource type="Texture2D" uid="uid://da2jhecswarjj" path="res://Assets/Sunnyland/sprites/opossum/opossum-4.png" id="4_xs5e4"]
+[ext_resource type="Texture2D" uid="uid://b6q06t764op1r" path="res://Assets/Sprites/IMG_2422.PNG" id="2_o53wb"]
+[ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="4_v0pc0"]
 [ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="5_2ciff"]
-[ext_resource type="Texture2D" uid="uid://5d400mntmtgo" path="res://Assets/Sunnyland/sprites/opossum/opossum-5.png" id="5_njmep"]
-[ext_resource type="Texture2D" uid="uid://c0ah7q0nvgewy" path="res://Assets/Sunnyland/sprites/opossum/opossum-6.png" id="6_3126g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sf3r2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0e2sv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_piakh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_f7rys")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_xs5e4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_njmep")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_3126g")
+"texture": ExtResource("2_o53wb")
 }],
 "loop": true,
 "name": &"Idle",
@@ -38,14 +19,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok1e1"]
 size = Vector2(20, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5uvh"]
+size = Vector2(25, 28)
+
 [node name="MovingEnemy" type="Node2D"]
 script = ExtResource("1_1ma8u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_sf3r2")
 animation = &"Idle"
 autoplay = "Idle"
-frame = 5
 offset = Vector2(-3, 0)
 flip_h = true
 
@@ -60,3 +44,11 @@ target_position = Vector2(-20, 2.08165e-12)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(20, 2.08165e-12)
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_v0pc0")]
+
+[node name="Hitbox" type="Area2D" parent="." groups=["worm"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_r5uvh")
