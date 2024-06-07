@@ -19,7 +19,5 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_area_entered(area):
-	print("Dagger hit something...")
-	if area.is_in_group("porcupine"):
-		area.take_damage(1)
-		print("Dagger hit!")
+	if area.is_in_group("hook"):
+		area.get_parent().get_node("HitboxComponent").take_damage(1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dh123d6i6yucc"]
+[gd_scene load_steps=12 format=3 uid="uid://dh123d6i6yucc"]
 
 [ext_resource type="Script" path="res://dynamic_fishing_hook.gd" id="1_ang6y"]
 [ext_resource type="Texture2D" uid="uid://ckssd6k6bdan4" path="res://Assets/Sunnyland/sprites/eagle/eagle-attack-1.png" id="2_6c2v0"]
@@ -34,6 +34,9 @@ size = Vector2(20, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrv7o"]
 size = Vector2(96, 250)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o31eh"]
+size = Vector2(61, 46)
+
 [node name="DynamicFishingHook" type="Node2D"]
 script = ExtResource("1_ang6y")
 
@@ -59,8 +62,14 @@ collision_mask = 2
 position = Vector2(-23, 0)
 shape = SubResource("RectangleShape2D_lrv7o")
 
-[node name="HitboxComponent" parent="." groups=["hook"] instance=ExtResource("7_syver")]
+[node name="HitboxComponent" parent="." instance=ExtResource("7_syver")]
 health = 20
+
+[node name="Hitbox" type="Area2D" parent="." groups=["hook"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.5, -6)
+shape = SubResource("RectangleShape2D_o31eh")
 
 [connection signal="body_entered" from="player_detection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="player_detection" to="." method="_on_player_detection_body_exited"]
