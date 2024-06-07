@@ -10,7 +10,8 @@ func _ready():
 	pass
 
 func take_damage(damage):
-	print("hit!")
 	health -= damage
-	if health < 0:
+	print("hit! " + str(health))
+	if health <= 0:
 		get_parent().queue_free()
+		print("killed! ")
