@@ -47,7 +47,7 @@ target_position = Vector2(20, 2.08165e-12)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("4_v0pc0")]
 
-[node name="Hitbox" type="Area2D" parent="." groups=["worm"]]
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy", "worm"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 0.5)

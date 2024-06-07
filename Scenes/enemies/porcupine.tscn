@@ -120,7 +120,7 @@ debug_color = Color(6.97896e-07, 0.334191, 0.393609, 0.42)
 [node name="HitboxComponent" parent="." instance=ExtResource("5_tbo5n")]
 health = 5
 
-[node name="Hitbox" type="Area2D" parent="." groups=["porcupine"]]
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy", "porcupine"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0.5, -6)

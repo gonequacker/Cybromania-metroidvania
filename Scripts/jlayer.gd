@@ -7,6 +7,21 @@ extends CharacterBody2D
 @onready var head_bonker_1 = $HeadBonker
 @onready var head_bonker_2 = $HeadBonker2
 
+@onready var landSFX = $SFX/Land
+@onready var jumpSFX = $SFX/Jump
+@onready var dashSFX = $SFX/Dash
+@onready var wall_jumpSFX = $SFX/WallJump
+@onready var wall_clingSFX = $SFX/WallCling
+@onready var double_jumpSFX = $SFX/DoubleJump
+@onready var hurtSFX = $SFX/Hurt
+@onready var healSFX = $SFX/Heal
+
+@onready var firewallSFX = $SFX/Weapon/Firewall
+@onready var daggerSFX = $SFX/Weapon/Dagger
+@onready var pikeSFX = $SFX/Weapon/Pike
+@onready var arbalestSFX = $SFX/Weapon/Arbalest
+@onready var blackholeSFX = $SFX/Weapon/Blackhole
+
 const PROJECTILE_S = preload("res://Scenes/Projectiles/projectile.tscn")
 const FIREWALL_S = preload("res://Scenes/Projectiles/firewall.tscn")
 const PIKE_S = preload("res://Scenes/Projectiles/pike.tscn")
@@ -14,12 +29,6 @@ const DAGGER_S = preload("res://Scenes/Projectiles/dagger.tscn")
 const BLACKHOLE_S = preload("res://Scenes/Projectiles/blackhole.tscn")
 const BOLT_S = preload("res://Scenes/Projectiles/bolt.tscn")
 
-signal landed
-signal jumped
-signal double_jumped
-signal dashed
-signal wall_clinged
-signal wall_jumped
 signal hurt(player_health)
 signal healed(player_health)
 
@@ -106,7 +115,7 @@ func handle_inputs(delta):
 		airborne = true
 	else:
 		coyote = COYOTE_MAX
-		if airborne: emit_signal("landed")
+		if airborne: landSFX.play()
 		airborne = false
 		double_jump = false
 		double_jump_cooldown = 0
@@ -117,7 +126,7 @@ func handle_inputs(delta):
 	if (Input.is_action_just_pressed("jump") or jump_buffer > 0) and (is_on_floor() or coyote > 0): # Regular jump.
 		velocity.y = JUMP_VELOCITY
 		jump = true
-		emit_signal("jumped")
+		jumpSFX.play()
 		jump_buffer = 0
 	elif Input.is_action_just_pressed("jump") and not double_jump and not wall_slide and dash < 0 and has_double_jump(): # Double jump.
 		double_jump_cooldown = DOUBLE_JUMP_MAX
@@ -129,7 +138,7 @@ func handle_inputs(delta):
 	# Handle double jump.
 	if double_jump_cooldown == 0 and has_double_jump():
 		velocity.y = DOUBLE_JUMP_VELOCITY
-		emit_signal("double_jumped")
+		double_jumpSFX.play()
 	
 	# Handle early release jump cancel.
 	if jump and velocity.y < 0 and Input.is_action_just_released("jump"):
@@ -145,14 +154,14 @@ func handle_inputs(delta):
 		velocity.x = facing * DASH_SPEED
 		dash = DASH_MAX
 		dash_cooldown = DASH_MAX + DASH_COOLDOWN_MAX
-		emit_signal("dashed")
+		dashSFX.play()
 	
 	# Wall jumping.
 	wall_cooldown -= 1
 	if is_on_wall_only() and velocity.y > 0 and has_wall_jump():
 		if not wall_slide and dash <= 0: # Can grab wall if not dashing
 			wall_slide = true
-			emit_signal("wall_clinged")
+			wall_clingSFX.play()
 			double_jump = false
 		if velocity.y > WALL_SLIDE_SPEED: # Slow descent when grabbing wall
 			velocity.y = WALL_SLIDE_SPEED
@@ -161,7 +170,7 @@ func handle_inputs(delta):
 			velocity.x = -facing * movespeed
 			velocity.y = JUMP_VELOCITY
 			jump = true
-			emit_signal("wall_jumped")
+			wall_jumpSFX.play()
 	else:
 		wall_slide = false
 	
@@ -291,10 +300,9 @@ func take_damage(amount):
 	invuln = INVULN_MAX
 	invuln_anim.play("invuln")
 	# Play hurt sound
-	emit_signal("hurt", health)
+	hurtSFX.play()
 	# Update UI
-	# TODO: Link to some UI elements
-	print(str(health) + "/" + str(HEALTH_MAX))
+	emit_signal("hurt", health)
 # Heal player by some amount.
 func heal():
 	# Exit early if player is already at max health
@@ -308,10 +316,9 @@ func heal():
 	# Cap health to the max health amount
 	if health > HEALTH_MAX: health = HEALTH_MAX
 	# Play heal sound
-	emit_signal("healed", health)
+	healSFX.play()
 	# Update UI
-	# TODO: Link to some UI elements
-	print(str(health) + "/" + str(HEALTH_MAX))
+	emit_signal("healed", health)
 
 
 func attack():
@@ -327,14 +334,19 @@ func attack():
 			pass#spawn_proj(direction, PROJECTILE_S)
 		STAFF:
 			spawn_proj(direction, FIREWALL_S)
+			firewallSFX.play()
 		PIKE:
 			spawn_melee(direction, PIKE_S)
+			pikeSFX.play()
 		DAGGER:
 			spawn_proj(direction, DAGGER_S)
+			daggerSFX.play()
 		LAUNCHER:
 			spawn_proj(direction, BLACKHOLE_S)
+			blackholeSFX.play()
 		ARBALEST:
 			spawn_proj(direction, BOLT_S)
+			arbalestSFX.play()
 	# Attack cooldown
 	weapon_cooldown = ATTACK_MAX[weapon]
 # Attacking functions

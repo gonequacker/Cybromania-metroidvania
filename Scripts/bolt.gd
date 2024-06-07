@@ -11,7 +11,7 @@ func _ready():
 	if direction.x > 0.1:
 		scale.x *= -1.0
 	if direction.y != 0.0:
-		rotation = -PI/2.0 if direction.y > 0.0 else PI/2.0
+		rotation = -PI/2.0 * direction.y
 
 func _process(delta):
 	position = position + speed * direction * delta
@@ -25,4 +25,5 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_area_entered(area):
-	area.get_parent().get_node("HitboxComponent").take_damage(1)
+	if area.is_in_group("enemy"):
+		area.get_parent().get_node("HitboxComponent").take_damage(2)

@@ -48,7 +48,7 @@ debug_color = Color(1, 0, 0, 0.54902)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("6_6gdej")]
 
-[node name="Hitbox" type="Area2D" parent="." groups=["dos"]]
+[node name="Hitbox" type="Area2D" parent="." groups=["dos", "enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 0.5)

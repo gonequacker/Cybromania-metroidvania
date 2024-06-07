@@ -52,7 +52,7 @@ shape = SubResource("RectangleShape2D_lrv7o")
 [node name="HitboxComponent" parent="." instance=ExtResource("7_syver")]
 health = 20
 
-[node name="Hitbox" type="Area2D" parent="." groups=["hook"]]
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy", "hook"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0.5, -6)
