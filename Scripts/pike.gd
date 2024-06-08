@@ -13,6 +13,5 @@ func _ready():
 	animation_player.play("attack")
 
 func _on_area_entered(area):
-	print("test")
 	if area.is_in_group("porcupine"):
 		area.get_parent().get_node("HitboxComponent").take_damage(1)
