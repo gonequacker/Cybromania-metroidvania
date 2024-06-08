@@ -5,6 +5,10 @@ extends Node2D
 # If player enters the detection zone, the hook will move up or down trying to 
 # match the player's y coordinate. 
 
+@onready var anim = $Anim
+@onready var hurtSFX = $Hurt
+@onready var dieSFX = $Die
+
 var player = null
 @export var speed = 50
 
@@ -25,3 +29,16 @@ func _on_player_detection_body_entered(body):
 func _on_player_detection_body_exited(body):
 	print("player exited: ", player == body)
 	player = null
+
+
+# Handle hitbox signals
+func _on_hitbox_component_hurt():
+	anim.play("hurt")
+	hurtSFX.play()
+
+func _on_hitbox_component_killed():
+	anim.play("killed")
+	dieSFX.play()
+
+func _on_die_finished():
+	queue_free()

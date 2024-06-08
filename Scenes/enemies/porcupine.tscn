@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgt15dtho8llq"]
+[gd_scene load_steps=23 format=3 uid="uid://dgt15dtho8llq"]
 
 [ext_resource type="Script" path="res://grav_enemy.gd" id="1_gen8x"]
 [ext_resource type="Texture2D" uid="uid://dvxoedtxongxp" path="res://Assets/Sprites/IMG_2415.PNG" id="2_v8ymn"]
 [ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="5_tbo5n"]
+[ext_resource type="AudioStream" uid="uid://b50l8x3fjsay1" path="res://Assets/SFX/Enemies/porcupineHurt.wav" id="6_xddli"]
+[ext_resource type="AudioStream" uid="uid://btfbmuold04gw" path="res://Assets/SFX/Enemies/porcupineDie.wav" id="7_l0jms"]
 [ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="7_wvx6j"]
 [ext_resource type="Script" path="res://Components/gravity_component.gd" id="9_rxysn"]
 
@@ -78,6 +80,135 @@ size = Vector2(51, 38)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qttbg"]
 size = Vector2(61, 46)
 
+[sub_resource type="Animation" id="Animation_gpaff"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Killzone:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ahf8e"]
+resource_name = "killed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.478431, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_physics_process"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pause"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Killzone:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fklbd"]
+resource_name = "hurt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uqril"]
+_data = {
+"RESET": SubResource("Animation_gpaff"),
+"hurt": SubResource("Animation_fklbd"),
+"killed": SubResource("Animation_ahf8e")
+}
+
 [node name="Porcupine" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_gen8x")
@@ -126,6 +257,24 @@ health = 5
 position = Vector2(0.5, -6)
 shape = SubResource("RectangleShape2D_qttbg")
 
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xddli")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_l0jms")
+volume_db = -2.0
+bus = &"SFX"
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uqril")
+}
+
 [connection signal="area_entered" from="player_detection" to="." method="_on_player_detection_zone_area_entered"]
 [connection signal="body_entered" from="player_detection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="player_detection" to="." method="_on_player_detection_body_exited"]
+[connection signal="hurt" from="HitboxComponent" to="." method="_on_hitbox_component_hurt"]
+[connection signal="killed" from="HitboxComponent" to="." method="_on_hitbox_component_killed"]
+[connection signal="finished" from="Die" to="." method="_on_die_finished"]

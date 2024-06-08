@@ -11,6 +11,10 @@ extends CharacterBody2D
 @onready var ray_cast_left = $RayCastLeft
 @onready var gravity_comp = get_node("GravityComponent")
 
+@onready var anim = $Anim
+@onready var hurtSFX = $Hurt
+@onready var dieSFX = $Die
+
 var facing = -1
 var attack_timer = 0 # 0 = not attacking, positive = countdown to attack
 @export var speed = 30
@@ -21,7 +25,7 @@ func attack():
 	# emits spines that shoot in random directions close to the porcupine. 
 	# only if there is time and it would add to gameplay!
 
-func _process(delta):
+func _physics_process(delta):
 	# determine animation to play, and corresponding behavior. 
 	if not is_on_floor():
 		attack_timer = 0
@@ -52,3 +56,15 @@ func _process(delta):
 func _on_player_detection_body_entered(body):
 	attack_timer = attack_time
 
+
+# Handle hitbox signals
+func _on_hitbox_component_hurt():
+	anim.play("hurt")
+	hurtSFX.play()
+
+func _on_hitbox_component_killed():
+	anim.play("killed")
+	dieSFX.play()
+
+func _on_die_finished():
+	queue_free()
