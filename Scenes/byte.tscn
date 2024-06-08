@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://wp1j08dbqam7"]
+[gd_scene load_steps=8 format=3 uid="uid://cfuk0xb5fhfdf"]
 
-[ext_resource type="Script" path="res://Scripts/coin.gd" id="1_uqxjw"]
-[ext_resource type="Texture2D" uid="uid://bbex0kgtuebnm" path="res://Assets/Sprites/pixilart-drawing.png" id="2_yx5gv"]
-[ext_resource type="AudioStream" uid="uid://b5f3pcfka3gtp" path="res://Assets/SFX/pickupCookie.wav" id="3_u3dbp"]
+[ext_resource type="Script" path="res://Scripts/byte.gd" id="1_4pfms"]
+[ext_resource type="Texture2D" uid="uid://dug5hpfpsd1kr" path="res://Assets/Sunnyland/sprites/gem/gem-3.png" id="2_n38ug"]
+[ext_resource type="AudioStream" uid="uid://dq3fn687c5u0r" path="res://Assets/SFX/pickupByte.wav" id="3_butjq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_idxeb"]
 radius = 8.06226
@@ -36,7 +36,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollectCookie:playing")
+tracks/2/path = NodePath("CollectByte:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -123,7 +123,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CollectCookie:playing")
+tracks/3/path = NodePath("CollectByte:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -173,20 +173,20 @@ _data = {
 "pickup": SubResource("Animation_jox05")
 }
 
-[node name="Cookie" type="Area2D"]
+[node name="Byte" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_uqxjw")
+script = ExtResource("1_4pfms")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 1)
-texture = ExtResource("2_yx5gv")
-offset = Vector2(4.24, -4.68)
+texture = ExtResource("2_n38ug")
+offset = Vector2(0.95, 0.71)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_idxeb")
 
-[node name="CollectCookie" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_u3dbp")
+[node name="CollectByte" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_butjq")
 volume_db = -2.0
 bus = &"SFX"
 

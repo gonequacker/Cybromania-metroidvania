@@ -8,12 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="8_sgwk4"]
 [ext_resource type="PackedScene" uid="uid://chn408wsd17td" path="res://Scenes/enemies/moving_enemy.tscn" id="9_juorw"]
 [ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_gtvvy"]
+[ext_resource type="PackedScene" uid="uid://cfuk0xb5fhfdf" path="res://Scenes/byte.tscn" id="12_1ycn4"]
 [ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/coin.tscn" id="12_2f7e1"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="12_7f1e4"]
 [ext_resource type="PackedScene" uid="uid://cxqiut0ew5sdl" path="res://Scenes/enemies/static_fishing_hook.tscn" id="12_n8wre"]
 [ext_resource type="PackedScene" uid="uid://dh123d6i6yucc" path="res://Scenes/enemies/dynamic_fishing_hook.tscn" id="13_3d4xa"]
 [ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="13_jo8xf"]
-[ext_resource type="Texture2D" uid="uid://dug5hpfpsd1kr" path="res://Assets/Sunnyland/sprites/gem/gem-3.png" id="13_wdhmp"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="14_a64o1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
@@ -654,22 +654,16 @@ position = Vector2(898, -113)
 [node name="Coin9" parent="Coins" instance=ExtResource("12_2f7e1")]
 position = Vector2(916, -113)
 
+[node name="Byte" parent="Coins" instance=ExtResource("12_1ycn4")]
+position = Vector2(857, -135)
+
+[node name="Byte2" parent="Coins" instance=ExtResource("12_1ycn4")]
+position = Vector2(880, -135)
+
+[node name="Byte3" parent="Coins" instance=ExtResource("12_1ycn4")]
+position = Vector2(903, -135)
+
 [node name="Items" type="Node" parent="."]
-
-[node name="Cookie" parent="Items" instance=ExtResource("13_jo8xf")]
-position = Vector2(591, 176)
-item_name = "cookies"
-item_texture = ExtResource("13_wdhmp")
-
-[node name="Label" type="Label" parent="Items/Cookie"]
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 69.0
-offset_bottom = -2.0
-theme = SubResource("Theme_cdsd6")
-theme_override_fonts/font = ExtResource("12_7f1e4")
-theme_override_font_sizes/font_size = 8
-text = "Cookie"
 
 [node name="CrouchPickup" parent="Items" instance=ExtResource("13_jo8xf")]
 position = Vector2(310, 121)
