@@ -6,6 +6,6 @@ func _on_body_entered(body):
 	if body.name == "Jlayer" :
 		animation_player.play("pickup")
 		var item = {
-			"name": "byte"
+			"name": "bytes"
 		}
 		Global.add_item(item)
