@@ -34,6 +34,7 @@ func pickup_item():
 	}
 	if Global.player_node:
 		Global.add_item(item)
+		Global.player_node.play_collect_anim()
 		self.queue_free()
 
 

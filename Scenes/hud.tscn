@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://drcmaq4igepu2"]
 
 [ext_resource type="Script" path="res://Interface/Lives.gd" id="1_ajqu4"]
-[ext_resource type="PackedScene" path="res://Scenes/life_frame.tscn" id="2_wpwxj"]
+[ext_resource type="PackedScene" uid="uid://dnfulpiitnhun" path="res://Scenes/life_frame.tscn" id="2_wpwxj"]
 [ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="3_xykoy"]
 [ext_resource type="Script" path="res://Scripts/BytesCounter.gd" id="4_kwr12"]
 [ext_resource type="Texture2D" uid="uid://dmyk8nyiqjjnu" path="res://Assets/Sunnyland/sprites/gem/gem-4.png" id="5_ayfs7"]

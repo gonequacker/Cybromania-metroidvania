@@ -1,13 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://iwjcre1t4yuo"]
+[gd_scene load_steps=2 format=3 uid="uid://iwjcre1t4yuo"]
 
 [ext_resource type="Script" path="res://Scripts/audio.gd" id="1_swu48"]
-[ext_resource type="AudioStream" uid="uid://ckxcr07f8yq1c" path="res://Assets/SFX/land.wav" id="2_ryce6"]
-[ext_resource type="AudioStream" uid="uid://dm7kgh2fhmt8q" path="res://Assets/SFX/jump.wav" id="3_flqu1"]
-[ext_resource type="AudioStream" uid="uid://da835as1cxcxu" path="res://Assets/SFX/dash.wav" id="4_ij8wp"]
-[ext_resource type="AudioStream" uid="uid://bn53v5utta8oc" path="res://Assets/SFX/wall_jump.wav" id="5_wktb2"]
-[ext_resource type="AudioStream" uid="uid://ch7piubol242j" path="res://Assets/SFX/wall_cling.wav" id="6_y17jo"]
-[ext_resource type="AudioStream" uid="uid://dk7bd60wfaioh" path="res://Assets/SFX/double_jump.wav" id="7_rxjnr"]
-[ext_resource type="AudioStream" uid="uid://btqle2kjnap0a" path="res://Assets/SFX/hurt.wav" id="8_kohg3"]
 
 [node name="Audio" type="Control"]
 layout_mode = 3
@@ -17,44 +10,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_swu48")
-
-[node name="SFX" type="Node" parent="."]
-
-[node name="Land" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("2_ryce6")
-bus = &"SFX"
-
-[node name="Jump" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("3_flqu1")
-volume_db = -2.0
-bus = &"SFX"
-
-[node name="Dash" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("4_ij8wp")
-volume_db = -2.0
-bus = &"SFX"
-
-[node name="WallJump" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("5_wktb2")
-volume_db = -2.0
-bus = &"SFX"
-
-[node name="WallCling" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("6_y17jo")
-volume_db = -2.0
-bus = &"SFX"
-
-[node name="DoubleJump" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("7_rxjnr")
-volume_db = -2.0
-bus = &"SFX"
-
-[node name="Hurt" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("8_kohg3")
-volume_db = -2.0
-bus = &"SFX"
-
-[node name="Heal" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("8_kohg3")
-volume_db = -2.0
-bus = &"SFX"
