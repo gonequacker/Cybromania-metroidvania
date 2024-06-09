@@ -15,19 +15,19 @@ var player = null
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if player:
-		print("there is a player detected! Moving y coor")
-		print("player y: ", player.position.y)
-		print("this position y: ", position.y)
+		#print("there is a player detected! Moving y coor")
+		#print("player y: ", player.position.y)
+		#print("this position y: ", position.y)
 		position.y += (player.position.y - position.y)/ speed
-		print("new position y: ", position.y)
+		#print("new position y: ", position.y)
 
 
 func _on_player_detection_body_entered(body):
 	player = body
-	print("body entered: ", body)
+	#print("body entered: ", body)
 
 func _on_player_detection_body_exited(body):
-	print("player exited: ", player == body)
+	#print("player exited: ", player == body)
 	player = null
 
 
