@@ -40,7 +40,6 @@ func calculate_new_target():
 		if not is_closer:
 			is_closer = global_position.distance_squared_to(enemy.global_position) < global_position.distance_squared_to(target.global_position)
 		var angle = (enemy.global_position-global_position).angle_to(velocity)
-		print(abs(angle))
 		var within_angle = abs(angle) < VIEW_ANGLE
 		if is_closer and within_angle:
 			target = enemy
