@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ce65utf3offoj"]
 
 [ext_resource type="PackedScene" uid="uid://bbb1w0bphnmcb" path="res://Scenes/ui.tscn" id="1_10yyv"]
-[ext_resource type="PackedScene" uid="uid://suwu6iie7uoa" path="res://Scenes/levelzoo.tscn" id="3_sss2f"]
+[ext_resource type="Script" path="res://Scenes/World.gd" id="2_g00oe"]
 [ext_resource type="PackedScene" uid="uid://bqebygpqsqv3y" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
 [ext_resource type="Script" path="res://Scripts/jlayer.gd" id="5_w5j7r"]
 
@@ -10,6 +10,7 @@
 [node name="UI" parent="." instance=ExtResource("1_10yyv")]
 
 [node name="World" type="Node2D" parent="."]
+script = ExtResource("2_g00oe")
 
 [node name="Jlayer" parent="World" instance=ExtResource("4_lpydj")]
 position = Vector2(47, 109)
@@ -17,5 +18,3 @@ script = ExtResource("5_w5j7r")
 
 [node name="Camera2D" type="Camera2D" parent="World/Jlayer"]
 position_smoothing_speed = 8.0
-
-[node name="ZooLevel" parent="World" instance=ExtResource("3_sss2f")]
