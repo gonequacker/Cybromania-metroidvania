@@ -1,37 +1,26 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxqiut0ew5sdl"]
+[gd_scene load_steps=13 format=3 uid="uid://chn408wsd17td"]
 
-[ext_resource type="Texture2D" uid="uid://yp5124mdqjbn" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-1.png" id="1_lgkid"]
-[ext_resource type="Script" path="res://Scripts/static_fishing_hook.gd" id="1_xs6gp"]
-[ext_resource type="Texture2D" uid="uid://cf26nuamptyej" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-2.png" id="2_ntfnq"]
-[ext_resource type="Texture2D" uid="uid://bmnbkqx5bfywo" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-3.png" id="3_3sv56"]
-[ext_resource type="Texture2D" uid="uid://3pqhwrksmq2l" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-4.png" id="4_jud6j"]
-[ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="5_rag4t"]
-[ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="6_6gdej"]
-[ext_resource type="AudioStream" uid="uid://ceofhwcnlerxv" path="res://Assets/SFX/Enemies/dosDie.wav" id="7_yvgmu"]
+[ext_resource type="Script" path="res://Scripts/moving_enemy.gd" id="1_h4mrx"]
+[ext_resource type="Texture2D" uid="uid://b6q06t764op1r" path="res://Assets/Sprites/IMG_2422.PNG" id="2_oraao"]
+[ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="3_imlor"]
+[ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="4_q8yq6"]
+[ext_resource type="AudioStream" uid="uid://ckc0rls2t7yeg" path="res://Assets/SFX/Enemies/wormDie.wav" id="5_qh0vs"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_7yfdb"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_sf3r2"]
 animations = [{
 "frames": [{
-"duration": 5.0,
-"texture": ExtResource("1_lgkid")
-}, {
 "duration": 1.0,
-"texture": ExtResource("2_ntfnq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_3sv56")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_jud6j")
+"texture": ExtResource("2_oraao")
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 6.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k7rp3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok1e1"]
+size = Vector2(20, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vf2rg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5uvh"]
 size = Vector2(25, 28)
 
 [sub_resource type="Animation" id="Animation_gpaff"]
@@ -163,31 +152,39 @@ _data = {
 "killed": SubResource("Animation_ahf8e")
 }
 
-[node name="DOS" type="Node2D"]
-script = ExtResource("1_xs6gp")
+[node name="Worm" type="Node2D"]
+script = ExtResource("1_h4mrx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, 0)
-sprite_frames = SubResource("SpriteFrames_7yfdb")
+position = Vector2(2.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_sf3r2")
 animation = &"Idle"
 autoplay = "Idle"
+offset = Vector2(-3, 0)
+flip_h = true
 
-[node name="Killzone" parent="." instance=ExtResource("5_rag4t")]
+[node name="Killzone" parent="." instance=ExtResource("3_imlor")]
 
-[node name="kill_shape" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("CircleShape2D_k7rp3")
-debug_color = Color(1, 0, 0, 0.54902)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ok1e1")
 
-[node name="HitboxComponent" parent="." instance=ExtResource("6_6gdej")]
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-20, 2.08165e-12)
 
-[node name="Hitbox" type="Area2D" parent="." groups=["dos", "enemy"]]
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(20, 2.08165e-12)
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_q8yq6")]
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy", "worm"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_vf2rg")
+shape = SubResource("RectangleShape2D_r5uvh")
 
 [node name="Die" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_yvgmu")
+stream = ExtResource("5_qh0vs")
 bus = &"SFX"
 
 [node name="Anim" type="AnimationPlayer" parent="."]

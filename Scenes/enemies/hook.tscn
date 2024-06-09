@@ -1,17 +1,17 @@
 [gd_scene load_steps=15 format=3 uid="uid://dh123d6i6yucc"]
 
-[ext_resource type="Script" path="res://dynamic_fishing_hook.gd" id="1_ang6y"]
-[ext_resource type="Texture2D" uid="uid://5q5yovjr71sx" path="res://Assets/Sprites/IMG_2424.PNG" id="2_ullk1"]
-[ext_resource type="AudioStream" uid="uid://jcebk6kwipc5" path="res://Assets/SFX/Enemies/hookHurt.wav" id="5_waqb3"]
-[ext_resource type="AudioStream" uid="uid://du6oco76vcb7c" path="res://Assets/SFX/Enemies/hookDie.wav" id="6_nja55"]
-[ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="7_syver"]
-[ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="8_k008v"]
+[ext_resource type="Script" path="res://dynamic_fishing_hook.gd" id="1_iu7ei"]
+[ext_resource type="Texture2D" uid="uid://5q5yovjr71sx" path="res://Assets/Sprites/IMG_2424.PNG" id="2_sq4xn"]
+[ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="3_n6ypv"]
+[ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="4_rk6dm"]
+[ext_resource type="AudioStream" uid="uid://jcebk6kwipc5" path="res://Assets/SFX/Enemies/hookHurt.wav" id="5_jfelq"]
+[ext_resource type="AudioStream" uid="uid://du6oco76vcb7c" path="res://Assets/SFX/Enemies/hookDie.wav" id="6_miqlj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_whk3x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ullk1")
+"texture": ExtResource("2_sq4xn")
 }],
 "loop": true,
 "name": &"Idle",
@@ -129,7 +129,7 @@ _data = {
 }
 
 [node name="Hook" type="Node2D"]
-script = ExtResource("1_ang6y")
+script = ExtResource("1_iu7ei")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_whk3x")
@@ -137,7 +137,7 @@ animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(-3, 0)
 
-[node name="Killzone" parent="." instance=ExtResource("8_k008v")]
+[node name="Killzone" parent="." instance=ExtResource("3_n6ypv")]
 
 [node name="kill_shape" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 5)
@@ -152,7 +152,7 @@ collision_mask = 2
 position = Vector2(-23, 0)
 shape = SubResource("RectangleShape2D_lrv7o")
 
-[node name="HitboxComponent" parent="." instance=ExtResource("7_syver")]
+[node name="HitboxComponent" parent="." instance=ExtResource("4_rk6dm")]
 health = 20
 
 [node name="Hitbox" type="Area2D" parent="." groups=["enemy", "hook"]]
@@ -162,12 +162,12 @@ position = Vector2(0.5, -6)
 shape = SubResource("RectangleShape2D_o31eh")
 
 [node name="Hurt" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_waqb3")
+stream = ExtResource("5_jfelq")
 volume_db = -4.0
 bus = &"SFX"
 
 [node name="Die" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_nja55")
+stream = ExtResource("6_miqlj")
 volume_db = -2.0
 bus = &"SFX"
 
