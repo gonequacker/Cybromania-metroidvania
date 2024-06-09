@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://drcmaq4igepu2"]
+[gd_scene load_steps=9 format=3 uid="uid://drcmaq4igepu2"]
 
 [ext_resource type="Script" path="res://Interface/Lives.gd" id="1_ajqu4"]
 [ext_resource type="PackedScene" uid="uid://dnfulpiitnhun" path="res://Scenes/life_frame.tscn" id="2_wpwxj"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/BytesCounter.gd" id="4_kwr12"]
 [ext_resource type="Texture2D" uid="uid://dmyk8nyiqjjnu" path="res://Assets/Sunnyland/sprites/gem/gem-4.png" id="5_ayfs7"]
 [ext_resource type="FontFile" uid="uid://cpl2r6041cult" path="res://Assets/Fonts/dogicapixel.ttf" id="6_bo8f8"]
+[ext_resource type="Script" path="res://Scripts/CookiesCounter.gd" id="7_qx7dj"]
+[ext_resource type="Texture2D" uid="uid://bbex0kgtuebnm" path="res://Assets/Sprites/pixilart-drawing.png" id="8_uvcus"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -72,6 +74,38 @@ texture = ExtResource("5_ayfs7")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer (Bytes)/Bytes"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_bo8f8")
+theme_override_font_sizes/font_size = 16
+text = "x1"
+
+[node name="MarginContainer (Cookies)" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = 15.0
+offset_bottom = 47.0
+grow_horizontal = 0
+
+[node name="Cookies" type="BoxContainer" parent="MarginContainer (Cookies)"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+script = ExtResource("7_qx7dj")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer (Cookies)/Cookies"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_uvcus")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer (Cookies)/Cookies"]
+custom_minimum_size = Vector2(28, 14)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_bo8f8")
 theme_override_font_sizes/font_size = 16
