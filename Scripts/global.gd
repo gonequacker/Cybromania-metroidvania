@@ -41,3 +41,17 @@ func remove_item():
 
 func set_player_reference(player):
 	player_node = player
+
+func heal(amount):
+	# If you only need to heal one health (or you have no bytes), use a cookie
+	if (amount == 1 or inventory["bytes"] <= 0) and inventory["cookies"] > 0:
+		inventory["cookies"] -= 1
+		print("Ate a cookie ", inventory)
+		return 1
+	# Heal using bytes
+	if inventory["bytes"] > 0:
+		inventory["bytes"] -= 1
+		print("Ate a Malware Byte ", inventory)
+		return 2
+	# You have no health items!
+	return 0
