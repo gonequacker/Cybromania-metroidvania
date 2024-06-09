@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://wp1j08dbqam7"]
 
-[ext_resource type="Script" path="res://Scripts/coin.gd" id="1_uqxjw"]
-[ext_resource type="Texture2D" uid="uid://bbex0kgtuebnm" path="res://Assets/Sprites/pixilart-drawing.png" id="2_yx5gv"]
-[ext_resource type="AudioStream" uid="uid://b5f3pcfka3gtp" path="res://Assets/SFX/pickupCookie.wav" id="3_u3dbp"]
+[ext_resource type="Script" path="res://Scripts/cookie.gd" id="1_gli8f"]
+[ext_resource type="Texture2D" uid="uid://bbex0kgtuebnm" path="res://Assets/Sprites/pixilart-drawing.png" id="2_eobc4"]
+[ext_resource type="AudioStream" uid="uid://b5f3pcfka3gtp" path="res://Assets/SFX/pickupCookie.wav" id="3_3wrnl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_idxeb"]
 radius = 8.06226
@@ -175,18 +175,18 @@ _data = {
 
 [node name="Cookie" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_uqxjw")
+script = ExtResource("1_gli8f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 1)
-texture = ExtResource("2_yx5gv")
+texture = ExtResource("2_eobc4")
 offset = Vector2(4.24, -4.68)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_idxeb")
 
 [node name="CollectCookie" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_u3dbp")
+stream = ExtResource("3_3wrnl")
 volume_db = -2.0
 bus = &"SFX"
 
