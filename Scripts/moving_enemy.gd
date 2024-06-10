@@ -8,6 +8,8 @@ extends Node2D
 @onready var anim = $Anim
 @onready var dieSFX = $Die
 
+signal killed
+
 const SPEED = 50
 
 var facing = 1
@@ -25,6 +27,7 @@ func _physics_process(delta):
 func _on_hitbox_component_killed():
 	anim.play("killed")
 	dieSFX.play()
+	emit_signal("killed")
 
 func _on_die_finished():
 	queue_free()

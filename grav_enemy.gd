@@ -6,6 +6,7 @@ extends CharacterBody2D
 # If the player enters the detection area, porcupine will start an attack timer. 
 # Once the attack_timer becomes zero, porcupine attacks. 
 
+
 @onready var sprite = $AnimatedSprite2D
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_left = $RayCastLeft
@@ -14,6 +15,8 @@ extends CharacterBody2D
 @onready var anim = $Anim
 @onready var hurtSFX = $Hurt
 @onready var dieSFX = $Die
+
+signal killed
 
 var facing = -1
 var attack_timer = 0 # 0 = not attacking, positive = countdown to attack
@@ -65,6 +68,7 @@ func _on_hitbox_component_hurt():
 func _on_hitbox_component_killed():
 	anim.play("killed")
 	dieSFX.play()
+	emit_signal("killed")
 
 func _on_die_finished():
 	queue_free()

@@ -9,6 +9,8 @@ extends Node2D
 @onready var hurtSFX = $Hurt
 @onready var dieSFX = $Die
 
+signal killed
+
 var player = null
 @export var speed = 50
 
@@ -39,6 +41,7 @@ func _on_hitbox_component_hurt():
 func _on_hitbox_component_killed():
 	anim.play("killed")
 	dieSFX.play()
+	emit_signal("killed")
 
 func _on_die_finished():
 	queue_free()

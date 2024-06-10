@@ -68,11 +68,22 @@ func spawn_enemy(enemy_index):
 	enemy_instance.position = position
 	get_tree().current_scene.add_child(enemy_instance)
 
-func _on_hitbox_component_killed():
+	enemy_instance.connect("killed", _on_enemy_killed)
+
+func _on_enemy_killed():
+	health -= 1
+	live_enemy_count -= 1
+	if health <= 0:
+		die()
+		return
+	hurtSFX.play()
+	print("Trojan has been hurt: ", health, " health remaining!")
+
+func die():
 	# enemy health is below zero
 	sprite.play("killed")
 	dieSFX.play()
-
-func _on_die_finished():
+	
+	await sprite.animation_finished
 	queue_free()
 
