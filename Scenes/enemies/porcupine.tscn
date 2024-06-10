@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://dgt15dtho8llq"]
 
 [ext_resource type="Script" path="res://grav_enemy.gd" id="1_gen8x"]
-[ext_resource type="Texture2D" uid="uid://dvxoedtxongxp" path="res://Assets/Sprites/IMG_2415.PNG" id="2_v8ymn"]
+[ext_resource type="Texture2D" uid="uid://dvxoedtxongxp" path="res://Assets/Sprites/enemy sprites/IMG_2415.PNG" id="2_v8ymn"]
 [ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="5_tbo5n"]
 [ext_resource type="AudioStream" uid="uid://b50l8x3fjsay1" path="res://Assets/SFX/Enemies/porcupineHurt.wav" id="6_xddli"]
 [ext_resource type="AudioStream" uid="uid://btfbmuold04gw" path="res://Assets/SFX/Enemies/porcupineDie.wav" id="7_l0jms"]
