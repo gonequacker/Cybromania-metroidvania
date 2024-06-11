@@ -1,0 +1,7 @@
+extends Node2D
+
+signal completed
+
+func _on_next_level_completed():
+	print("completed level!")
+	emit_signal("completed")
