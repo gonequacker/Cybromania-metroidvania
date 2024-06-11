@@ -1,25 +1,22 @@
-[gd_scene load_steps=25 format=3 uid="uid://suwu6iie7uoa"]
+[gd_scene load_steps=22 format=3 uid="uid://coy2svltcr8uy"]
 
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_4duhy"]
-[ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Assets/Sunnyland/environment/Background/back.png" id="1_vcm6u"]
-[ext_resource type="Texture2D" uid="uid://bwion3j0g377" path="res://Assets/Sunnyland/environment/Background/middle.png" id="2_hwfdx"]
-[ext_resource type="Script" path="res://Scripts/middleground.gd" id="3_afbuk"]
-[ext_resource type="PackedScene" uid="uid://dgt15dtho8llq" path="res://Scenes/enemies/porcupine.tscn" id="7_burj3"]
-[ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="7_c13uj"]
-[ext_resource type="PackedScene" uid="uid://cxqiut0ew5sdl" path="res://Scenes/enemies/dos.tscn" id="7_dstol"]
-[ext_resource type="PackedScene" uid="uid://dh123d6i6yucc" path="res://Scenes/enemies/hook.tscn" id="8_mbxc1"]
-[ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="8_sgwk4"]
-[ext_resource type="PackedScene" uid="uid://chn408wsd17td" path="res://Scenes/enemies/worm.tscn" id="9_er24l"]
-[ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_gtvvy"]
-[ext_resource type="PackedScene" uid="uid://cfuk0xb5fhfdf" path="res://Scenes/byte.tscn" id="12_1ycn4"]
-[ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/cookie.tscn" id="12_2f7e1"]
-[ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="12_7f1e4"]
-[ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="13_jo8xf"]
-[ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="14_a64o1"]
-[ext_resource type="PackedScene" uid="uid://tdlyhes7qa3b" path="res://Scenes/next_level.tscn" id="16_7bdwv"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_aldxb"]
+[ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="5_4iowp"]
+[ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="6_aeduw"]
+[ext_resource type="PackedScene" uid="uid://dgt15dtho8llq" path="res://Scenes/enemies/porcupine.tscn" id="7_kej12"]
+[ext_resource type="PackedScene" uid="uid://cxqiut0ew5sdl" path="res://Scenes/enemies/dos.tscn" id="8_oo1by"]
+[ext_resource type="PackedScene" uid="uid://dh123d6i6yucc" path="res://Scenes/enemies/hook.tscn" id="9_h81iu"]
+[ext_resource type="PackedScene" uid="uid://chn408wsd17td" path="res://Scenes/enemies/worm.tscn" id="10_kg3lg"]
+[ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_j2j3j"]
+[ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/cookie.tscn" id="12_5eo20"]
+[ext_resource type="PackedScene" uid="uid://cfuk0xb5fhfdf" path="res://Scenes/byte.tscn" id="13_3jb4l"]
+[ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="14_u8xqt"]
+[ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="15_kabmy"]
+[ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="16_xkvmf"]
+[ext_resource type="PackedScene" uid="uid://tdlyhes7qa3b" path="res://Scenes/next_level.tscn" id="17_dy6if"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
-texture = ExtResource("7_c13uj")
+texture = ExtResource("5_4iowp")
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
@@ -487,7 +484,7 @@ texture = ExtResource("7_c13uj")
 15:21/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1lclc"]
-texture = ExtResource("8_sgwk4")
+texture = ExtResource("6_aeduw")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -511,7 +508,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(288, 216)]
+"values": [Vector2(624, 24)]
 }
 
 [sub_resource type="Animation" id="Animation_bx6r5"]
@@ -528,7 +525,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(288, 216), Vector2(288, 343)]
+"values": [Vector2(624, 24), Vector2(720, 24)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iodpw"]
@@ -538,60 +535,11 @@ _data = {
 }
 
 [sub_resource type="Theme" id="Theme_cdsd6"]
-default_font = ExtResource("12_7f1e4")
+default_font = ExtResource("16_xkvmf")
 default_font_size = 0
 
-[node name="ZooLevel" type="Node2D"]
-script = ExtResource("1_4duhy")
-
-[node name="Sky" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Sky"]
-position = Vector2(0, -21)
-scale = Vector2(0.912401, 0.912401)
-motion_scale = Vector2(0.15, 0.15)
-
-[node name="TextureRect" type="TextureRect" parent="Sky/ParallaxLayer"]
-offset_left = -265.0
-offset_top = -45.0
-offset_right = 1280.0
-offset_bottom = 195.0
-scale = Vector2(1.46471, 1.46471)
-texture = ExtResource("1_vcm6u")
-stretch_mode = 1
-
-[node name="Mountains2" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Mountains2"]
-scale = Vector2(0.912401, 0.912401)
-motion_scale = Vector2(0.4, 0.4)
-
-[node name="TextureRect" type="TextureRect" parent="Mountains2/ParallaxLayer"]
-offset_left = -272.906
-offset_top = 44.9364
-offset_right = 1272.09
-offset_bottom = 412.936
-scale = Vector2(1.19305, 1.19305)
-texture = ExtResource("2_hwfdx")
-stretch_mode = 1
-script = ExtResource("3_afbuk")
-
-[node name="Mountains" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Mountains"]
-scale = Vector2(0.912401, 0.912401)
-motion_scale = Vector2(0.5, 0.5)
-
-[node name="TextureRect" type="TextureRect" parent="Mountains/ParallaxLayer"]
-offset_left = -272.906
-offset_top = 44.9364
-offset_right = 1272.09
-offset_bottom = 412.936
-scale = Vector2(1.38647, 1.38647)
-texture = ExtResource("2_hwfdx")
-stretch_mode = 1
-
-[node name="Props" type="Node" parent="."]
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_aldxb")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2y56w")
@@ -600,26 +548,26 @@ layer_0/tile_data = PackedInt32Array(589825, 1114114, 7, 589826, 1114114, 7, 589
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Porcupine" parent="Enemies" instance=ExtResource("7_burj3")]
+[node name="Porcupine" parent="Enemies" instance=ExtResource("7_kej12")]
 position = Vector2(213, 177)
 
-[node name="StaticFishingHook" parent="Enemies" instance=ExtResource("7_dstol")]
+[node name="StaticFishingHook" parent="Enemies" instance=ExtResource("8_oo1by")]
 position = Vector2(400, 89)
 
-[node name="DynamicFishingHook" parent="Enemies" instance=ExtResource("8_mbxc1")]
+[node name="DynamicFishingHook" parent="Enemies" instance=ExtResource("9_h81iu")]
 position = Vector2(550, 130)
 
-[node name="MovingEnemy" parent="Enemies" instance=ExtResource("9_er24l")]
+[node name="MovingEnemy" parent="Enemies" instance=ExtResource("10_kg3lg")]
 position = Vector2(522, 180)
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="Platform4" parent="Platforms" instance=ExtResource("11_gtvvy")]
+[node name="Platform4" parent="Platforms" instance=ExtResource("11_j2j3j")]
 position = Vector2(815, -88)
 collision_mask = 2
 
-[node name="MovingPlatform" parent="Platforms" instance=ExtResource("11_gtvvy")]
-position = Vector2(288, 216)
+[node name="MovingPlatform" parent="Platforms" instance=ExtResource("11_j2j3j")]
+position = Vector2(624, 24)
 collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/MovingPlatform"]
@@ -630,48 +578,48 @@ autoplay = "move"
 
 [node name="Coins" type="Node" parent="."]
 
-[node name="Coin" parent="Coins" instance=ExtResource("12_2f7e1")]
+[node name="Coin" parent="Coins" instance=ExtResource("12_5eo20")]
 position = Vector2(96, 119)
 
-[node name="Coin2" parent="Coins" instance=ExtResource("12_2f7e1")]
+[node name="Coin2" parent="Coins" instance=ExtResource("12_5eo20")]
 position = Vector2(398, 119)
 
-[node name="Coin3" parent="Coins" instance=ExtResource("12_2f7e1")]
+[node name="Coin3" parent="Coins" instance=ExtResource("12_5eo20")]
 position = Vector2(624, 106)
 
-[node name="Coin4" parent="Coins" instance=ExtResource("12_2f7e1")]
+[node name="Coin4" parent="Coins" instance=ExtResource("12_5eo20")]
 position = Vector2(725, -1)
 
-[node name="Coin5" parent="Coins" instance=ExtResource("12_2f7e1")]
+[node name="Coin5" parent="Coins" instance=ExtResource("12_5eo20")]
 position = Vector2(788, -113)
 
-[node name="Coin6" parent="Coins" instance=ExtResource("12_2f7e1")]
+[node name="Coin6" parent="Coins" instance=ExtResource("12_5eo20")]
 position = Vector2(806, -113)
 
-[node name="Coin7" parent="Coins" instance=ExtResource("12_2f7e1")]
+[node name="Coin7" parent="Coins" instance=ExtResource("12_5eo20")]
 position = Vector2(824, -113)
 
-[node name="Coin8" parent="Coins" instance=ExtResource("12_2f7e1")]
+[node name="Coin8" parent="Coins" instance=ExtResource("12_5eo20")]
 position = Vector2(842, -113)
 
-[node name="Coin9" parent="Coins" instance=ExtResource("12_2f7e1")]
+[node name="Coin9" parent="Coins" instance=ExtResource("12_5eo20")]
 position = Vector2(860, -113)
 
-[node name="Byte" parent="Coins" instance=ExtResource("12_1ycn4")]
+[node name="Byte" parent="Coins" instance=ExtResource("13_3jb4l")]
 position = Vector2(801, -135)
 
-[node name="Byte2" parent="Coins" instance=ExtResource("12_1ycn4")]
+[node name="Byte2" parent="Coins" instance=ExtResource("13_3jb4l")]
 position = Vector2(824, -135)
 
-[node name="Byte3" parent="Coins" instance=ExtResource("12_1ycn4")]
+[node name="Byte3" parent="Coins" instance=ExtResource("13_3jb4l")]
 position = Vector2(848, -135)
 
 [node name="Items" type="Node" parent="."]
 
-[node name="CrouchPickup" parent="Items" instance=ExtResource("13_jo8xf")]
+[node name="CrouchPickup" parent="Items" instance=ExtResource("14_u8xqt")]
 position = Vector2(310, 121)
 item_name = "crouch"
-item_texture = ExtResource("14_a64o1")
+item_texture = ExtResource("15_kabmy")
 
 [node name="Label" type="Label" parent="Items/CrouchPickup"]
 offset_left = -24.0
@@ -679,14 +627,14 @@ offset_top = -25.0
 offset_right = 70.0
 offset_bottom = -2.0
 theme = SubResource("Theme_cdsd6")
-theme_override_fonts/font = ExtResource("12_7f1e4")
+theme_override_fonts/font = ExtResource("16_xkvmf")
 theme_override_font_sizes/font_size = 8
 text = "Crouch"
 
-[node name="DashPickup" parent="Items" instance=ExtResource("13_jo8xf")]
+[node name="DashPickup" parent="Items" instance=ExtResource("14_u8xqt")]
 position = Vector2(460, 121)
 item_name = "dash"
-item_texture = ExtResource("14_a64o1")
+item_texture = ExtResource("15_kabmy")
 
 [node name="Label" type="Label" parent="Items/DashPickup"]
 offset_left = -17.0
@@ -694,14 +642,14 @@ offset_top = -26.0
 offset_right = 77.0
 offset_bottom = -3.0
 theme = SubResource("Theme_cdsd6")
-theme_override_fonts/font = ExtResource("12_7f1e4")
+theme_override_fonts/font = ExtResource("16_xkvmf")
 theme_override_font_sizes/font_size = 8
 text = "Dash"
 
-[node name="WallPickup" parent="Items" instance=ExtResource("13_jo8xf")]
+[node name="WallPickup" parent="Items" instance=ExtResource("14_u8xqt")]
 position = Vector2(673, 105)
 item_name = "wall_jump"
-item_texture = ExtResource("14_a64o1")
+item_texture = ExtResource("15_kabmy")
 
 [node name="Label" type="Label" parent="Items/WallPickup"]
 offset_left = -16.0
@@ -709,15 +657,15 @@ offset_top = -33.0
 offset_right = 78.0
 offset_bottom = -10.0
 theme = SubResource("Theme_cdsd6")
-theme_override_fonts/font = ExtResource("12_7f1e4")
+theme_override_fonts/font = ExtResource("16_xkvmf")
 theme_override_font_sizes/font_size = 8
 text = "Wall
 Jump"
 
-[node name="DoublePickup" parent="Items" instance=ExtResource("13_jo8xf")]
+[node name="DoublePickup" parent="Items" instance=ExtResource("14_u8xqt")]
 position = Vector2(813, -3)
 item_name = "double_jump"
-item_texture = ExtResource("14_a64o1")
+item_texture = ExtResource("15_kabmy")
 
 [node name="Label" type="Label" parent="Items/DoublePickup"]
 offset_left = -43.0
@@ -725,14 +673,14 @@ offset_top = -26.0
 offset_right = 51.0
 offset_bottom = -3.0
 theme = SubResource("Theme_cdsd6")
-theme_override_fonts/font = ExtResource("12_7f1e4")
+theme_override_fonts/font = ExtResource("16_xkvmf")
 theme_override_font_sizes/font_size = 8
 text = "Double Jump"
 
-[node name="Staff" parent="Items" instance=ExtResource("13_jo8xf")]
+[node name="Staff" parent="Items" instance=ExtResource("14_u8xqt")]
 position = Vector2(416, 311)
 item_name = "spell"
-item_texture = ExtResource("14_a64o1")
+item_texture = ExtResource("15_kabmy")
 
 [node name="Label" type="Label" parent="Items/Staff"]
 anchors_preset = 8
@@ -747,16 +695,16 @@ offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_cdsd6")
-theme_override_fonts/font = ExtResource("12_7f1e4")
+theme_override_fonts/font = ExtResource("16_xkvmf")
 theme_override_font_sizes/font_size = 8
 text = "Firewall
 Staff"
 horizontal_alignment = 1
 
-[node name="Pike" parent="Items" instance=ExtResource("13_jo8xf")]
+[node name="Pike" parent="Items" instance=ExtResource("14_u8xqt")]
 position = Vector2(480, 311)
 item_name = "pike"
-item_texture = ExtResource("14_a64o1")
+item_texture = ExtResource("15_kabmy")
 
 [node name="Label" type="Label" parent="Items/Pike"]
 anchors_preset = 8
@@ -771,15 +719,15 @@ offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_cdsd6")
-theme_override_fonts/font = ExtResource("12_7f1e4")
+theme_override_fonts/font = ExtResource("16_xkvmf")
 theme_override_font_sizes/font_size = 8
 text = "PK Pike"
 horizontal_alignment = 1
 
-[node name="Daggers" parent="Items" instance=ExtResource("13_jo8xf")]
+[node name="Daggers" parent="Items" instance=ExtResource("14_u8xqt")]
 position = Vector2(543, 311)
 item_name = "daggers"
-item_texture = ExtResource("14_a64o1")
+item_texture = ExtResource("15_kabmy")
 
 [node name="Label" type="Label" parent="Items/Daggers"]
 anchors_preset = 8
@@ -794,16 +742,16 @@ offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_cdsd6")
-theme_override_fonts/font = ExtResource("12_7f1e4")
+theme_override_fonts/font = ExtResource("16_xkvmf")
 theme_override_font_sizes/font_size = 8
 text = "DMARC
 Daggers"
 horizontal_alignment = 1
 
-[node name="Launcher" parent="Items" instance=ExtResource("13_jo8xf")]
+[node name="Launcher" parent="Items" instance=ExtResource("14_u8xqt")]
 position = Vector2(608, 311)
 item_name = "launcher"
-item_texture = ExtResource("14_a64o1")
+item_texture = ExtResource("15_kabmy")
 
 [node name="Label" type="Label" parent="Items/Launcher"]
 anchors_preset = 8
@@ -818,16 +766,16 @@ offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_cdsd6")
-theme_override_fonts/font = ExtResource("12_7f1e4")
+theme_override_fonts/font = ExtResource("16_xkvmf")
 theme_override_font_sizes/font_size = 8
 text = "Blackhole
 Launcher"
 horizontal_alignment = 1
 
-[node name="Arbalest" parent="Items" instance=ExtResource("13_jo8xf")]
+[node name="Arbalest" parent="Items" instance=ExtResource("14_u8xqt")]
 position = Vector2(665, 336)
 item_name = "arbalest"
-item_texture = ExtResource("14_a64o1")
+item_texture = ExtResource("15_kabmy")
 
 [node name="Label" type="Label" parent="Items/Arbalest"]
 anchors_preset = 8
@@ -842,13 +790,13 @@ offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_cdsd6")
-theme_override_fonts/font = ExtResource("12_7f1e4")
+theme_override_fonts/font = ExtResource("16_xkvmf")
 theme_override_font_sizes/font_size = 8
 text = "Antivirus
 Arbalest"
 horizontal_alignment = 1
 
-[node name="NextLevel" parent="." instance=ExtResource("16_7bdwv")]
+[node name="NextLevel" parent="." instance=ExtResource("17_dy6if")]
 position = Vector2(902, -127)
 
 [connection signal="completed" from="NextLevel" to="." method="_on_next_level_completed"]
