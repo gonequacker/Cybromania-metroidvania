@@ -1,7 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://tdlyhes7qa3b"]
+[gd_scene load_steps=8 format=3 uid="uid://tdlyhes7qa3b"]
 
 [ext_resource type="Texture2D" uid="uid://cfrdq7jidsww3" path="res://Assets/Sunnyland/sprites/item-feedback/item-feedback-3.png" id="1_lbjbt"]
 [ext_resource type="Script" path="res://Scripts/next_level.gd" id="1_v3qfq"]
+[ext_resource type="Texture2D" uid="uid://b8osfyanpjsk6" path="res://Assets/Sunnyland/sprites/item-feedback/item-feedback-1.png" id="2_r5tw7"]
+[ext_resource type="Texture2D" uid="uid://dv6qvunf3hkvm" path="res://Assets/Sunnyland/sprites/item-feedback/item-feedback-2.png" id="3_svtod"]
+[ext_resource type="Texture2D" uid="uid://dsp5qho311x5k" path="res://Assets/Sunnyland/sprites/item-feedback/item-feedback-4.png" id="5_tonc0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3cqao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r5tw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_svtod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_lbjbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tonc0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ubc8k"]
 radius = 17.0294
@@ -11,8 +34,9 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_v3qfq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_lbjbt")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3cqao")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ubc8k")

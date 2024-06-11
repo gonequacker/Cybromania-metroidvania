@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://df6itpfpvky17"]
+[gd_scene load_steps=19 format=3 uid="uid://df6itpfpvky17"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_s0qqe"]
 [ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Assets/Sunnyland/environment/Background/back.png" id="2_g6qce"]
@@ -528,6 +528,21 @@ physics_layer_0/collision_mask = 5
 sources/2 = SubResource("TileSetAtlasSource_bby6d")
 sources/3 = SubResource("TileSetAtlasSource_1lclc")
 
+[sub_resource type="Gradient" id="Gradient_wh2j7"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_busta"]
+gradient = SubResource("Gradient_wh2j7")
+width = 36
+
+[sub_resource type="Gradient" id="Gradient_ir7vg"]
+offsets = PackedFloat32Array(0, 0.977273)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_11661"]
+gradient = SubResource("Gradient_ir7vg")
+width = 36
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_s0qqe")
 
@@ -595,5 +610,23 @@ layer_0/tile_data = PackedInt32Array(196606, 196610, 1, 196607, 196610, 1, 13107
 
 [node name="NextLevel" parent="." instance=ExtResource("17_toe6c")]
 position = Vector2(887, 441)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 6
+offset_left = -284.0
+offset_top = 442.0
+offset_right = 8.0
+offset_bottom = 1894.0
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_busta")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = 6
+offset_left = -284.0
+offset_top = 575.0
+offset_right = -141.0
+offset_bottom = 2027.0
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_11661")
 
 [connection signal="completed" from="NextLevel" to="." method="_on_next_level_completed"]

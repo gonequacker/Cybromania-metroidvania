@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var player = $World/Jlayer
 
+# The following code is heavily based off a game that my friend made lol
+
 @export var maps : Array[PackedScene]
 
 @export var map_index = 0
