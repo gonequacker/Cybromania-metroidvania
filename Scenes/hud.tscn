@@ -72,6 +72,7 @@ layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("5_ayfs7")
 expand_mode = 1
+stretch_mode = 3
 
 [node name="Label" type="Label" parent="MarginContainer (Bytes)/Bytes"]
 layout_mode = 2
@@ -107,6 +108,7 @@ stretch_mode = 3
 [node name="Label" type="Label" parent="MarginContainer (Cookies)/Cookies"]
 custom_minimum_size = Vector2(28, 14)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("6_bo8f8")
 theme_override_font_sizes/font_size = 16
 text = "x1"
