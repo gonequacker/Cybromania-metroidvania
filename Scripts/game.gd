@@ -19,7 +19,12 @@ func load_map(index : int):
 	map_node = maps[index].instantiate()
 	add_child(map_node)
 	map_node.connect("completed", _on_map_completed)
-	player.position = Vector2(0.0, 0.0)
+	var spawn_pos = map_node.get_node("SpawnPos")
+	if spawn_pos:
+		player.position = spawn_pos.position
+	else:
+		player.position = Vector2(0.0, 0.0)
+	player.fade_out_of_black()
 
 func _on_map_completed():
 	if map_index == len(maps) - 1:

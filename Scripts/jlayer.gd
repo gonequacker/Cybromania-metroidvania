@@ -24,6 +24,8 @@ extends CharacterBody2D
 @onready var arbalestSFX = $SFX/Weapon/Arbalest
 @onready var blackholeSFX = $SFX/Weapon/Blackhole
 
+@onready var animation_player = $AnimationPlayer
+
 const PROJECTILE_S = preload("res://Scenes/Projectiles/projectile.tscn")
 const FIREWALL_S = preload("res://Scenes/Projectiles/firewall.tscn")
 const PIKE_S = preload("res://Scenes/Projectiles/pike.tscn")
@@ -367,3 +369,11 @@ func spawn_melee(direction, melee):
 func play_collect_anim():
 	pickupSFX.play()
 	collect_anim.play("collect")
+
+
+func fade_to_black():
+	animation_player.play("fade")
+
+func fade_out_of_black():
+	animation_player.play_backwards("fade")
+	
