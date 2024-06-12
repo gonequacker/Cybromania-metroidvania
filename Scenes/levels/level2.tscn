@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://coy2svltcr8uy"]
+[gd_scene load_steps=25 format=3 uid="uid://coy2svltcr8uy"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_aldxb"]
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="5_4iowp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://chn408wsd17td" path="res://Scenes/enemies/worm.tscn" id="10_kg3lg"]
 [ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_j2j3j"]
 [ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/cookie.tscn" id="12_5eo20"]
+[ext_resource type="PackedScene" uid="uid://dluhb4q6q7x8o" path="res://Scenes/spawn_pos.tscn" id="12_jc5uh"]
 [ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="14_u8xqt"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="15_kabmy"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="16_xkvmf"]
@@ -657,7 +658,11 @@ horizontal_alignment = 1
 [node name="NextLevel" parent="." instance=ExtResource("17_dy6if")]
 position = Vector2(-498, 488)
 
+[node name="SpawnPos" parent="." instance=ExtResource("12_jc5uh")]
+position = Vector2(7, 0)
+
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 z_index = 6
 offset_left = 835.0
 offset_top = 69.0
@@ -667,6 +672,7 @@ rotation = 1.57079
 texture = SubResource("GradientTexture1D_5sso4")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 z_index = 6
 offset_left = -617.0
 offset_top = 70.0
