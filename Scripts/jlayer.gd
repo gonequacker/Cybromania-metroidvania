@@ -205,17 +205,15 @@ func handle_inputs(delta):
 		facing_vertical = 0.0
 	
 	# Handle hotbar inputs. (yikes)
-	if Input.is_action_just_pressed("1"):
-		weapon = HAND
-	if Input.is_action_just_pressed("2") and has_staff():
+	if Input.is_action_just_pressed("1") and has_staff():
 		weapon = STAFF
-	if Input.is_action_just_pressed("3") and has_pike():
+	if Input.is_action_just_pressed("2") and has_pike():
 		weapon = PIKE
-	if Input.is_action_just_pressed("4") and has_dagger():
+	if Input.is_action_just_pressed("3") and has_dagger():
 		weapon = DAGGER
-	if Input.is_action_just_pressed("5") and has_launcher():
+	if Input.is_action_just_pressed("4") and has_launcher():
 		weapon = LAUNCHER
-	if Input.is_action_just_pressed("6") and has_arbalest():
+	if Input.is_action_just_pressed("5") and has_arbalest():
 		weapon = ARBALEST
 	
 	# Handle item inputs.

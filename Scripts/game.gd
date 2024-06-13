@@ -19,6 +19,7 @@ func load_map(index : int):
 		map_node.queue_free()
 	map_node = maps[index].instantiate()
 	add_child(map_node)
+	map_node.connect("fade_out", _on_fade_out)
 	map_node.connect("completed", _on_map_completed)
 	# Music
 	var musicStream = map_node.music
@@ -44,7 +45,10 @@ func load_map(index : int):
 	# Fade out the black screen
 	player.fade_out_of_black()
 
+func _on_fade_out():
+	music.fade_out()
 func _on_map_completed():
+	music.fade_in()
 	if Global.current_level == len(maps) - 1:
 		print("you win") # TODO
 	else:

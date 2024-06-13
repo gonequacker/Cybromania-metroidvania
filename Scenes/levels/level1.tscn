@@ -660,7 +660,7 @@ offset_bottom = 1780.0
 rotation = -1.57079
 texture = SubResource("GradientTexture1D_busta")
 
-[node name="TextureRect2" type="TextureRect" parent="." groups=["spawnpos"]]
+[node name="TextureRect2" type="TextureRect" parent="."]
 z_index = 6
 offset_left = -284.0
 offset_top = 1191.0

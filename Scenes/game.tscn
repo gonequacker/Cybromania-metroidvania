@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ce65utf3offoj"]
+[gd_scene load_steps=17 format=3 uid="uid://ce65utf3offoj"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_3swtx"]
 [ext_resource type="PackedScene" uid="uid://bbb1w0bphnmcb" path="res://Scenes/ui.tscn" id="1_10yyv"]
@@ -47,6 +47,43 @@ _data = {
 "fade": SubResource("Animation_eef4j")
 }
 
+[sub_resource type="Animation" id="Animation_kdc5p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tc8ty"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b07w3"]
+_data = {
+"RESET": SubResource("Animation_kdc5p"),
+"fade_out": SubResource("Animation_tc8ty")
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3swtx")
 maps = Array[PackedScene]([ExtResource("2_kqcug"), ExtResource("3_lj8uu"), ExtResource("3_sss2f"), ExtResource("3_jhp7a")])
@@ -90,6 +127,10 @@ libraries = {
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-volume_db = -2.579
 bus = &"Music"
 script = ExtResource("10_8wj0t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Music"]
+libraries = {
+"": SubResource("AnimationLibrary_b07w3")
+}
