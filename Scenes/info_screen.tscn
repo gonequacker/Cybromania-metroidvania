@@ -1,0 +1,149 @@
+[gd_scene load_steps=3 format=3 uid="uid://bypw1nsas5tpb"]
+
+[ext_resource type="Script" path="res://Interface/back_button.gd" id="1_r1e1v"]
+[ext_resource type="Texture2D" uid="uid://b6q06t764op1r" path="res://Assets/Sprites/IMG_2422.PNG" id="1_y7iyu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pause BG" type="ColorRect" parent="."]
+process_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 7.975
+anchor_bottom = 4.525
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.698039)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 25.0
+offset_right = 273.0
+offset_bottom = 146.0
+vertical_scroll_mode = 2
+
+[node name="ColorRect" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(1, 1, 1, 0.298039)
+
+[node name="Label" type="Label" parent="ScrollContainer/ColorRect/ColorRect"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 45.0
+offset_right = 209.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "This is the first text box, its slightly bigger than the second one, maybe write description or something fdjklsajl;dsjaflkdjlfkdsj"
+autowrap_mode = 1
+max_lines_visible = 4
+
+[node name="Label2" type="Label" parent="ScrollContainer/ColorRect/ColorRect"]
+offset_left = 44.0
+offset_top = 49.0
+offset_right = 209.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "This is a second text box testing how long it goes for without clipping the colorrect its stiting"
+autowrap_mode = 1
+max_lines_visible = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/ColorRect/ColorRect"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 79.0
+texture = ExtResource("1_y7iyu")
+stretch_mode = 3
+
+[node name="ColorRect2" type="ColorRect" parent="ScrollContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(1, 1, 1, 0.298039)
+
+[node name="Label" type="Label" parent="ScrollContainer/ColorRect/ColorRect2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 45.0
+offset_right = 209.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "This is the first text box, its slightly bigger than the second one, maybe write description or something fdjklsajl;dsjaflkdjlfkdsj"
+autowrap_mode = 1
+max_lines_visible = 4
+
+[node name="Label2" type="Label" parent="ScrollContainer/ColorRect/ColorRect2"]
+offset_left = 44.0
+offset_top = 49.0
+offset_right = 209.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "This is a second text box testing how long it goes for without clipping the colorrect its stiting"
+autowrap_mode = 1
+max_lines_visible = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/ColorRect/ColorRect2"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 79.0
+texture = ExtResource("1_y7iyu")
+stretch_mode = 3
+
+[node name="ColorRect3" type="ColorRect" parent="ScrollContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(1, 1, 1, 0.298039)
+
+[node name="Label" type="Label" parent="ScrollContainer/ColorRect/ColorRect3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 45.0
+offset_right = 209.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "This is the first text box, its slightly bigger than the second one, maybe write description or something fdjklsajl;dsjaflkdjlfkdsj"
+autowrap_mode = 1
+max_lines_visible = 4
+
+[node name="Label2" type="Label" parent="ScrollContainer/ColorRect/ColorRect3"]
+offset_left = 44.0
+offset_top = 49.0
+offset_right = 209.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "This is a second text box testing how long it goes for without clipping the colorrect its stiting"
+autowrap_mode = 1
+max_lines_visible = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/ColorRect/ColorRect3"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 79.0
+texture = ExtResource("1_y7iyu")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 147.0
+offset_right = 101.0
+offset_bottom = 178.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+script = ExtResource("1_r1e1v")
