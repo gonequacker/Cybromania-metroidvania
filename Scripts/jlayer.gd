@@ -31,8 +31,12 @@ const DAGGER_S = preload("res://Scenes/Projectiles/dagger.tscn")
 const BLACKHOLE_S = preload("res://Scenes/Projectiles/blackhole.tscn")
 const BOLT_S = preload("res://Scenes/Projectiles/bolt.tscn")
 
+# HUD Signals
 signal hurt(player_health)
 signal healed(player_health)
+signal weaponSelected(weapon)
+signal playerAttacked(weapon)
+signal offCooldown(weapon)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -87,9 +91,14 @@ var weapon_cooldown = 0 # frames until player can attack again.
 
 func _ready():
 	Global.set_player_reference(self) # tbh im not sure why im doing this
+	
+	# For HUD (Connects required singals)
 	connect("hurt", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Hearts)/Lives").life_changed)
 	connect("hurt", get_parent().get_parent().get_node("UI/GameOver").life_changed)
 	connect("healed", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Hearts)/Lives").life_changed)
+	connect("weaponSelected", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Weapons)/Outlines").weapon_changed)
+	connect("playerAttacked", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Weapons)/Weapons").player_attacked)
+	connect("offCooldown", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Weapons)/Weapons").off_cooldown)
 	emit_signal("healed", HEALTH_MAX)
 
 
@@ -201,18 +210,25 @@ func handle_inputs(delta):
 		facing_vertical = 0.0
 	
 	# Handle hotbar inputs. (yikes)
+	# HUD: Signal HUD for selected weapon
 	if Input.is_action_just_pressed("1"):
 		weapon = HAND
+		emit_signal("weaponSelected", 1)
 	if Input.is_action_just_pressed("2") and has_staff():
 		weapon = STAFF
+		emit_signal("weaponSelected", 2)
 	if Input.is_action_just_pressed("3") and has_pike():
 		weapon = PIKE
+		emit_signal("weaponSelected", 3)
 	if Input.is_action_just_pressed("4") and has_dagger():
 		weapon = DAGGER
+		emit_signal("weaponSelected", 4)
 	if Input.is_action_just_pressed("5") and has_launcher():
 		weapon = LAUNCHER
+		emit_signal("weaponSelected", 5)
 	if Input.is_action_just_pressed("6") and has_arbalest():
 		weapon = ARBALEST
+		emit_signal("weaponSelected", 6)
 	
 	# Handle item inputs.
 	if Input.is_action_just_pressed("heal"):
@@ -220,6 +236,8 @@ func handle_inputs(delta):
 	
 	# Handle attack input(s).
 	weapon_cooldown -= 1
+	if weapon_cooldown <= 0:
+		emit_signal("offCooldown", weapon)
 	if Input.is_action_pressed("attack") and weapon_cooldown <= 0 and dash <= 0 and wall_cooldown <= 0 and double_jump_cooldown <= 0:
 		attack()
 
@@ -335,18 +353,23 @@ func attack():
 		HAND:
 			pass#spawn_proj(direction, PROJECTILE_S)
 		STAFF:
+			emit_signal("playerAttacked", 2)
 			spawn_proj(direction, FIREWALL_S)
 			firewallSFX.play()
 		PIKE:
+			emit_signal("playerAttacked", 3)
 			spawn_melee(direction, PIKE_S)
 			pikeSFX.play()
 		DAGGER:
+			emit_signal("playerAttacked", 4)
 			spawn_proj(direction, DAGGER_S)
 			daggerSFX.play()
 		LAUNCHER:
+			emit_signal("playerAttacked", 5)
 			spawn_proj(direction, BLACKHOLE_S)
 			blackholeSFX.play()
 		ARBALEST:
+			emit_signal("playerAttacked", 6)
 			spawn_proj(direction, BOLT_S)
 			arbalestSFX.play()
 	# Attack cooldown
