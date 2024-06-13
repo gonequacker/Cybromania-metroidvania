@@ -87,9 +87,9 @@ var weapon_cooldown = 0 # frames until player can attack again.
 
 func _ready():
 	Global.set_player_reference(self) # tbh im not sure why im doing this
-	connect("hurt", get_parent().get_parent().get_node("UI/HUD/Lives").life_changed)
+	connect("hurt", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Hearts)/Lives").life_changed)
 	connect("hurt", get_parent().get_parent().get_node("UI/GameOver").life_changed)
-	connect("healed", get_parent().get_parent().get_node("UI/HUD/Lives").life_changed)
+	connect("healed", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Hearts)/Lives").life_changed)
 	emit_signal("healed", HEALTH_MAX)
 
 
