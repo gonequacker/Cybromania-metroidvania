@@ -1,7 +1,6 @@
 @tool
 extends Node2D
 
-
 @export var item_name = ""
 @export var item_texture: Texture
 var scene_path: String = "res://Scenes/inventory_item.tscn"
@@ -10,8 +9,23 @@ var scene_path: String = "res://Scenes/inventory_item.tscn"
 
 var player_in_range = false
 
+const KEY_ITEMS = [
+	"crouch",
+	"dash",
+	"wall_jump",
+	"double_jump",
+	"spell",
+	"launcher",
+	"daggers",
+	"pike",
+	"arbalest"
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if not KEY_ITEMS.find(item_name) == -1:
+		if Global.inventory[item_name] > 0:
+			queue_free()
 	if not Engine.is_editor_hint():
 		icon_sprite.texture = item_texture
 

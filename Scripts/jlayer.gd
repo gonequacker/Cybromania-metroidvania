@@ -15,6 +15,7 @@ extends CharacterBody2D
 @onready var wall_clingSFX = $SFX/WallCling
 @onready var double_jumpSFX = $SFX/DoubleJump
 @onready var hurtSFX = $SFX/Hurt
+@onready var dieSFX = $SFX/Die
 @onready var healSFX = $SFX/Heal
 @onready var pickupSFX = $SFX/Pickup
 
@@ -88,6 +89,7 @@ var weapon_cooldown = 0 # frames until player can attack again.
 
 
 func _ready():
+	health = HEALTH_MAX
 	Global.set_player_reference(self) # tbh im not sure why im doing this
 	connect("hurt", get_parent().get_parent().get_node("UI/HUD/Lives").life_changed)
 	connect("hurt", get_parent().get_parent().get_node("UI/GameOver").life_changed)
@@ -305,6 +307,7 @@ func take_damage(amount):
 	invuln_anim.play("invuln")
 	# Play hurt sound
 	hurtSFX.play()
+	if health <= 0: dieSFX.play()
 	# Update UI
 	emit_signal("hurt", health)
 # Heal player by some amount.

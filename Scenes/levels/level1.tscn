@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://df6itpfpvky17"]
+[gd_scene load_steps=25 format=3 uid="uid://df6itpfpvky17"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_s0qqe"]
 [ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Assets/Sunnyland/environment/Background/back.png" id="2_g6qce"]
+[ext_resource type="AudioStream" uid="uid://gjhjyvyrtuo" path="res://Assets/Music/wide.ogg" id="2_voff4"]
 [ext_resource type="Texture2D" uid="uid://bwion3j0g377" path="res://Assets/Sunnyland/environment/Background/middle.png" id="3_kqd1f"]
 [ext_resource type="Script" path="res://Scripts/middleground.gd" id="4_0d8jg"]
 [ext_resource type="Texture2D" uid="uid://kxx4dv24t07r" path="res://Assets/Sunnyland/environment/Props/wooden-house.png" id="5_ocwrt"]
@@ -9,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b8fsa3isa6bp3" path="res://Assets/Sunnyland/environment/Props/plant-house.png" id="6_28xqw"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="6_kknqy"]
 [ext_resource type="Texture2D" uid="uid://ureaf15nc3bk" path="res://Assets/Sunnyland/environment/Props/straw-house.png" id="7_vuirf"]
+[ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/cookie.tscn" id="8_lr852"]
+[ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="9_kteie"]
 [ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_e6htm"]
 [ext_resource type="PackedScene" uid="uid://tdlyhes7qa3b" path="res://Scenes/next_level.tscn" id="17_toe6c"]
 
@@ -548,6 +551,7 @@ width = 36
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_s0qqe")
+music = ExtResource("2_voff4")
 
 [node name="Sky" type="ParallaxBackground" parent="."]
 
@@ -610,6 +614,25 @@ texture = ExtResource("6_28xqw")
 position = Vector2(508, -32)
 texture = ExtResource("7_vuirf")
 
+[node name="Coins" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Coins"]
+offset_left = 278.0
+offset_top = -15.0
+offset_right = 442.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("9_kteie")
+theme_override_font_sizes/font_size = 8
+text = "If you've taken damage,
+heal with H!"
+horizontal_alignment = 1
+
+[node name="Coin" parent="Coins" instance=ExtResource("8_lr852")]
+position = Vector2(360, 13)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("8_lr852")]
+position = Vector2(717, 70)
+
 [node name="MovingPlatform" parent="." instance=ExtResource("11_e6htm")]
 position = Vector2(624, 24)
 collision_mask = 2
@@ -649,7 +672,7 @@ texture = SubResource("GradientTexture1D_11661")
 [node name="SpawnPos" type="Node2D" parent="."]
 position = Vector2(64, -6)
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-autoplay = true
+[node name="LeftBorder" type="Node2D" parent="."]
+position = Vector2(-63, 12)
 
 [connection signal="completed" from="NextLevel" to="." method="_on_next_level_completed"]

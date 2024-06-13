@@ -686,4 +686,10 @@ texture = SubResource("GradientTexture1D_nkr1h")
 [node name="SpawnPos" type="Node2D" parent="."]
 position = Vector2(7, 0)
 
+[node name="LeftBorder" type="Node2D" parent="."]
+position = Vector2(-562, 485)
+
+[node name="RightBorder" type="Node2D" parent="."]
+position = Vector2(327, 485)
+
 [connection signal="completed" from="NextLevel" to="." method="_on_next_level_completed"]

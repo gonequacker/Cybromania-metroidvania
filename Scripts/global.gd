@@ -21,6 +21,8 @@ signal inventory_updated
 
 var player_node: Node = null
 
+var current_level = 0
+
 func _ready():
 	pass
 
