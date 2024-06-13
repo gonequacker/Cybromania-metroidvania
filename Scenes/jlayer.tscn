@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bqebygpqsqv3y"]
+[gd_scene load_steps=43 format=3 uid="uid://bqebygpqsqv3y"]
 
 [ext_resource type="Texture2D" uid="uid://jc6o01myejgi" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-1.png" id="1_btyh2"]
 [ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="1_hbmg4"]
@@ -218,9 +218,47 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_0ubth"]
+resource_name = "level_transition"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_physics_process"
+}, {
+"args": [true],
+"method": &"set_physics_process"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"play"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qpunc"]
 _data = {
-"collect": SubResource("Animation_512ii")
+"collect": SubResource("Animation_512ii"),
+"level_transition": SubResource("Animation_0ubth")
 }
 
 [node name="Jlayer" type="CharacterBody2D"]

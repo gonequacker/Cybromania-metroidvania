@@ -10,7 +10,7 @@ extends Node2D
 
 const SPEED = 50
 
-var facing = 1
+@export var facing = 1
 
 func _physics_process(delta):
 	position.x += facing * SPEED * delta

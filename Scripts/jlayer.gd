@@ -370,10 +370,11 @@ func play_collect_anim():
 	pickupSFX.play()
 	collect_anim.play("collect")
 
-
 func fade_to_black():
 	animation_player.play("fade")
+	collect_anim.play("level_transition")
 
 func fade_out_of_black():
+	collect_anim.play("level_transition")
 	animation_player.play_backwards("fade")
 	
