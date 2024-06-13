@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drcmaq4igepu2"]
+[gd_scene load_steps=9 format=3 uid="uid://drcmaq4igepu2"]
 
 [ext_resource type="Script" path="res://Interface/Lives.gd" id="1_ajqu4"]
 [ext_resource type="PackedScene" uid="uid://dnfulpiitnhun" path="res://Scenes/life_frame.tscn" id="2_wpwxj"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://cpl2r6041cult" path="res://Assets/Fonts/dogicapixel.ttf" id="6_bo8f8"]
 [ext_resource type="Script" path="res://Scripts/CookiesCounter.gd" id="7_qx7dj"]
 [ext_resource type="Texture2D" uid="uid://bbex0kgtuebnm" path="res://Assets/Sprites/pixilart-drawing.png" id="8_uvcus"]
+[ext_resource type="Texture2D" uid="uid://bx5r5wvw33qfq" path="res://icon.svg" id="8_vyxjt"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -93,3 +94,52 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("6_bo8f8")
 theme_override_font_sizes/font_size = 16
 text = "x1"
+
+[node name="MarginContainer (Weapons)" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 5
+
+[node name="Weapons" type="BoxContainer" parent="MarginContainer (Weapons)"]
+custom_minimum_size = Vector2(30, 10)
+layout_mode = 2
+
+[node name="Firewall" type="TextureRect" parent="MarginContainer (Weapons)/Weapons"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_vyxjt")
+expand_mode = 1
+
+[node name="Blackhole" type="TextureRect" parent="MarginContainer (Weapons)/Weapons"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_vyxjt")
+expand_mode = 1
+
+[node name="DMARC" type="TextureRect" parent="MarginContainer (Weapons)/Weapons"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_vyxjt")
+expand_mode = 1
+
+[node name="PQ" type="TextureRect" parent="MarginContainer (Weapons)/Weapons"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_vyxjt")
+expand_mode = 1
+
+[node name="PQ2" type="TextureRect" parent="MarginContainer (Weapons)/Weapons"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_vyxjt")
+expand_mode = 1
