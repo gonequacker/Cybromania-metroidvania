@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://coy2svltcr8uy"]
+[gd_scene load_steps=25 format=3 uid="uid://coy2svltcr8uy"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_aldxb"]
+[ext_resource type="AudioStream" uid="uid://dunan2rclx00q" path="res://Assets/Music/stal.ogg" id="2_gtotc"]
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="5_4iowp"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="6_aeduw"]
 [ext_resource type="Texture2D" uid="uid://bsplx0wu4mtx6" path="res://Assets/Sprites/weapon sprites/wand2.png" id="10_jtap0"]
@@ -570,6 +571,7 @@ width = 36
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_aldxb")
+music = ExtResource("2_gtotc")
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(1, 1, 0.752941, 1)

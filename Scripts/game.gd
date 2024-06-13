@@ -3,6 +3,8 @@ extends Node2D
 @onready var player = $World/Jlayer
 @onready var camera = $World/Jlayer/Camera2D
 
+@onready var music = $Music
+
 # The following code is heavily based off a game that my friend made lol
 
 @export var maps : Array[PackedScene]
@@ -18,6 +20,10 @@ func load_map(index : int):
 	map_node = maps[index].instantiate()
 	add_child(map_node)
 	map_node.connect("completed", _on_map_completed)
+	# Music
+	var musicStream = map_node.music
+	if musicStream: music.stream = musicStream
+	music.play()
 	# Camera bounds
 	camera.limit_left = -10000000
 	camera.limit_top = -10000000

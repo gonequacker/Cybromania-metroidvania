@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ce65utf3offoj"]
+[gd_scene load_steps=14 format=3 uid="uid://ce65utf3offoj"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_3swtx"]
 [ext_resource type="PackedScene" uid="uid://bbb1w0bphnmcb" path="res://Scenes/ui.tscn" id="1_10yyv"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bqebygpqsqv3y" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="4_x5t0x"]
 [ext_resource type="Script" path="res://Scripts/jlayer.gd" id="5_w5j7r"]
+[ext_resource type="Script" path="res://Scripts/Music.gd" id="10_8wj0t"]
 
 [sub_resource type="Animation" id="Animation_6hfxp"]
 length = 0.001
@@ -87,4 +88,8 @@ libraries = {
 "": SubResource("AnimationLibrary_1ffdk")
 }
 
-[node name="Music" type="AudioStreamPlayer" parent="World"]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+volume_db = -2.579
+bus = &"Music"
+script = ExtResource("10_8wj0t")
