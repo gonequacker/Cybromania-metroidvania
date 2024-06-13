@@ -159,7 +159,7 @@ stream = ExtResource("10_rs62w")
 volume_db = -2.0
 bus = &"SFX"
 
-[node name="exit_platform" type="Area2D" parent="."]
+[node name="exit_platform" type="StaticBody2D" parent="."]
 position = Vector2(-25, 77)
 scale = Vector2(1.24, 1)
 collision_layer = 8
