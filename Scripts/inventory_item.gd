@@ -23,11 +23,11 @@ const KEY_ITEMS = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if not KEY_ITEMS.find(item_name) == -1:
-		if Global.inventory[item_name] > 0:
-			queue_free()
 	if not Engine.is_editor_hint():
 		icon_sprite.texture = item_texture
+		if not KEY_ITEMS.find(item_name) == -1:
+			if Global.inventory[item_name] > 0:
+				queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
