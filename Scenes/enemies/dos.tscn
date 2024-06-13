@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxqiut0ew5sdl"]
+[gd_scene load_steps=17 format=3 uid="uid://cxqiut0ew5sdl"]
 
-[ext_resource type="Script" path="res://Scripts/static_fishing_hook.gd" id="1_hses8"]
+[ext_resource type="Script" path="res://Scripts/dos.gd" id="1_hses8"]
 [ext_resource type="Texture2D" uid="uid://yp5124mdqjbn" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-1.png" id="2_jqo07"]
 [ext_resource type="Texture2D" uid="uid://cf26nuamptyej" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-2.png" id="3_rjo7s"]
 [ext_resource type="Texture2D" uid="uid://bmnbkqx5bfywo" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-3.png" id="4_pd26o"]
@@ -163,6 +163,9 @@ _data = {
 "killed": SubResource("Animation_ahf8e")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_spetr"]
+radius = 135.133
+
 [node name="DOS" type="Node2D"]
 script = ExtResource("1_hses8")
 
@@ -194,6 +197,11 @@ bus = &"SFX"
 libraries = {
 "": SubResource("AnimationLibrary_uqril")
 }
+
+[node name="player_detection" type="Area2D" parent="."]
+
+[node name="player_detection_shape" type="CollisionShape2D" parent="player_detection"]
+shape = SubResource("CircleShape2D_spetr")
 
 [connection signal="killed" from="HitboxComponent" to="." method="_on_hitbox_component_killed"]
 [connection signal="finished" from="Die" to="." method="_on_die_finished"]

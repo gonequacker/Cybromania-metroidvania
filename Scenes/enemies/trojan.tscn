@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://rtnempcj6noa"]
+[gd_scene load_steps=17 format=3 uid="uid://rtnempcj6noa"]
 
 [ext_resource type="Texture2D" uid="uid://yp5124mdqjbn" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-1.png" id="1_6pblr"]
 [ext_resource type="Script" path="res://trojan.gd" id="1_j3yvi"]
@@ -124,6 +124,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uq6q"]
 size = Vector2(172, 206.034)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anm41"]
+size = Vector2(156, 20)
+
 [node name="trojan" type="Node2D"]
 script = ExtResource("1_j3yvi")
 
@@ -155,5 +158,14 @@ bus = &"SFX"
 stream = ExtResource("10_rs62w")
 volume_db = -2.0
 bus = &"SFX"
+
+[node name="exit_platform" type="Area2D" parent="."]
+position = Vector2(-25, 77)
+scale = Vector2(1.24, 1)
+collision_layer = 8
+collision_mask = 4
+
+[node name="physics_shape" type="CollisionShape2D" parent="exit_platform"]
+shape = SubResource("RectangleShape2D_anm41")
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

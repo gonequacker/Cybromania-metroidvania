@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dh123d6i6yucc"]
 
-[ext_resource type="Script" path="res://dynamic_fishing_hook.gd" id="1_iu7ei"]
+[ext_resource type="Script" path="res://fishing_hook.gd" id="1_iu7ei"]
 [ext_resource type="Texture2D" uid="uid://5q5yovjr71sx" path="res://Assets/Sprites/IMG_2424.PNG" id="2_sq4xn"]
 [ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="3_n6ypv"]
 [ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="4_rk6dm"]
