@@ -1,0 +1,220 @@
+[gd_scene load_steps=5 format=3 uid="uid://bypw1nsas5tpb"]
+
+[ext_resource type="Script" path="res://Interface/back_button.gd" id="1_r1e1v"]
+[ext_resource type="Texture2D" uid="uid://b6q06t764op1r" path="res://Assets/Sprites/IMG_2422.PNG" id="1_y7iyu"]
+[ext_resource type="Texture2D" uid="uid://dwi0p5uxgl4gh" path="res://Assets/Sprites/IMG_2415 - Copy.PNG" id="2_msxk7"]
+[ext_resource type="Texture2D" uid="uid://5q5yovjr71sx" path="res://Assets/Sprites/IMG_2424.PNG" id="3_plsg8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Info BG" type="ColorRect" parent="."]
+process_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 7.975
+anchor_bottom = 4.525
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.917647)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 303.0
+offset_bottom = 146.0
+vertical_scroll_mode = 2
+
+[node name="ColorRect" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(1, 1, 1, 0.298039)
+
+[node name="Label" type="Label" parent="ScrollContainer/ColorRect/ColorRect"]
+layout_mode = 2
+offset_left = 43.0
+offset_right = 277.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Weak to - Firewall Spell, Antivirus
+"
+autowrap_mode = 1
+max_lines_visible = 4
+
+[node name="Label2" type="Label" parent="ScrollContainer/ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 12.0
+offset_right = 277.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Worm - A type of malware that spreads with little to no user input, it typically exploits security flaws in widely deployed software"
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/ColorRect/ColorRect"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 79.0
+texture = ExtResource("1_y7iyu")
+stretch_mode = 3
+
+[node name="ColorRect2" type="ColorRect" parent="ScrollContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(1, 1, 1, 0.298039)
+
+[node name="Label" type="Label" parent="ScrollContainer/ColorRect/ColorRect2"]
+layout_mode = 2
+offset_left = 44.0
+offset_right = 278.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Weak to - PQ Pike, Antivirus
+"
+autowrap_mode = 1
+max_lines_visible = 4
+
+[node name="Label2" type="Label" parent="ScrollContainer/ColorRect/ColorRect2"]
+layout_mode = 2
+offset_left = 44.0
+offset_top = 13.0
+offset_right = 278.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Porcupine - represents an injection attack, where a hacker injects malicious code into a program, by causing it to process invalid data."
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/ColorRect/ColorRect2"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 79.0
+texture = ExtResource("2_msxk7")
+stretch_mode = 3
+
+[node name="ColorRect3" type="ColorRect" parent="ScrollContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(1, 1, 1, 0.298039)
+
+[node name="Label" type="Label" parent="ScrollContainer/ColorRect/ColorRect3"]
+layout_mode = 2
+offset_left = 43.0
+offset_right = 278.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Weak to - DMARC daggers, Antivirus
+"
+autowrap_mode = 1
+max_lines_visible = 4
+
+[node name="Label2" type="Label" parent="ScrollContainer/ColorRect/ColorRect3"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 12.0
+offset_right = 278.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Hook - represents a phishing attack, a form of social engineering where attackers trick someone into inputting sensitive information or installing malware"
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/ColorRect/ColorRect3"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 123.0
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_plsg8")
+stretch_mode = 3
+
+[node name="ColorRect4" type="ColorRect" parent="ScrollContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(1, 1, 1, 0.298039)
+
+[node name="Label" type="Label" parent="ScrollContainer/ColorRect/ColorRect4"]
+layout_mode = 2
+offset_left = 43.0
+offset_right = 277.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Weak to - Blackhole Launcher, Antivirus
+"
+autowrap_mode = 1
+max_lines_visible = 4
+
+[node name="Label2" type="Label" parent="ScrollContainer/ColorRect/ColorRect4"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 12.0
+offset_right = 277.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Swarm of fish - represents a DoS (Denial of Service) attack, which is an attack where a hacker makes a computer or network unavailable by disrupting it's ability to service users, usually caused by flooding a target with requests."
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/ColorRect/ColorRect4"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 79.0
+stretch_mode = 3
+
+[node name="ColorRect5" type="ColorRect" parent="ScrollContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(1, 1, 1, 0.298039)
+
+[node name="Label" type="Label" parent="ScrollContainer/ColorRect/ColorRect5"]
+layout_mode = 2
+offset_left = 43.0
+offset_right = 277.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Weak to - None
+"
+autowrap_mode = 1
+max_lines_visible = 4
+
+[node name="Label2" type="Label" parent="ScrollContainer/ColorRect/ColorRect5"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 12.0
+offset_right = 277.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Trojan Horse - represents a Trojan malware, a type of malware thats hidden within a seemingly innocuous program, with a payload that can be just about anything."
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/ColorRect/ColorRect5"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 79.0
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 147.0
+offset_right = 101.0
+offset_bottom = 178.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+script = ExtResource("1_r1e1v")
