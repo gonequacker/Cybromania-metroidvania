@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://dnfulpiitnhun"]
 
-[ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="1_ltwfk"]
+[ext_resource type="Texture2D" uid="uid://cfcdowog6ol5b" path="res://Assets/Sprites/heart.png" id="1_jjtig"]
 
 [node name="TextureRect" type="TextureRect"]
 custom_minimum_size = Vector2(20, 20)
-texture = ExtResource("1_ltwfk")
-expand_mode = 1
-stretch_mode = 4
+texture = ExtResource("1_jjtig")
+stretch_mode = 2
