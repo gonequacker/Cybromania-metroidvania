@@ -35,9 +35,11 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_v3qfq")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="ExitPortal" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3cqao")
 autoplay = "default"
+
+[node name="EncryptionLock" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ubc8k")
