@@ -8,10 +8,12 @@ extends Node2D
 # The following code is heavily based off a game that my friend made lol
 
 @export var maps : Array[PackedScene]
+@export var debug_start_map = 0
 
 var map_node : Node2D
 
 func _ready():
+	Global.current_level = debug_start_map
 	load_map(Global.current_level)
 
 func load_map(index : int):
