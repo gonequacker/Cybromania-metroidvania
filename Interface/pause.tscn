@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Interface/ResumeButton.gd" id="2_e7afy"]
 [ext_resource type="Script" path="res://Interface/InfoButton.gd" id="4_3intf"]
 [ext_resource type="Script" path="res://Interface/QuitButton.gd" id="4_scbci"]
-[ext_resource type="PackedScene" uid="uid://bypw1nsas5tpb" path="res://Scenes/info_screen.tscn" id="6_y67m0"]
+[ext_resource type="PackedScene" uid="uid://dd48t1htyu24x" path="res://Scenes/info_screen.tscn" id="6_y67m0"]
 
 [node name="Pause" type="Control"]
 process_mode = 3
