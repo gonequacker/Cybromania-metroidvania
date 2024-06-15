@@ -76,7 +76,7 @@ stretch_mode = 3
 [node name="Label" type="Label" parent="MarginContainer (Bytes)/Bytes"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("12_233ba")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 8
 text = "x1"
 
 [node name="MarginContainer (Cookies)" type="MarginContainer" parent="."]
@@ -109,7 +109,7 @@ custom_minimum_size = Vector2(28, 14)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("12_233ba")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 8
 text = "x1"
 
 [node name="MarginContainer (Weapons)" type="MarginContainer" parent="."]
