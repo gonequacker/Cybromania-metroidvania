@@ -244,11 +244,14 @@ func handle_inputs(delta):
 
 
 func handle_animations():
+	sprite.offset.y = 4
 	if crouched: # All animations to play while crouched.
 		if dash > 0: # Dashing
 			sprite.play("Dash")
+			sprite.offset.y = 11
 		else: # Crouching
 			sprite.play("Crouch")
+			sprite.offset.y = 10
 	elif wall_slide: # Wall sliding
 		sprite.play("Wall")
 	elif double_jump_cooldown > 0: # Double jumping
