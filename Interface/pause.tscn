@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbj555cllh5ug"]
 
 [ext_resource type="Script" path="res://Interface/Pause.gd" id="1_ryad7"]
-[ext_resource type="FontFile" uid="uid://cpl2r6041cult" path="res://Assets/Fonts/dogicapixel.ttf" id="2_c2ty3"]
+[ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="2_d42dh"]
 [ext_resource type="Script" path="res://Interface/ResumeButton.gd" id="2_e7afy"]
 [ext_resource type="Script" path="res://Interface/InfoButton.gd" id="4_3intf"]
 [ext_resource type="Script" path="res://Interface/QuitButton.gd" id="4_scbci"]
@@ -45,19 +45,19 @@ theme_override_constants/separation = 6
 [node name="Button" type="Button" parent="VBoxContainer"]
 process_mode = 3
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_c2ty3")
+theme_override_fonts/font = ExtResource("2_d42dh")
 text = "Resume"
 script = ExtResource("2_e7afy")
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_c2ty3")
+theme_override_fonts/font = ExtResource("2_d42dh")
 text = "Info"
 script = ExtResource("4_3intf")
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_c2ty3")
+theme_override_fonts/font = ExtResource("2_d42dh")
 text = "Quit"
 script = ExtResource("4_scbci")
 

@@ -14,4 +14,4 @@ func _ready():
 
 func _on_area_entered(area):
 	if area.is_in_group("porcupine"):
-		area.get_parent().get_node("HitboxComponent").take_damage(1)
+		area.get_parent().get_node("HitboxComponent").take_damage(2)
