@@ -176,6 +176,7 @@ target_position = Vector2(-20, 2.08165e-12)
 target_position = Vector2(20, 2.08165e-12)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("4_q8yq6")]
+health = 2
 
 [node name="Hitbox" type="Area2D" parent="." groups=["enemy", "worm"]]
 

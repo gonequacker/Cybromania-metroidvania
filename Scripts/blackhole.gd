@@ -22,4 +22,4 @@ func _on_timer_timeout():
 
 func _on_area_entered(area):
 	if area.is_in_group("dos"):
-		area.get_parent().get_node("HitboxComponent").take_damage(1)
+		area.get_parent().get_node("HitboxComponent").take_damage(5)

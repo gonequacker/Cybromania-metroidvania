@@ -215,22 +215,19 @@ func handle_inputs(delta):
 	
 	# Handle hotbar inputs. (yikes)
 	# HUD: Signal HUD for selected weapon
-	if Input.is_action_just_pressed("1"):
-		weapon = HAND
-		emit_signal("weaponSelected", 1)
-	if Input.is_action_just_pressed("2") and has_staff():
+	if Input.is_action_just_pressed("1") and has_staff():
 		weapon = STAFF
 		emit_signal("weaponSelected", 2)
-	if Input.is_action_just_pressed("3") and has_pike():
+	if Input.is_action_just_pressed("2") and has_pike():
 		weapon = PIKE
 		emit_signal("weaponSelected", 3)
-	if Input.is_action_just_pressed("4") and has_dagger():
+	if Input.is_action_just_pressed("3") and has_dagger():
 		weapon = DAGGER
 		emit_signal("weaponSelected", 4)
-	if Input.is_action_just_pressed("5") and has_launcher():
+	if Input.is_action_just_pressed("4") and has_launcher():
 		weapon = LAUNCHER
 		emit_signal("weaponSelected", 5)
-	if Input.is_action_just_pressed("6") and has_arbalest():
+	if Input.is_action_just_pressed("5") and has_arbalest():
 		weapon = ARBALEST
 		emit_signal("weaponSelected", 6)
 	
