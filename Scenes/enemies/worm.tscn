@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://chn408wsd17td"]
 
 [ext_resource type="Script" path="res://Scripts/moving_enemy.gd" id="1_h4mrx"]
-[ext_resource type="Texture2D" uid="uid://b6q06t764op1r" path="res://Assets/Sprites/IMG_2422.PNG" id="2_oraao"]
+[ext_resource type="Texture2D" uid="uid://b6q06t764op1r" path="res://Assets/Sprites/enemy sprites/IMG_2422.PNG" id="2_6qc2y"]
 [ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="3_imlor"]
 [ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="4_q8yq6"]
 [ext_resource type="AudioStream" uid="uid://ckc0rls2t7yeg" path="res://Assets/SFX/Enemies/wormDie.wav" id="5_qh0vs"]
@@ -10,7 +10,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_oraao")
+"texture": ExtResource("2_6qc2y")
 }],
 "loop": true,
 "name": &"Idle",
