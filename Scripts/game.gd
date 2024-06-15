@@ -24,6 +24,7 @@ func load_map(index : int):
 	map_node.connect("fade_out", _on_fade_out)
 	map_node.connect("completed", _on_map_completed)
 	# Music
+	music.stream = null
 	var musicStream = map_node.music
 	if musicStream: music.stream = musicStream
 	music.play()

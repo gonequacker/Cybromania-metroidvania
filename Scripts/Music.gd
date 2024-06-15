@@ -15,3 +15,7 @@ func fade_out():
 	animation_player.play("fade_out")
 func fade_in():
 	animation_player.play_backwards("fade_out")
+
+
+func _on_finished():
+	play()

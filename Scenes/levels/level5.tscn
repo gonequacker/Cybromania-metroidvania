@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cb6ptnw1o3ch2"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ur5qk"]
-[ext_resource type="AudioStream" uid="uid://dunan2rclx00q" path="res://Assets/Music/stal.ogg" id="2_wwa7n"]
+[ext_resource type="AudioStream" uid="uid://dejuune1q2205" path="res://Assets/Music/gold.ogg" id="2_6kpck"]
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="3_ovelb"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="4_dgxe3"]
 [ext_resource type="PackedScene" uid="uid://cxqiut0ew5sdl" path="res://Scenes/enemies/dos.tscn" id="5_nbknh"]
@@ -516,12 +516,12 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_ephg0")
 width = 36
 
-[node name="Level3" type="Node2D"]
+[node name="Level5" type="Node2D"]
 script = ExtResource("1_ur5qk")
-music = ExtResource("2_wwa7n")
+music = ExtResource("2_6kpck")
 
 [node name="TileMap" type="TileMap" parent="."]
-modulate = Color(1, 1, 0.752941, 1)
+modulate = Color(0.66, 1, 0.892333, 1)
 tile_set = SubResource("TileSet_2y56w")
 format = 2
 layer_0/name = "BG"

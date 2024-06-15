@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://sk3sxa62yjwk"]
+[gd_scene load_steps=22 format=3 uid="uid://sk3sxa62yjwk"]
 
 [ext_resource type="Texture2D" uid="uid://bjwcoy2h2bosp" path="res://Assets/Sunnyland/environment/Props/tree.png" id="1_6pqqh"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_a6hid"]
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="1_vggql"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="2_8twxl"]
 [ext_resource type="Texture2D" uid="uid://b66e78c3a1k72" path="res://Assets/Sunnyland/environment/Props/bush.png" id="2_rlksj"]
@@ -540,6 +541,7 @@ _data = {
 }
 
 [node name="TestLevel" type="Node2D"]
+script = ExtResource("1_a6hid")
 
 [node name="Sky" type="ParallaxBackground" parent="."]
 

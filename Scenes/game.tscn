@@ -138,3 +138,5 @@ script = ExtResource("10_8wj0t")
 libraries = {
 "": SubResource("AnimationLibrary_b07w3")
 }
+
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]

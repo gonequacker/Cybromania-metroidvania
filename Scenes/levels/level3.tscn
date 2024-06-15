@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cvibmcesyyoj5"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_mgwd8"]
-[ext_resource type="AudioStream" uid="uid://dunan2rclx00q" path="res://Assets/Music/stal.ogg" id="2_kn7qb"]
+[ext_resource type="AudioStream" uid="uid://b8e8m45lxr8ld" path="res://Assets/Music/ghos.ogg" id="2_spk6t"]
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="3_jt7xx"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="4_2nidp"]
 [ext_resource type="PackedScene" uid="uid://dgt15dtho8llq" path="res://Scenes/enemies/porcupine.tscn" id="5_60eas"]
@@ -518,10 +518,10 @@ width = 36
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_mgwd8")
-music = ExtResource("2_kn7qb")
+music = ExtResource("2_spk6t")
 
 [node name="TileMap" type="TileMap" parent="."]
-modulate = Color(1, 1, 0.752941, 1)
+modulate = Color(1, 0.89, 0.943167, 1)
 tile_set = SubResource("TileSet_2y56w")
 format = 2
 layer_0/name = "BG"
