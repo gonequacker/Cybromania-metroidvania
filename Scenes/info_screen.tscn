@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bypw1nsas5tpb"]
+[gd_scene load_steps=5 format=3 uid="uid://dd48t1htyu24x"]
 
+[ext_resource type="Texture2D" uid="uid://b6q06t764op1r" path="res://Assets/Sprites/enemy sprites/IMG_2422.PNG" id="1_1mm3a"]
 [ext_resource type="Script" path="res://Interface/back_button.gd" id="1_r1e1v"]
-[ext_resource type="Texture2D" uid="uid://b6q06t764op1r" path="res://Assets/Sprites/IMG_2422.PNG" id="1_y7iyu"]
 [ext_resource type="Texture2D" uid="uid://dwi0p5uxgl4gh" path="res://Assets/Sprites/IMG_2415 - Copy.PNG" id="2_msxk7"]
-[ext_resource type="Texture2D" uid="uid://5q5yovjr71sx" path="res://Assets/Sprites/IMG_2424.PNG" id="3_plsg8"]
+[ext_resource type="Texture2D" uid="uid://5q5yovjr71sx" path="res://Assets/Sprites/enemy sprites/IMG_2424.PNG" id="3_lii14"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -65,7 +65,7 @@ autowrap_mode = 2
 layout_mode = 0
 offset_right = 45.0
 offset_bottom = 79.0
-texture = ExtResource("1_y7iyu")
+texture = ExtResource("1_1mm3a")
 stretch_mode = 3
 
 [node name="ColorRect2" type="ColorRect" parent="ScrollContainer/ColorRect"]
@@ -136,7 +136,7 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 123.0
 scale = Vector2(0.65, 0.65)
-texture = ExtResource("3_plsg8")
+texture = ExtResource("3_lii14")
 stretch_mode = 3
 
 [node name="ColorRect4" type="ColorRect" parent="ScrollContainer/ColorRect"]
