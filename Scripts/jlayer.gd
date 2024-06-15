@@ -15,6 +15,7 @@ extends CharacterBody2D
 @onready var wall_clingSFX = $SFX/WallCling
 @onready var double_jumpSFX = $SFX/DoubleJump
 @onready var hurtSFX = $SFX/Hurt
+@onready var dieSFX = $SFX/Die
 @onready var healSFX = $SFX/Heal
 @onready var pickupSFX = $SFX/Pickup
 
@@ -23,6 +24,8 @@ extends CharacterBody2D
 @onready var pikeSFX = $SFX/Weapon/Pike
 @onready var arbalestSFX = $SFX/Weapon/Arbalest
 @onready var blackholeSFX = $SFX/Weapon/Blackhole
+
+@onready var animation_player = $AnimationPlayer
 
 const PROJECTILE_S = preload("res://Scenes/Projectiles/projectile.tscn")
 const FIREWALL_S = preload("res://Scenes/Projectiles/firewall.tscn")
@@ -90,6 +93,7 @@ var weapon_cooldown = 0 # frames until player can attack again.
 
 
 func _ready():
+	health = HEALTH_MAX
 	Global.set_player_reference(self) # tbh im not sure why im doing this
 	
 	# For HUD (Connects required singals)
@@ -321,6 +325,7 @@ func take_damage(amount):
 	invuln_anim.play("invuln")
 	# Play hurt sound
 	hurtSFX.play()
+	if health <= 0: dieSFX.play()
 	# Update UI
 	emit_signal("hurt", health)
 # Heal player by some amount.
@@ -390,3 +395,12 @@ func spawn_melee(direction, melee):
 func play_collect_anim():
 	pickupSFX.play()
 	collect_anim.play("collect")
+
+func fade_to_black():
+	animation_player.play("fade")
+	collect_anim.play("level_transition")
+
+func fade_out_of_black():
+	collect_anim.play("level_transition")
+	animation_player.play_backwards("fade")
+	

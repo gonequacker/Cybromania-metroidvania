@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvxoedtxongxp"
-path="res://.godot/imported/IMG_2415.PNG-a26b124c077a208bbf0aee2879aa5182.ctex"
+uid="uid://bsplx0wu4mtx6"
+path="res://.godot/imported/wand2.png-e6d406432c8befa72f0d2fd186fa00bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/IMG_2415.PNG"
-dest_files=["res://.godot/imported/IMG_2415.PNG-a26b124c077a208bbf0aee2879aa5182.ctex"]
+source_file="res://Assets/Sprites/weapon sprites/wand2.png"
+dest_files=["res://.godot/imported/wand2.png-e6d406432c8befa72f0d2fd186fa00bb.ctex"]
 
 [params]
 

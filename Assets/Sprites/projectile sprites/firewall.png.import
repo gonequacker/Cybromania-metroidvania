@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6q06t764op1r"
-path="res://.godot/imported/IMG_2422.PNG-d39f70ce8ad9c6096eb524721a74ac6d.ctex"
+uid="uid://ca4yvrxo7gxmr"
+path="res://.godot/imported/firewall.png-5dc6208b456767ebf37b63bc94c6b99f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/IMG_2422.PNG"
-dest_files=["res://.godot/imported/IMG_2422.PNG-d39f70ce8ad9c6096eb524721a74ac6d.ctex"]
+source_file="res://Assets/Sprites/projectile sprites/firewall.png"
+dest_files=["res://.godot/imported/firewall.png-5dc6208b456767ebf37b63bc94c6b99f.ctex"]
 
 [params]
 

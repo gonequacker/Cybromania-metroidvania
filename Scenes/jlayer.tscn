@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bqebygpqsqv3y"]
+[gd_scene load_steps=44 format=3 uid="uid://bqebygpqsqv3y"]
 
 [ext_resource type="Texture2D" uid="uid://jc6o01myejgi" path="res://Assets/Sunnyland/sprites/player/idle/player-idle-1.png" id="1_btyh2"]
 [ext_resource type="Texture2D" uid="uid://brmdshpv4vb5v" path="res://Assets/Sunnyland/sprites/player/jump/player-jump-1.png" id="1_hbmg4"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://ch7piubol242j" path="res://Assets/SFX/wall_cling.wav" id="24_4aabh"]
 [ext_resource type="AudioStream" uid="uid://dk7bd60wfaioh" path="res://Assets/SFX/double_jump.wav" id="25_ov50m"]
 [ext_resource type="AudioStream" uid="uid://btqle2kjnap0a" path="res://Assets/SFX/hurt.wav" id="26_s0pf1"]
+[ext_resource type="AudioStream" uid="uid://bcxsxil2t2mhg" path="res://Assets/SFX/playerDeath.wav" id="27_5p8mo"]
 [ext_resource type="AudioStream" uid="uid://bnngwf75hetde" path="res://Assets/SFX/heal.wav" id="27_aw24q"]
 [ext_resource type="AudioStream" uid="uid://bytlxloxkck1c" path="res://Assets/SFX/Weapon/firewall.wav" id="28_ng418"]
 [ext_resource type="AudioStream" uid="uid://tc7sc1l6yrph" path="res://Assets/SFX/pickup.wav" id="28_nrh8n"]
@@ -218,9 +219,47 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_0ubth"]
+resource_name = "level_transition"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_physics_process"
+}, {
+"args": [true],
+"method": &"set_physics_process"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"play"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qpunc"]
 _data = {
-"collect": SubResource("Animation_512ii")
+"collect": SubResource("Animation_512ii"),
+"level_transition": SubResource("Animation_0ubth")
 }
 
 [node name="Jlayer" type="CharacterBody2D"]
@@ -230,7 +269,7 @@ collision_layer = 2
 z_index = 5
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
-animation = &"Airborne"
+animation = &"Crouch"
 autoplay = "Idle"
 offset = Vector2(1, 2.08165e-12)
 
@@ -298,6 +337,12 @@ bus = &"SFX"
 
 [node name="Hurt" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("26_s0pf1")
+volume_db = -2.0
+bus = &"SFX"
+
+[node name="Die" type="AudioStreamPlayer" parent="SFX"]
+process_mode = 2
+stream = ExtResource("27_5p8mo")
 volume_db = -2.0
 bus = &"SFX"
 
