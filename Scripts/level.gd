@@ -8,7 +8,8 @@ signal fade_out
 signal completed
 
 func _ready():
-	next_level.connect("fade_out", _on_fade_out)
+	if next_level: next_level.connect("fade_out", _on_fade_out)
+	else: print("WARNING: This level is a dead end! Add a \"NextLevel\" node or make sure this level ends the game!")
 
 func _on_fade_out():
 	emit_signal("fade_out")

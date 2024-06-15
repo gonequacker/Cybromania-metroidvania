@@ -49,6 +49,6 @@ func _on_timer_timeout():
 
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
-		area.get_parent().get_node("HitboxComponent").take_damage(2)
+		area.get_parent().get_node("HitboxComponent").take_damage(1)
 		hits += 1
 		if hits >= MAX_HITS: queue_free()

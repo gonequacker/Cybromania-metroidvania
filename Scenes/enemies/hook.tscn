@@ -153,7 +153,7 @@ position = Vector2(-23, 0)
 shape = SubResource("RectangleShape2D_lrv7o")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("4_rk6dm")]
-health = 20
+health = 10
 
 [node name="Hitbox" type="Area2D" parent="." groups=["enemy", "hook"]]
 
