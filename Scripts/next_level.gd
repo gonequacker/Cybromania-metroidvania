@@ -13,8 +13,7 @@ signal completed
 func _process(delta):
 	encryption_lock.visible = not enabled
 	var num_enemies_left = 0
-	var enemies_node = get_parent().get_node("Enemies")
-	if enemies_node: num_enemies_left = enemies_node.get_child_count()
+	if get_parent().has_node("Enemies"): num_enemies_left = get_parent().get_node("Enemies").get_child_count()
 	if num_enemies_left <= 0:
 		enabled = true
 
