@@ -230,8 +230,9 @@ collision_layer = 2
 z_index = 5
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bfxpd")
-animation = &"Airborne"
+animation = &"Run"
 autoplay = "Idle"
+frame_progress = 0.26598
 offset = Vector2(1, 2.08165e-12)
 
 [node name="Collider" type="CollisionShape2D" parent="."]

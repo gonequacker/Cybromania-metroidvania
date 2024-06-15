@@ -620,10 +620,10 @@ position = Vector2(288, 216)
 collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/MovingPlatform"]
+autoplay = "move"
 libraries = {
 "": SubResource("AnimationLibrary_iodpw")
 }
-autoplay = "move"
 
 [node name="Coins" type="Node" parent="."]
 

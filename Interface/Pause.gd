@@ -1,5 +1,5 @@
 extends Control
-
+class_name Pause
 func _input(event):
 	if event.is_action_pressed("pause"):
 		var new_pause_state =  not get_tree().paused
