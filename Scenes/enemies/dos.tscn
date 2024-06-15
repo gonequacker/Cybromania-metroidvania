@@ -179,6 +179,7 @@ shape = SubResource("CircleShape2D_k7rp3")
 debug_color = Color(1, 0, 0, 0.54902)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("7_qvsjl")]
+health = 5
 
 [node name="Hitbox" type="Area2D" parent="." groups=["dos", "enemy"]]
 
