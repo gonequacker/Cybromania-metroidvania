@@ -1,6 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjutqihjoc2yr"]
+[gd_scene load_steps=21 format=3 uid="uid://bjutqihjoc2yr"]
 
 [ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Assets/Sunnyland/environment/Background/back.png" id="1_0x25x"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_bsoyu"]
+[ext_resource type="AudioStream" uid="uid://bummhbqbglb5k" path="res://Assets/Music/mega.ogg" id="2_5n3ci"]
 [ext_resource type="Texture2D" uid="uid://bwion3j0g377" path="res://Assets/Sunnyland/environment/Background/middle.png" id="2_62fq6"]
 [ext_resource type="Script" path="res://Scripts/middleground.gd" id="3_majvw"]
 [ext_resource type="Texture2D" uid="uid://bjwcoy2h2bosp" path="res://Assets/Sunnyland/environment/Props/tree.png" id="4_gollt"]
@@ -12,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="11_p4hwf"]
 [ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="13_i0dk8"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="14_8abuu"]
+[ext_resource type="PackedScene" uid="uid://tdlyhes7qa3b" path="res://Scenes/next_level.tscn" id="15_6vn1d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
 texture = ExtResource("7_8dv0d")
@@ -508,6 +511,8 @@ default_font = ExtResource("11_p4hwf")
 default_font_size = 0
 
 [node name="BossFight" type="Node2D"]
+script = ExtResource("1_bsoyu")
+music = ExtResource("2_5n3ci")
 
 [node name="Sky" type="ParallaxBackground" parent="."]
 
@@ -621,3 +626,9 @@ horizontal_alignment = 1
 
 [node name="MovingPlatform" parent="." instance=ExtResource("11_ml6jd")]
 position = Vector2(165, 109)
+
+[node name="SpawnPos" type="Node2D" parent="."]
+position = Vector2(-14, 138)
+
+[node name="NextLevel" parent="." instance=ExtResource("15_6vn1d")]
+position = Vector2(679, 165)
