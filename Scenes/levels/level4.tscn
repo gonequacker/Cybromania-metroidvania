@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="3_kxj8e"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="4_5ua1t"]
 [ext_resource type="PackedScene" uid="uid://dh123d6i6yucc" path="res://Scenes/enemies/hook.tscn" id="5_h2e37"]
-[ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="6_u4a7j"]
+[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="6_u4a7j"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="7_hb2l1"]
-[ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/cookie.tscn" id="8_6wh16"]
-[ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="9_ub28x"]
+[ext_resource type="PackedScene" path="res://Scenes/cookie.tscn" id="8_6wh16"]
+[ext_resource type="PackedScene" path="res://Scenes/inventory_item.tscn" id="9_ub28x"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="10_k1a3a"]
 [ext_resource type="PackedScene" uid="uid://tdlyhes7qa3b" path="res://Scenes/next_level.tscn" id="11_ac4ut"]
 

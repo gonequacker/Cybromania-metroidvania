@@ -56,16 +56,20 @@ anchor_right = 1.0
 offset_left = -42.0
 offset_bottom = 40.0
 grow_horizontal = 0
-theme_override_constants/margin_left = -10
 theme_override_constants/margin_top = -15
 
 [node name="Bytes" type="BoxContainer" parent="MarginContainer (Bytes)"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = -2
 script = ExtResource("4_kwr12")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer (Bytes)/Bytes"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer (Bytes)/Bytes"]
+layout_mode = 2
+theme_override_constants/margin_right = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer (Bytes)/Bytes/MarginContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
@@ -84,18 +88,26 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -64.0
+offset_left = -58.0
 offset_top = 15.0
+offset_right = 6.0
 offset_bottom = 47.0
 grow_horizontal = 0
+theme_override_constants/margin_right = -2
 
 [node name="Cookies" type="BoxContainer" parent="MarginContainer (Cookies)"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
+theme_override_constants/separation = 0
 script = ExtResource("7_qx7dj")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer (Cookies)/Cookies"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer (Cookies)/Cookies"]
+layout_mode = 2
+theme_override_constants/margin_top = -15
+theme_override_constants/margin_right = -6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer (Cookies)/Cookies/MarginContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
