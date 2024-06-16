@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="14_u8xqt"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="15_kabmy"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="16_xkvmf"]
-[ext_resource type="PackedScene" uid="uid://tdlyhes7qa3b" path="res://Scenes/next_level.tscn" id="17_dy6if"]
+[ext_resource type="PackedScene" uid="uid://bba4lucungyjt" path="res://Scenes/next_level.tscn" id="17_dy6if"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
 texture = ExtResource("5_4iowp")
