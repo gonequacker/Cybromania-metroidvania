@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://tdlyhes7qa3b"]
+[gd_scene load_steps=9 format=3 uid="uid://bba4lucungyjt"]
 
 [ext_resource type="Texture2D" uid="uid://cfrdq7jidsww3" path="res://Assets/Sunnyland/sprites/item-feedback/item-feedback-3.png" id="1_lbjbt"]
 [ext_resource type="Script" path="res://Scripts/next_level.gd" id="1_v3qfq"]
