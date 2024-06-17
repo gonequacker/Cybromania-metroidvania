@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/cookie.tscn" id="8_wdqw7"]
 [ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="9_rr1hn"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="10_wyx7s"]
-[ext_resource type="PackedScene" uid="uid://tdlyhes7qa3b" path="res://Scenes/next_level.tscn" id="11_8dqjw"]
+[ext_resource type="PackedScene" uid="uid://bba4lucungyjt" path="res://Scenes/next_level.tscn" id="11_8dqjw"]
 [ext_resource type="Texture2D" uid="uid://clek6j6so2ban" path="res://Assets/Sunnyland/environment/Props/shrooms.png" id="13_axivl"]
 [ext_resource type="Texture2D" uid="uid://biqtj1l6x54fr" path="res://Assets/Sunnyland/environment/Props/door-opened.png" id="14_e43oh"]
 [ext_resource type="Texture2D" uid="uid://fesi86rotrl6" path="res://Assets/Sunnyland/environment/Props/crate.png" id="15_ip78g"]
