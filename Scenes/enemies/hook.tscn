@@ -1,22 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dh123d6i6yucc"]
+[gd_scene load_steps=14 format=3 uid="uid://dh123d6i6yucc"]
 
 [ext_resource type="Script" path="res://dynamic_fishing_hook.gd" id="1_iu7ei"]
-[ext_resource type="Texture2D" uid="uid://5q5yovjr71sx" path="res://Assets/Sprites/enemy sprites/IMG_2424.PNG" id="2_mfco8"]
+[ext_resource type="Texture2D" uid="uid://djyjp8yvf5rma" path="res://Assets/Sprites/enemy sprites/IMG_2424 fix.PNG" id="2_14cnf"]
 [ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="3_n6ypv"]
 [ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="4_rk6dm"]
 [ext_resource type="AudioStream" uid="uid://jcebk6kwipc5" path="res://Assets/SFX/Enemies/hookHurt.wav" id="5_jfelq"]
 [ext_resource type="AudioStream" uid="uid://du6oco76vcb7c" path="res://Assets/SFX/Enemies/hookDie.wav" id="6_miqlj"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_whk3x"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_mfco8")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 6.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vk8lg"]
 radius = 8.0
@@ -132,10 +121,9 @@ _data = {
 [node name="Hook" type="Node2D"]
 script = ExtResource("1_iu7ei")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_whk3x")
-animation = &"Idle"
-autoplay = "Idle"
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, -103)
+texture = ExtResource("2_14cnf")
 offset = Vector2(-3, 0)
 
 [node name="Killzone" parent="." instance=ExtResource("3_n6ypv")]

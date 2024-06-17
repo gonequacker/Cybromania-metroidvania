@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://tdlyhes7qa3b"]
+[gd_scene load_steps=10 format=3 uid="uid://bba4lucungyjt"]
 
 [ext_resource type="Texture2D" uid="uid://cfrdq7jidsww3" path="res://Assets/Sunnyland/sprites/item-feedback/item-feedback-3.png" id="1_lbjbt"]
 [ext_resource type="Script" path="res://Scripts/next_level.gd" id="1_v3qfq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dv6qvunf3hkvm" path="res://Assets/Sunnyland/sprites/item-feedback/item-feedback-2.png" id="3_svtod"]
 [ext_resource type="Texture2D" uid="uid://dsp5qho311x5k" path="res://Assets/Sunnyland/sprites/item-feedback/item-feedback-4.png" id="5_tonc0"]
 [ext_resource type="AudioStream" uid="uid://7qkauhr0mo1h" path="res://Assets/SFX/levelTransition.wav" id="6_1vd7g"]
+[ext_resource type="Texture2D" uid="uid://4j7foyapb60h" path="res://Assets/Sprites/lock/lock.PNG" id="6_tctx6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3cqao"]
 animations = [{
@@ -38,8 +39,19 @@ script = ExtResource("1_v3qfq")
 [node name="ExitPortal" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3cqao")
 autoplay = "default"
+frame_progress = 0.246458
 
 [node name="EncryptionLock" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+texture = ExtResource("6_tctx6")
+offset = Vector2(2.405, -2.425)
+
+[node name="EncryptionLock2" type="Sprite2D" parent="EncryptionLock"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2, 2)
+texture = ExtResource("6_tctx6")
+offset = Vector2(2.405, -2.425)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ubc8k")
