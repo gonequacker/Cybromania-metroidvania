@@ -122,7 +122,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uq6q"]
-size = Vector2(172, 206.034)
+size = Vector2(172, 178.448)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anm41"]
 size = Vector2(156, 20)
@@ -132,7 +132,7 @@ script = ExtResource("1_j3yvi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 0)
-scale = Vector2(6.64, 12.48)
+scale = Vector2(6.38461, 11.0376)
 sprite_frames = SubResource("SpriteFrames_sf3r2")
 animation = &"Spewing"
 autoplay = "Idle"
