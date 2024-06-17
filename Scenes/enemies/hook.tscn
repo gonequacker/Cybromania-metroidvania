@@ -129,7 +129,7 @@ offset = Vector2(-3, 0)
 [node name="Killzone" parent="." instance=ExtResource("3_n6ypv")]
 
 [node name="kill_shape" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(-9, 12)
+position = Vector2(-4, 5)
 scale = Vector2(1, 1.28)
 shape = SubResource("CapsuleShape2D_vk8lg")
 debug_color = Color(1, 0, 0, 0.658824)

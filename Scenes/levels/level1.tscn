@@ -12,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://ureaf15nc3bk" path="res://Assets/Sunnyland/environment/Props/straw-house.png" id="7_vuirf"]
 [ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/cookie.tscn" id="8_lr852"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="9_kteie"]
-[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="11_e6htm"]
-[ext_resource type="PackedScene" uid="uid://tdlyhes7qa3b" path="res://Scenes/next_level.tscn" id="17_toe6c"]
+[ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_e6htm"]
+[ext_resource type="PackedScene" uid="uid://bba4lucungyjt" path="res://Scenes/next_level.tscn" id="17_toe6c"]
 
 [sub_resource type="Animation" id="Animation_xhkep"]
 length = 0.001
