@@ -1,14 +1,62 @@
-[gd_scene load_steps=10 format=3 uid="uid://rtnempcj6noa"]
+[gd_scene load_steps=17 format=3 uid="uid://rtnempcj6noa"]
 
 [ext_resource type="Texture2D" uid="uid://yp5124mdqjbn" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-1.png" id="1_6pblr"]
+[ext_resource type="Script" path="res://Scripts/trojan.gd" id="1_j3yvi"]
+[ext_resource type="Texture2D" uid="uid://dgaojx8y47ki" path="res://Assets/Sunnyland/spritesheets/frog-idle.png" id="2_g073y"]
 [ext_resource type="Texture2D" uid="uid://cf26nuamptyej" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-2.png" id="2_pfn76"]
 [ext_resource type="Texture2D" uid="uid://bmnbkqx5bfywo" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-3.png" id="3_bab57"]
 [ext_resource type="Texture2D" uid="uid://3pqhwrksmq2l" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-4.png" id="4_i78rb"]
 [ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="5_a4fnk"]
-[ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="6_7qfgl"]
+[ext_resource type="AudioStream" uid="uid://b50l8x3fjsay1" path="res://Assets/SFX/Enemies/porcupineHurt.wav" id="9_wlu1g"]
+[ext_resource type="AudioStream" uid="uid://btfbmuold04gw" path="res://Assets/SFX/Enemies/porcupineDie.wav" id="10_rs62w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwp21"]
+atlas = ExtResource("2_g073y")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1es4"]
+atlas = ExtResource("2_g073y")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ht4i"]
+atlas = ExtResource("2_g073y")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw8lq"]
+atlas = ExtResource("2_g073y")
+region = Rect2(70, 0, 35, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sf3r2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwp21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1es4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwp21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1es4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwp21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1es4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwp21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1es4")
+}],
+"loop": true,
+"name": &"CloseHatch",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 5.0,
 "texture": ExtResource("1_6pblr")
@@ -25,30 +73,99 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwp21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1es4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ht4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw8lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ht4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw8lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ht4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw8lq")
+}],
+"loop": false,
+"name": &"OpenHatch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_yw8lq")
+}, {
+"duration": 4.0,
+"texture": ExtResource("2_pfn76")
+}, {
+"duration": 4.0,
+"texture": ExtResource("3_bab57")
+}, {
+"duration": 4.0,
+"texture": ExtResource("4_i78rb")
+}],
+"loop": true,
+"name": &"Spewing",
+"speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_id10e"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uq6q"]
+size = Vector2(172, 178.448)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf1f2"]
-size = Vector2(25, 28)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anm41"]
+size = Vector2(156, 20)
 
-[node name="StationaryEnemy" type="Node2D"]
+[node name="trojan" type="Node2D"]
+script = ExtResource("1_j3yvi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 0)
+scale = Vector2(6.38461, 11.0376)
 sprite_frames = SubResource("SpriteFrames_sf3r2")
-animation = &"Idle"
+animation = &"Spewing"
 autoplay = "Idle"
 
 [node name="Killzone" parent="." instance=ExtResource("5_a4fnk")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("CircleShape2D_id10e")
+position = Vector2(-4, 18.5)
+scale = Vector2(1, 1.16)
+shape = SubResource("RectangleShape2D_6uq6q")
 
-[node name="HitboxComponent" parent="." instance=ExtResource("6_7qfgl")]
+[node name="between_spews" type="Timer" parent="."]
+wait_time = 10.0
 
-[node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
+[node name="between_enemies" type="Timer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_hf1f2")
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_wlu1g")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_rs62w")
+volume_db = -2.0
+bus = &"SFX"
+
+[node name="exit_platform" type="StaticBody2D" parent="."]
+position = Vector2(-5, 39)
+scale = Vector2(1.08, 1)
+collision_layer = 8
+collision_mask = 4
+
+[node name="physics_shape" type="CollisionShape2D" parent="exit_platform"]
+shape = SubResource("RectangleShape2D_anm41")
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
