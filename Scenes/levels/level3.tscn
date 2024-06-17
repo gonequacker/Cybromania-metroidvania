@@ -578,7 +578,7 @@ collision_mask = 2
 
 [node name="Labels" type="Node" parent="."]
 
-[node name="TestLabel" type="Label" parent="Labels"]
+[node name="Dash tip" type="Label" parent="Labels"]
 offset_left = -449.0
 offset_top = 96.0
 offset_right = -285.0
@@ -589,7 +589,7 @@ text = "Try dashing across the gaps using Shift/C..."
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Shadow" type="Label" parent="Labels/TestLabel"]
+[node name="Shadow" type="Label" parent="Labels/Dash tip"]
 z_index = -1
 layout_mode = 0
 offset_left = 1.0
@@ -602,7 +602,7 @@ theme_override_font_sizes/font_size = 8
 text = "Try dashing across the gaps using Shift/C..."
 horizontal_alignment = 1
 
-[node name="TestLabel2" type="Label" parent="Labels"]
+[node name="Press 2 tip" type="Label" parent="Labels"]
 offset_left = -173.0
 offset_top = 208.0
 offset_right = -9.0
@@ -613,7 +613,7 @@ text = "To damage the porcupine, switch to your pike by pressing 2."
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Shadow" type="Label" parent="Labels/TestLabel2"]
+[node name="Shadow" type="Label" parent="Labels/Press 2 tip"]
 z_index = -1
 layout_mode = 0
 offset_left = 1.0
@@ -626,7 +626,7 @@ theme_override_font_sizes/font_size = 8
 text = "Label"
 horizontal_alignment = 1
 
-[node name="TestLabel3" type="Label" parent="Labels"]
+[node name="Destroy tip" type="Label" parent="Labels"]
 offset_left = -103.0
 offset_top = -165.0
 offset_right = 61.0
@@ -637,7 +637,31 @@ text = "Destroy the remaining enemies to unlock the next level..."
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Shadow" type="Label" parent="Labels/TestLabel3"]
+[node name="Shadow" type="Label" parent="Labels/Destroy tip"]
+z_index = -1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 165.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.18359, 0.18359, 0.18359, 1)
+theme_override_fonts/font = ExtResource("7_b53oc")
+theme_override_font_sizes/font_size = 8
+text = "Label"
+horizontal_alignment = 1
+
+[node name="Press 2 tip2" type="Label" parent="Labels"]
+offset_left = -10.0
+offset_top = 40.0
+offset_right = 125.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("7_b53oc")
+theme_override_font_sizes/font_size = 8
+text = "(PQ) Parmaterized queries are effective against injection attacks."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Shadow" type="Label" parent="Labels/Press 2 tip2"]
 z_index = -1
 layout_mode = 0
 offset_left = 1.0
