@@ -585,7 +585,7 @@ offset_right = -285.0
 offset_bottom = 133.0
 theme_override_fonts/font = ExtResource("7_b53oc")
 theme_override_font_sizes/font_size = 8
-text = "Try dashing across the gaps using shift..."
+text = "Try dashing across the gaps using Shift/C..."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -599,7 +599,7 @@ offset_bottom = 24.0
 theme_override_colors/font_color = Color(0.18359, 0.18359, 0.18359, 1)
 theme_override_fonts/font = ExtResource("7_b53oc")
 theme_override_font_sizes/font_size = 8
-text = "Label"
+text = "Try dashing across the gaps using Shift/C..."
 horizontal_alignment = 1
 
 [node name="Press 2 tip" type="Label" parent="Labels"]
