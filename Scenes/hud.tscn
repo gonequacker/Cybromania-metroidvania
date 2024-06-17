@@ -57,6 +57,7 @@ offset_left = -42.0
 offset_bottom = 40.0
 grow_horizontal = 0
 theme_override_constants/margin_top = -15
+theme_override_constants/margin_right = 10
 
 [node name="Bytes" type="BoxContainer" parent="MarginContainer (Bytes)"]
 layout_mode = 2
@@ -93,7 +94,7 @@ offset_top = 15.0
 offset_right = 6.0
 offset_bottom = 47.0
 grow_horizontal = 0
-theme_override_constants/margin_right = -2
+theme_override_constants/margin_right = 4
 
 [node name="Cookies" type="BoxContainer" parent="MarginContainer (Cookies)"]
 layout_mode = 2
