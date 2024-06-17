@@ -555,10 +555,12 @@ stretch_mode = 1
 [node name="Props" type="Node" parent="."]
 
 [node name="Tree" type="Sprite2D" parent="Props"]
+z_index = -1
 position = Vector2(281, 137)
 texture = ExtResource("4_gollt")
 
 [node name="Bush" type="Sprite2D" parent="Props"]
+z_index = -1
 position = Vector2(327, 178)
 texture = ExtResource("5_wxb5l")
 
