@@ -90,9 +90,8 @@ _data = {
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3swtx")
-
 maps = Array[PackedScene]([ExtResource("2_kqcug"), ExtResource("3_lj8uu"), ExtResource("4_tyt4h"), ExtResource("5_b8ann"), ExtResource("6_1k065"), ExtResource("7_gc83j"), ExtResource("9_awyjs"), ExtResource("9_5td88")])
-debug_start_map = 4
+debug_start_map = 7
 
 [node name="UI" parent="." instance=ExtResource("1_10yyv")]
 

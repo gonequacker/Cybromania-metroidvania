@@ -5,6 +5,8 @@ extends Node2D
 
 @onready var music = $Music
 
+const VICTORY = preload("res://victory.tscn")
+
 # The following code is heavily based off a game that my friend made lol
 
 @export var maps : Array[PackedScene]
@@ -56,7 +58,7 @@ func _on_fade_out():
 func _on_map_completed():
 	music.fade_in()
 	if Global.current_level == len(maps) - 1:
-		print("you win") # TODO
+		get_tree().change_scene_to_packed(VICTORY)
 	else:
 		Global.current_level += 1
 		load_map(Global.current_level)
