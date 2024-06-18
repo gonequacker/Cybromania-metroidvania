@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxqiut0ew5sdl"]
+[gd_scene load_steps=19 format=3 uid="uid://cxqiut0ew5sdl"]
 
 [ext_resource type="Script" path="res://Scripts/static_fishing_hook.gd" id="1_hses8"]
 [ext_resource type="Texture2D" uid="uid://yp5124mdqjbn" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-1.png" id="2_jqo07"]
@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bmnbkqx5bfywo" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-3.png" id="4_pd26o"]
 [ext_resource type="Texture2D" uid="uid://3pqhwrksmq2l" path="res://Assets/Sunnyland/sprites/frog/idle/frog-idle-4.png" id="5_gkr8s"]
 [ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="6_i6tic"]
+[ext_resource type="Texture2D" path="res://Assets/DOS Enemy/fishMove_1.PNG" id="6_tkdua"]
 [ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="7_qvsjl"]
+[ext_resource type="Texture2D" path="res://Assets/DOS Enemy/fishMove_2.PNG" id="7_yj06u"]
+[ext_resource type="Texture2D" path="res://Assets/DOS Enemy/fish_6.PNG" id="8_44qni"]
 [ext_resource type="AudioStream" uid="uid://ceofhwcnlerxv" path="res://Assets/SFX/Enemies/dosDie.wav" id="8_ry1so"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7yfdb"]
@@ -26,6 +29,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tkdua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yj06u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_44qni")
+}],
+"loop": true,
+"name": &"Idle_fish",
 "speed": 5.0
 }]
 
@@ -169,8 +186,9 @@ script = ExtResource("1_hses8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 0)
 sprite_frames = SubResource("SpriteFrames_7yfdb")
-animation = &"Idle"
-autoplay = "Idle"
+animation = &"Idle_fish"
+autoplay = "Idle_fish"
+frame_progress = 0.919597
 
 [node name="Killzone" parent="." instance=ExtResource("6_i6tic")]
 
