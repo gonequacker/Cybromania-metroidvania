@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://dgt15dtho8llq"]
 
 [ext_resource type="Script" path="res://grav_enemy.gd" id="1_gen8x"]
-[ext_resource type="Texture2D" uid="uid://dvxoedtxongxp" path="res://Assets/Sprites/IMG_2415.PNG" id="2_v8ymn"]
+[ext_resource type="Texture2D" uid="uid://dvxoedtxongxp" path="res://Assets/Sprites/enemy sprites/IMG_2415.PNG" id="2_783ss"]
 [ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="5_tbo5n"]
 [ext_resource type="AudioStream" uid="uid://b50l8x3fjsay1" path="res://Assets/SFX/Enemies/porcupineHurt.wav" id="6_xddli"]
 [ext_resource type="AudioStream" uid="uid://btfbmuold04gw" path="res://Assets/SFX/Enemies/porcupineDie.wav" id="7_l0jms"]
@@ -9,27 +9,27 @@
 [ext_resource type="Script" path="res://Components/gravity_component.gd" id="9_rxysn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_emi07"]
-atlas = ExtResource("2_v8ymn")
+atlas = ExtResource("2_783ss")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hltp4"]
-atlas = ExtResource("2_v8ymn")
+atlas = ExtResource("2_783ss")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h6uwi"]
-atlas = ExtResource("2_v8ymn")
+atlas = ExtResource("2_783ss")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0flhi"]
-atlas = ExtResource("2_v8ymn")
+atlas = ExtResource("2_783ss")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24xf5"]
-atlas = ExtResource("2_v8ymn")
+atlas = ExtResource("2_783ss")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vid6g"]
-atlas = ExtResource("2_v8ymn")
+atlas = ExtResource("2_783ss")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oyq3p"]
@@ -249,7 +249,7 @@ shape = SubResource("RectangleShape2D_vswal")
 debug_color = Color(6.97896e-07, 0.334191, 0.393609, 0.42)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("5_tbo5n")]
-health = 5
+health = 10
 
 [node name="Hitbox" type="Area2D" parent="." groups=["enemy", "porcupine"]]
 
@@ -257,14 +257,12 @@ health = 5
 position = Vector2(0.5, -6)
 shape = SubResource("RectangleShape2D_qttbg")
 
-[node name="Hurt" type="AudioStreamPlayer" parent="."]
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_xddli")
-volume_db = -4.0
 bus = &"SFX"
 
-[node name="Die" type="AudioStreamPlayer" parent="."]
+[node name="Die" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_l0jms")
-volume_db = -2.0
 bus = &"SFX"
 
 [node name="Anim" type="AnimationPlayer" parent="."]

@@ -1,8 +1,51 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfuk0xb5fhfdf"]
+[gd_scene load_steps=14 format=3 uid="uid://cfuk0xb5fhfdf"]
 
 [ext_resource type="Script" path="res://Scripts/byte.gd" id="1_4pfms"]
-[ext_resource type="Texture2D" uid="uid://dug5hpfpsd1kr" path="res://Assets/Sunnyland/sprites/gem/gem-3.png" id="2_n38ug"]
+[ext_resource type="Texture2D" uid="uid://qpmat8spm1rf" path="res://Assets/Sunnyland/spritesheets/gem.png" id="2_7k6r5"]
 [ext_resource type="AudioStream" uid="uid://dq3fn687c5u0r" path="res://Assets/SFX/pickupByte.wav" id="3_butjq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuot2"]
+atlas = ExtResource("2_7k6r5")
+region = Rect2(0, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xh17"]
+atlas = ExtResource("2_7k6r5")
+region = Rect2(15, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84v1e"]
+atlas = ExtResource("2_7k6r5")
+region = Rect2(30, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybhxt"]
+atlas = ExtResource("2_7k6r5")
+region = Rect2(45, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5nto"]
+atlas = ExtResource("2_7k6r5")
+region = Rect2(60, 0, 15, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a5kbb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuot2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xh17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84v1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybhxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5nto")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_idxeb"]
 radius = 8.06226
@@ -177,9 +220,11 @@ _data = {
 collision_mask = 2
 script = ExtResource("1_4pfms")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 1)
-texture = ExtResource("2_n38ug")
+sprite_frames = SubResource("SpriteFrames_a5kbb")
+autoplay = "default"
+frame_progress = 0.507884
 offset = Vector2(0.95, 0.71)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

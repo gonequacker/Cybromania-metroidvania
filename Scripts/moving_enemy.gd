@@ -1,5 +1,7 @@
 extends Node2D
 
+signal killed
+
 @onready var animated_sprite = $AnimatedSprite2D
 
 @onready var ray_cast_right = $RayCastRight
@@ -10,7 +12,7 @@ extends Node2D
 
 const SPEED = 50
 
-var facing = 1
+@export var facing = 1
 
 func _physics_process(delta):
 	position.x += facing * SPEED * delta
@@ -25,6 +27,7 @@ func _physics_process(delta):
 func _on_hitbox_component_killed():
 	anim.play("killed")
 	dieSFX.play()
+	emit_signal("killed")
 
 func _on_die_finished():
 	queue_free()

@@ -21,6 +21,8 @@ signal inventory_updated
 
 var player_node: Node = null
 
+var current_level = 0
+
 func _ready():
 	pass
 
@@ -30,7 +32,6 @@ func add_item(item):
 		if item.name.to_lower() == i.to_lower():
 			inventory[i] += 1
 			inventory_updated.emit()
-			print("Item added ", inventory)
 			return true
 	# Picked up item is not in our list of valid items. Maybe it was named wrong?
 	print("Invalid item name! ", inventory)

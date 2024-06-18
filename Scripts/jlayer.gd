@@ -15,6 +15,7 @@ extends CharacterBody2D
 @onready var wall_clingSFX = $SFX/WallCling
 @onready var double_jumpSFX = $SFX/DoubleJump
 @onready var hurtSFX = $SFX/Hurt
+@onready var dieSFX = $SFX/Die
 @onready var healSFX = $SFX/Heal
 @onready var pickupSFX = $SFX/Pickup
 
@@ -24,6 +25,8 @@ extends CharacterBody2D
 @onready var arbalestSFX = $SFX/Weapon/Arbalest
 @onready var blackholeSFX = $SFX/Weapon/Blackhole
 
+@onready var animation_player = $AnimationPlayer
+
 const PROJECTILE_S = preload("res://Scenes/Projectiles/projectile.tscn")
 const FIREWALL_S = preload("res://Scenes/Projectiles/firewall.tscn")
 const PIKE_S = preload("res://Scenes/Projectiles/pike.tscn")
@@ -31,8 +34,12 @@ const DAGGER_S = preload("res://Scenes/Projectiles/dagger.tscn")
 const BLACKHOLE_S = preload("res://Scenes/Projectiles/blackhole.tscn")
 const BOLT_S = preload("res://Scenes/Projectiles/bolt.tscn")
 
+# HUD Signals
 signal hurt(player_health)
 signal healed(player_health)
+signal weaponSelected(weapon)
+signal playerAttacked(weapon)
+signal offCooldown(weapon)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -86,10 +93,16 @@ var weapon_cooldown = 0 # frames until player can attack again.
 
 
 func _ready():
+	health = HEALTH_MAX
 	Global.set_player_reference(self) # tbh im not sure why im doing this
-	connect("hurt", get_parent().get_parent().get_node("UI/HUD/Lives").life_changed)
+	
+	# For HUD (Connects required singals)
+	connect("hurt", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Hearts)/Lives").life_changed)
 	connect("hurt", get_parent().get_parent().get_node("UI/GameOver").life_changed)
-	connect("healed", get_parent().get_parent().get_node("UI/HUD/Lives").life_changed)
+	connect("healed", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Hearts)/Lives").life_changed)
+	connect("weaponSelected", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Weapons)/Outlines").weapon_changed)
+	connect("playerAttacked", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Weapons)/Weapons").player_attacked)
+	connect("offCooldown", get_parent().get_parent().get_node("UI/HUD/MarginContainer (Weapons)/Weapons").off_cooldown)
 	emit_signal("healed", HEALTH_MAX)
 
 
@@ -201,18 +214,22 @@ func handle_inputs(delta):
 		facing_vertical = 0.0
 	
 	# Handle hotbar inputs. (yikes)
-	if Input.is_action_just_pressed("1"):
-		weapon = HAND
-	if Input.is_action_just_pressed("2") and has_staff():
+	# HUD: Signal HUD for selected weapon
+	if Input.is_action_just_pressed("1") and has_staff():
 		weapon = STAFF
-	if Input.is_action_just_pressed("3") and has_pike():
+		emit_signal("weaponSelected", 2)
+	if Input.is_action_just_pressed("2") and has_pike():
 		weapon = PIKE
-	if Input.is_action_just_pressed("4") and has_dagger():
+		emit_signal("weaponSelected", 3)
+	if Input.is_action_just_pressed("3") and has_dagger():
 		weapon = DAGGER
-	if Input.is_action_just_pressed("5") and has_launcher():
+		emit_signal("weaponSelected", 4)
+	if Input.is_action_just_pressed("4") and has_launcher():
 		weapon = LAUNCHER
-	if Input.is_action_just_pressed("6") and has_arbalest():
+		emit_signal("weaponSelected", 5)
+	if Input.is_action_just_pressed("5") and has_arbalest():
 		weapon = ARBALEST
+		emit_signal("weaponSelected", 6)
 	
 	# Handle item inputs.
 	if Input.is_action_just_pressed("heal"):
@@ -220,16 +237,21 @@ func handle_inputs(delta):
 	
 	# Handle attack input(s).
 	weapon_cooldown -= 1
+	if weapon_cooldown <= 0:
+		emit_signal("offCooldown", weapon)
 	if Input.is_action_pressed("attack") and weapon_cooldown <= 0 and dash <= 0 and wall_cooldown <= 0 and double_jump_cooldown <= 0:
 		attack()
 
 
 func handle_animations():
+	sprite.offset.y = 4
 	if crouched: # All animations to play while crouched.
 		if dash > 0: # Dashing
 			sprite.play("Dash")
+			sprite.offset.y = 11
 		else: # Crouching
 			sprite.play("Crouch")
+			sprite.offset.y = 10
 	elif wall_slide: # Wall sliding
 		sprite.play("Wall")
 	elif double_jump_cooldown > 0: # Double jumping
@@ -303,6 +325,7 @@ func take_damage(amount):
 	invuln_anim.play("invuln")
 	# Play hurt sound
 	hurtSFX.play()
+	if health <= 0: dieSFX.play()
 	# Update UI
 	emit_signal("hurt", health)
 # Heal player by some amount.
@@ -335,18 +358,23 @@ func attack():
 		HAND:
 			pass#spawn_proj(direction, PROJECTILE_S)
 		STAFF:
+			emit_signal("playerAttacked", 2)
 			spawn_proj(direction, FIREWALL_S)
 			firewallSFX.play()
 		PIKE:
+			emit_signal("playerAttacked", 3)
 			spawn_melee(direction, PIKE_S)
 			pikeSFX.play()
 		DAGGER:
+			emit_signal("playerAttacked", 4)
 			spawn_proj(direction, DAGGER_S)
 			daggerSFX.play()
 		LAUNCHER:
+			emit_signal("playerAttacked", 5)
 			spawn_proj(direction, BLACKHOLE_S)
 			blackholeSFX.play()
 		ARBALEST:
+			emit_signal("playerAttacked", 6)
 			spawn_proj(direction, BOLT_S)
 			arbalestSFX.play()
 	# Attack cooldown
@@ -367,3 +395,12 @@ func spawn_melee(direction, melee):
 func play_collect_anim():
 	pickupSFX.play()
 	collect_anim.play("collect")
+
+func fade_to_black():
+	animation_player.play("fade")
+	collect_anim.play("level_transition")
+
+func fade_out_of_black():
+	collect_anim.play("level_transition")
+	animation_player.play_backwards("fade")
+	

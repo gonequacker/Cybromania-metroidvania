@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://386chmsx80kt"]
 
 [ext_resource type="Script" path="res://Scripts/blackhole.gd" id="1_g3l3e"]
-[ext_resource type="Texture2D" uid="uid://bx5r5wvw33qfq" path="res://icon.svg" id="2_4koqh"]
+[ext_resource type="Texture2D" uid="uid://bbiwxdj14t15o" path="res://Assets/Sprites/projectile sprites/blackhole.png" id="2_6xiuj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hcl3"]
-radius = 22.0227
+radius = 27.0185
 
 [node name="Blackhole" type="Area2D"]
 z_index = 3
 script = ExtResource("1_g3l3e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.28125, 0.28125)
-texture = ExtResource("2_4koqh")
+modulate = Color(0.68, 0.68, 0.68, 1)
+texture = ExtResource("2_6xiuj")
+offset = Vector2(1.875, -1.57)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0hcl3")
