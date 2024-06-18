@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/jlayer.gd" id="5_w5j7r"]
 [ext_resource type="PackedScene" uid="uid://cb6ptnw1o3ch2" path="res://Scenes/levels/level5.tscn" id="6_1k065"]
 [ext_resource type="PackedScene" uid="uid://cb1sewirjlavm" path="res://Scenes/levels/level6.tscn" id="7_gc83j"]
-[ext_resource type="PackedScene" path="res://Scenes/levels/final_level.tscn" id="9_5td88"]
+[ext_resource type="PackedScene" uid="uid://36y6grdymv2n" path="res://Scenes/levels/final_level.tscn" id="9_5td88"]
 [ext_resource type="PackedScene" uid="uid://bjutqihjoc2yr" path="res://Scenes/levels/boss_fight_test_arena.tscn" id="9_awyjs"]
 [ext_resource type="Script" path="res://Scripts/Music.gd" id="10_8wj0t"]
 
