@@ -7,6 +7,4 @@ func _ready():
 
 
 func _button_pressed():
-	var pauseNode = get_parent().get_parent().get_parent().get_child(2)
-	pauseNode.show()
-	pauseNode.get_child(2).show()
+	get_parent().get_parent().get_child(4).show()
