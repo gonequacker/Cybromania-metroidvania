@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://ce65utf3offoj"]
+[gd_scene load_steps=21 format=3 uid="uid://ce65utf3offoj"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_3swtx"]
 [ext_resource type="PackedScene" uid="uid://bbb1w0bphnmcb" path="res://Scenes/ui.tscn" id="1_10yyv"]
 [ext_resource type="PackedScene" uid="uid://df6itpfpvky17" path="res://Scenes/levels/level1.tscn" id="2_kqcug"]
-[ext_resource type="PackedScene" uid="uid://sk3sxa62yjwk" path="res://Scenes/levels/leveltest.tscn" id="3_jhp7a"]
 [ext_resource type="PackedScene" uid="uid://coy2svltcr8uy" path="res://Scenes/levels/level2.tscn" id="3_lj8uu"]
 [ext_resource type="PackedScene" uid="uid://suwu6iie7uoa" path="res://Scenes/levels/levelzoo.tscn" id="3_sss2f"]
 [ext_resource type="PackedScene" uid="uid://bqebygpqsqv3y" path="res://Scenes/jlayer.tscn" id="4_lpydj"]
@@ -91,7 +90,7 @@ _data = {
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3swtx")
-maps = Array[PackedScene]([ExtResource("2_kqcug"), ExtResource("3_lj8uu"), ExtResource("4_tyt4h"), ExtResource("5_b8ann"), ExtResource("6_1k065"), ExtResource("7_gc83j"), ExtResource("9_awyjs"), ExtResource("3_sss2f"), ExtResource("3_jhp7a")])
+maps = Array[PackedScene]([ExtResource("2_kqcug"), ExtResource("3_lj8uu"), ExtResource("4_tyt4h"), ExtResource("5_b8ann"), ExtResource("6_1k065"), ExtResource("7_gc83j"), ExtResource("9_awyjs"), ExtResource("3_sss2f")])
 
 [node name="UI" parent="." instance=ExtResource("1_10yyv")]
 

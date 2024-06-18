@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://drcmaq4igepu2"]
+[gd_scene load_steps=17 format=3 uid="uid://drcmaq4igepu2"]
 
 [ext_resource type="Script" path="res://Interface/Lives.gd" id="1_ajqu4"]
 [ext_resource type="PackedScene" uid="uid://dnfulpiitnhun" path="res://Scenes/life_frame.tscn" id="2_wpwxj"]
@@ -7,9 +7,14 @@
 [ext_resource type="Script" path="res://Scripts/CookiesCounter.gd" id="7_qx7dj"]
 [ext_resource type="Script" path="res://Scenes/Weapons.gd" id="8_3i8mn"]
 [ext_resource type="Texture2D" uid="uid://bbex0kgtuebnm" path="res://Assets/Sprites/pixilart-drawing.png" id="8_uvcus"]
-[ext_resource type="Texture2D" uid="uid://bx5r5wvw33qfq" path="res://icon.svg" id="8_vyxjt"]
+[ext_resource type="Texture2D" uid="uid://benrkagey8wbt" path="res://Assets/Sprites/ui weapon slot.png" id="9_ogwj4"]
+[ext_resource type="Texture2D" uid="uid://bsplx0wu4mtx6" path="res://Assets/Sprites/weapon sprites/wand2.png" id="10_13xwj"]
 [ext_resource type="Script" path="res://Scenes/Outlines.gd" id="10_qjf5n"]
+[ext_resource type="Texture2D" uid="uid://50ru633m7i8x" path="res://Assets/Sprites/projectile sprites/spear.png" id="11_icgsw"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="12_233ba"]
+[ext_resource type="Texture2D" uid="uid://be1oj5fl8h538" path="res://Assets/Sprites/projectile sprites/dagger.png" id="12_eytnb"]
+[ext_resource type="Texture2D" uid="uid://bbiwxdj14t15o" path="res://Assets/Sprites/projectile sprites/blackhole.png" id="13_73gsl"]
+[ext_resource type="Texture2D" uid="uid://cx2tla030xl72" path="res://Assets/Sprites/weapon sprites/crossbow.png" id="14_qix5c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyqhx"]
 draw_center = false
@@ -75,7 +80,6 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("5_ayfs7")
-expand_mode = 1
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="MarginContainer (Bytes)/Bytes"]
@@ -144,36 +148,85 @@ script = ExtResource("8_3i8mn")
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("8_vyxjt")
+texture = ExtResource("9_ogwj4")
 expand_mode = 1
 
-[node name="Blackhole" type="TextureRect" parent="MarginContainer (Weapons)/Weapons"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer (Weapons)/Weapons/Firewall"]
+visible = false
+layout_mode = 0
+offset_left = -7.0
+offset_top = -5.0
+offset_right = 25.0
+offset_bottom = 27.0
+texture = ExtResource("10_13xwj")
+
+[node name="PQ" type="TextureRect" parent="MarginContainer (Weapons)/Weapons"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("8_vyxjt")
+texture = ExtResource("9_ogwj4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer (Weapons)/Weapons/PQ"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 15.0
+offset_bottom = 17.0
+texture = ExtResource("11_icgsw")
 expand_mode = 1
 
 [node name="DMARC" type="TextureRect" parent="MarginContainer (Weapons)/Weapons"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("8_vyxjt")
+texture = ExtResource("9_ogwj4")
 expand_mode = 1
 
-[node name="PQ" type="TextureRect" parent="MarginContainer (Weapons)/Weapons"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer (Weapons)/Weapons/DMARC"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 12.0
+texture = ExtResource("12_eytnb")
+
+[node name="Blackhole" type="TextureRect" parent="MarginContainer (Weapons)/Weapons"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("8_vyxjt")
+texture = ExtResource("9_ogwj4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer (Weapons)/Weapons/Blackhole"]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 19.0
+offset_bottom = 17.0
+texture = ExtResource("13_73gsl")
 expand_mode = 1
 
 [node name="Antivirus" type="TextureRect" parent="MarginContainer (Weapons)/Weapons"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("8_vyxjt")
+texture = ExtResource("9_ogwj4")
 expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer (Weapons)/Weapons/Antivirus"]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 19.0
+offset_bottom = 18.0
+texture = ExtResource("14_qix5c")
+expand_mode = 1
+stretch_mode = 3
 
 [node name="Outlines" type="BoxContainer" parent="MarginContainer (Weapons)"]
 layout_mode = 2

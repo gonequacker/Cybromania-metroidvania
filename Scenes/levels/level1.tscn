@@ -12,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://ureaf15nc3bk" path="res://Assets/Sunnyland/environment/Props/straw-house.png" id="7_vuirf"]
 [ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/cookie.tscn" id="8_lr852"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="9_kteie"]
-[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="11_e6htm"]
-[ext_resource type="PackedScene" uid="uid://tdlyhes7qa3b" path="res://Scenes/next_level.tscn" id="17_toe6c"]
+[ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_e6htm"]
+[ext_resource type="PackedScene" uid="uid://bba4lucungyjt" path="res://Scenes/next_level.tscn" id="17_toe6c"]
 
 [sub_resource type="Animation" id="Animation_xhkep"]
 length = 0.001
@@ -616,15 +616,42 @@ texture = ExtResource("7_vuirf")
 
 [node name="Labels" type="Node" parent="."]
 
-[node name="JumpHeight" type="Label" parent="Labels"]
-offset_left = 254.0
-offset_top = 14.0
-offset_right = 418.0
-offset_bottom = 37.0
+[node name="WASD" type="Label" parent="Labels"]
+offset_left = 98.0
+offset_top = -4.0
+offset_right = 262.0
+offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("9_kteie")
 theme_override_font_sizes/font_size = 8
-text = "Hold Space/Z
-to jump higher!"
+text = "Use WASD/
+Arrow keys to
+move around."
+horizontal_alignment = 1
+
+[node name="Shadow" type="Label" parent="Labels/WASD"]
+z_index = -1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 165.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.18359, 0.18359, 0.18359, 1)
+theme_override_fonts/font = ExtResource("9_kteie")
+theme_override_font_sizes/font_size = 8
+text = "Use WASD/
+Arrow keys to
+move around."
+horizontal_alignment = 1
+
+[node name="JumpHeight" type="Label" parent="Labels"]
+offset_left = 254.0
+offset_top = 10.0
+offset_right = 418.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("9_kteie")
+theme_override_font_sizes/font_size = 8
+text = "Jump with Space/Z.
+Hold to jump higher!"
 horizontal_alignment = 1
 
 [node name="Shadow" type="Label" parent="Labels/JumpHeight"]
@@ -637,8 +664,35 @@ offset_bottom = 24.0
 theme_override_colors/font_color = Color(0.18359, 0.18359, 0.18359, 1)
 theme_override_fonts/font = ExtResource("9_kteie")
 theme_override_font_sizes/font_size = 8
-text = "Hold Space/Z
-to jump higher!"
+text = "Jump with Space/Z.
+Hold to jump higher!"
+horizontal_alignment = 1
+
+[node name="Cookies" type="Label" parent="Labels"]
+offset_left = 558.0
+offset_top = -22.0
+offset_right = 760.0
+offset_bottom = 5.0
+theme_override_fonts/font = ExtResource("9_kteie")
+theme_override_font_sizes/font_size = 8
+text = "Collect cookies and
+bytes so you can
+heal later (with H)"
+horizontal_alignment = 1
+
+[node name="Shadow" type="Label" parent="Labels/Cookies"]
+z_index = -1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 1.0
+offset_right = 184.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.18359, 0.18359, 0.18359, 1)
+theme_override_fonts/font = ExtResource("9_kteie")
+theme_override_font_sizes/font_size = 8
+text = "Collect cookies and
+bytes so you can
+heal later (with H)"
 horizontal_alignment = 1
 
 [node name="Coins" type="Node" parent="."]

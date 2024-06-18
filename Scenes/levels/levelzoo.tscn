@@ -16,7 +16,7 @@
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="12_7f1e4"]
 [ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="13_jo8xf"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="14_a64o1"]
-[ext_resource type="PackedScene" uid="uid://tdlyhes7qa3b" path="res://Scenes/next_level.tscn" id="16_7bdwv"]
+[ext_resource type="PackedScene" uid="uid://bba4lucungyjt" path="res://Scenes/next_level.tscn" id="16_7bdwv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
 texture = ExtResource("7_c13uj")
@@ -614,6 +614,22 @@ position = Vector2(522, 180)
 
 [node name="Platform4" parent="Platforms" instance=ExtResource("11_gtvvy")]
 position = Vector2(815, -88)
+collision_mask = 2
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("11_gtvvy")]
+position = Vector2(292, 324)
+collision_mask = 2
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("11_gtvvy")]
+position = Vector2(291, 291)
+collision_mask = 2
+
+[node name="Platform7" parent="Platforms" instance=ExtResource("11_gtvvy")]
+position = Vector2(292, 257)
+collision_mask = 2
+
+[node name="Platform8" parent="Platforms" instance=ExtResource("11_gtvvy")]
+position = Vector2(292, 225)
 collision_mask = 2
 
 [node name="MovingPlatform" parent="Platforms" instance=ExtResource("11_gtvvy")]

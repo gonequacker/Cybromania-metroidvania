@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://coy2svltcr8uy"]
+[gd_scene load_steps=30 format=3 uid="uid://coy2svltcr8uy"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_aldxb"]
 [ext_resource type="AudioStream" uid="uid://dunan2rclx00q" path="res://Assets/Music/stal.ogg" id="2_gtotc"]
@@ -10,9 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bkcatjcg7p27u" path="res://Assets/Sunnyland/environment/Props/spikes-top.png" id="8_c50yj"]
 [ext_resource type="Texture2D" uid="uid://bsplx0wu4mtx6" path="res://Assets/Sprites/weapon sprites/wand2.png" id="10_jtap0"]
 [ext_resource type="PackedScene" uid="uid://chn408wsd17td" path="res://Scenes/enemies/worm.tscn" id="10_kg3lg"]
-[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="11_j2j3j"]
-[ext_resource type="PackedScene" path="res://Scenes/cookie.tscn" id="12_5eo20"]
-[ext_resource type="PackedScene" path="res://Scenes/inventory_item.tscn" id="14_u8xqt"]
+[ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_j2j3j"]
+[ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/cookie.tscn" id="12_5eo20"]
+[ext_resource type="PackedScene" uid="uid://cfuk0xb5fhfdf" path="res://Scenes/byte.tscn" id="13_tmoh8"]
+[ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="14_u8xqt"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="15_kabmy"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="16_xkvmf"]
 [ext_resource type="PackedScene" uid="uid://bba4lucungyjt" path="res://Scenes/next_level.tscn" id="17_dy6if"]
@@ -796,6 +797,12 @@ horizontal_alignment = 1
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("12_5eo20")]
+position = Vector2(264, 526)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("12_5eo20")]
+position = Vector2(-640, 645)
+
+[node name="Byte" parent="Coins" instance=ExtResource("13_tmoh8")]
 position = Vector2(264, 268)
 
 [node name="Items" type="Node" parent="."]
