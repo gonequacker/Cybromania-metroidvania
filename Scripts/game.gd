@@ -13,7 +13,10 @@ extends Node2D
 var map_node : Node2D
 
 func _ready():
-	if debug_start_map > 0: Global.current_level = debug_start_map
+	if debug_start_map > 0:
+		Global.current_level = debug_start_map
+		for item in Global.inventory:
+			Global.inventory[item] = 9999
 	load_map(Global.current_level)
 
 func load_map(index : int):
