@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cvibmcesyyoj5"]
+[gd_scene load_steps=22 format=3 uid="uid://cvibmcesyyoj5"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_mgwd8"]
 [ext_resource type="AudioStream" uid="uid://b8e8m45lxr8ld" path="res://Assets/Music/ghos.ogg" id="2_spk6t"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="7_b53oc"]
 [ext_resource type="PackedScene" uid="uid://wp1j08dbqam7" path="res://Scenes/cookie.tscn" id="8_j5l32"]
 [ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="9_hsro6"]
+[ext_resource type="PackedScene" uid="uid://cfuk0xb5fhfdf" path="res://Scenes/byte.tscn" id="9_ofc4f"]
 [ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="10_2alfb"]
 [ext_resource type="PackedScene" uid="uid://bba4lucungyjt" path="res://Scenes/next_level.tscn" id="12_whsik"]
 
@@ -681,6 +682,9 @@ position = Vector2(168, 266)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("8_j5l32")]
 position = Vector2(-463, -85)
+
+[node name="Byte" parent="Coins" instance=ExtResource("9_ofc4f")]
+position = Vector2(-464, 255)
 
 [node name="Items" type="Node" parent="."]
 
