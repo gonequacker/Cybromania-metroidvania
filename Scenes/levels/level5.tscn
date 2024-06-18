@@ -580,7 +580,7 @@ position = Vector2(456, 1217)
 position = Vector2(505, 805)
 
 [node name="DOS13" parent="Enemies" instance=ExtResource("5_nbknh")]
-position = Vector2(150, 690)
+position = Vector2(116, 671)
 
 [node name="DOS14" parent="Enemies" instance=ExtResource("5_nbknh")]
 position = Vector2(551, 1185)
@@ -685,7 +685,7 @@ text = "Wall
 Jump"
 
 [node name="Launcher" parent="Items" instance=ExtResource("9_gdsuc")]
-position = Vector2(-92, -2)
+position = Vector2(167, 695)
 item_name = "launcher"
 item_texture = ExtResource("10_jcew2")
 
@@ -755,5 +755,17 @@ texture = ExtResource("14_d7vql")
 [node name="Rock" type="Sprite2D" parent="."]
 position = Vector2(195, 698)
 texture = ExtResource("15_ofpa8")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 105.0
+offset_top = 586.0
+offset_right = 322.0
+offset_bottom = 636.0
+theme = SubResource("Theme_8qx1e")
+theme_override_fonts/font = ExtResource("7_j111w")
+theme_override_font_sizes/font_size = 8
+text = "DDoS blackholing is an effecitive way to metigate against DDoS attacks, where network traffic is routed into a blakhole and then lost"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="completed" from="NextLevel" to="." method="_on_next_level_completed"]
