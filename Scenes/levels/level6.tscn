@@ -1488,7 +1488,7 @@ horizontal_alignment = 1
 [node name="Coins" type="Node" parent="."]
 
 [node name="Cookie4" parent="Coins" instance=ExtResource("8_wdqw7")]
-position = Vector2(368, 750)
+position = Vector2(367, 670)
 
 [node name="Byte" parent="Coins" instance=ExtResource("21_oii7s")]
 position = Vector2(369, 377)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjutqihjoc2yr"]
+[gd_scene load_steps=19 format=3 uid="uid://bjutqihjoc2yr"]
 
 [ext_resource type="Texture2D" uid="uid://4cd5do0gq08s" path="res://Assets/Sunnyland/environment/Background/back.png" id="1_0x25x"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_bsoyu"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="7_8dv0d"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="8_rh3j2"]
 [ext_resource type="PackedScene" uid="uid://rtnempcj6noa" path="res://Scenes/enemies/trojan.tscn" id="9_ng6jp"]
+[ext_resource type="PackedScene" uid="uid://s6a0ek6p1dte" path="res://Scenes/inventory_item.tscn" id="11_4xw77"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="11_p4hwf"]
+[ext_resource type="Texture2D" uid="uid://dochx7gf0l5x" path="res://Assets/Sunnyland/sprites/cherry/cherry-2.png" id="12_koc6h"]
 [ext_resource type="PackedScene" uid="uid://bba4lucungyjt" path="res://Scenes/next_level.tscn" id="15_6vn1d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bby6d"]
@@ -499,6 +501,10 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_bby6d")
 sources/3 = SubResource("TileSetAtlasSource_1lclc")
 
+[sub_resource type="Theme" id="Theme_5js7d"]
+default_font = ExtResource("11_p4hwf")
+default_font_size = 0
+
 [node name="BossFight" type="Node2D"]
 script = ExtResource("1_bsoyu")
 music = ExtResource("2_5n3ci")
@@ -575,6 +581,31 @@ layer_0/tile_data = PackedInt32Array(786432, 196610, 3, 720896, 196610, 3, 65536
 position = Vector2(687, 71)
 
 [node name="Items" type="Node" parent="."]
+
+[node name="Arbalest" parent="Items" instance=ExtResource("11_4xw77")]
+position = Vector2(22, 122)
+item_name = "arbalest"
+item_texture = ExtResource("12_koc6h")
+
+[node name="Label" type="Label" parent="Items/Arbalest"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -34.0
+offset_right = 52.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_5js7d")
+theme_override_fonts/font = ExtResource("11_p4hwf")
+theme_override_font_sizes/font_size = 8
+text = "Antivirus
+Arbalest"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="SpawnPos" type="Node2D" parent="."]
 position = Vector2(-14, 138)
