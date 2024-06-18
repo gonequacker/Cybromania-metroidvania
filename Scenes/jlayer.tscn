@@ -350,7 +350,7 @@ bus = &"SFX"
 
 [node name="Arbalest" type="AudioStreamPlayer" parent="SFX/Weapon"]
 stream = ExtResource("31_6gaky")
-volume_db = -2.0
+volume_db = -3.0
 bus = &"SFX"
 
 [node name="Blackhole" type="AudioStreamPlayer" parent="SFX/Weapon"]
