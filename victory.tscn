@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnppuim05inyf"]
+[gd_scene load_steps=6 format=3 uid="uid://dnppuim05inyf"]
 
 [ext_resource type="FontFile" uid="uid://cpl2r6041cult" path="res://Assets/Fonts/dogicapixel.ttf" id="1_qsucn"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="2_0idq6"]
 [ext_resource type="Script" path="res://Scripts/VictoryInfo.gd" id="3_fpm1n"]
 [ext_resource type="Script" path="res://Interface/QuitButton.gd" id="4_5lpjd"]
+[ext_resource type="PackedScene" uid="uid://dd48t1htyu24x" path="res://Scenes/info_screen.tscn" id="5_pju1j"]
 
 [node name="Victory" type="Control"]
 layout_mode = 3
@@ -104,3 +105,6 @@ theme_override_font_sizes/font_size = 8
 text = "Press Info to learn more about the attacks you faced and the weapons you used                      (If you haven't already)"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="Control" parent="." instance=ExtResource("5_pju1j")]
+visible = false
