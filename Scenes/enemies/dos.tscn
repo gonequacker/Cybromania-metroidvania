@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxqiut0ew5sdl"]
+[gd_scene load_steps=19 format=3 uid="uid://cxqiut0ew5sdl"]
 
 [ext_resource type="Script" path="res://Scripts/static_fishing_hook.gd" id="1_hses8"]
 [ext_resource type="Texture2D" uid="uid://ckbvh5m1qsl0m" path="res://Assets/Sprites/enemy sprites/enemy-fish/fishMove_1.PNG" id="2_yrlli"]
@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bvb08h4kxfv8w" path="res://Assets/Sprites/enemy sprites/enemy-fish/fish_6.PNG" id="4_pnqnf"]
 [ext_resource type="Texture2D" uid="uid://dmu1234u4kee1" path="res://Assets/Sprites/enemy sprites/enemy-fish/fish_5.PNG" id="5_f40ny"]
 [ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="6_i6tic"]
-[ext_resource type="Texture2D" uid="uid://c7y2boitsnbq0" path="res://Assets/Sprites/enemy sprites/enemy-fish/fish_4.PNG" id="6_mygkd"]
-[ext_resource type="Texture2D" uid="uid://bs4rbx6wg5jfx" path="res://Assets/Sprites/enemy sprites/enemy-fish/fish_3.PNG" id="7_8570h"]
+[ext_resource type="Texture2D" path="res://Assets/DOS Enemy/fishMove_1.PNG" id="6_tkdua"]
 [ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="7_qvsjl"]
-[ext_resource type="Texture2D" uid="uid://d0u5mohlorud5" path="res://Assets/Sprites/enemy sprites/enemy-fish/fish_2.PNG" id="8_d8nu5"]
+[ext_resource type="Texture2D" path="res://Assets/DOS Enemy/fishMove_2.PNG" id="7_yj06u"]
+[ext_resource type="Texture2D" path="res://Assets/DOS Enemy/fish_6.PNG" id="8_44qni"]
 [ext_resource type="AudioStream" uid="uid://ceofhwcnlerxv" path="res://Assets/SFX/Enemies/dosDie.wav" id="8_ry1so"]
 [ext_resource type="Texture2D" uid="uid://p4eljyas2ljd" path="res://Assets/Sprites/enemy sprites/enemy-fish/fish_1.PNG" id="9_vrwlh"]
 
@@ -28,25 +28,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_pnqnf")
+"texture": ExtResource("6_tkdua")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_f40ny")
+"texture": ExtResource("7_yj06u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_mygkd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_8570h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_d8nu5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_vrwlh")
+"texture": ExtResource("8_44qni")
 }],
 "loop": true,
-"name": &"split",
+"name": &"Idle_fish",
 "speed": 5.0
 }]
 
@@ -190,9 +181,9 @@ script = ExtResource("1_hses8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 0)
 sprite_frames = SubResource("SpriteFrames_7yfdb")
-animation = &"Idle"
-autoplay = "Idle"
-frame_progress = 0.912401
+animation = &"Idle_fish"
+autoplay = "Idle_fish"
+frame_progress = 0.919597
 
 [node name="Killzone" parent="." instance=ExtResource("6_i6tic")]
 
