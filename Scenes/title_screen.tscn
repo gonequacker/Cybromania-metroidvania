@@ -1,26 +1,23 @@
-[gd_scene load_steps=31 format=3 uid="uid://bv15o0kieehjo"]
+[gd_scene load_steps=29 format=3 uid="uid://ejvuubahubpd"]
 
 [ext_resource type="Script" path="res://Scenes/title_screen.gd" id="1_7yk3v"]
-[ext_resource type="FontFile" path="res://Assets/Fonts/TypefaceMarioWorldPixelFilledRegular.ttf" id="1_l8b0k"]
-[ext_resource type="FontFile" path="res://Assets/Fonts/Super Pixel Personal Use.ttf" id="2_10ju4"]
+[ext_resource type="FontFile" uid="uid://dcav2r1rj8c0u" path="res://Assets/Fonts/TypefaceMarioWorldPixelFilledRegular.ttf" id="1_l8b0k"]
 [ext_resource type="FontFile" uid="uid://cpl2r6041cult" path="res://Assets/Fonts/dogicapixel.ttf" id="2_thfwu"]
 [ext_resource type="Script" path="res://Interface/QuitButton.gd" id="4_a5u4r"]
-[ext_resource type="Texture2D" path="res://Scenes/tileset.png" id="7_6nfxg"]
-[ext_resource type="Texture2D" path="res://Assets/player/walk/walk_1.PNG" id="8_m44no"]
-[ext_resource type="Texture2D" path="res://Assets/player/walk/walk_2.PNG" id="9_ysnj5"]
-[ext_resource type="Texture2D" path="res://Assets/player/walk/walk_3.PNG" id="10_hl15v"]
-[ext_resource type="Texture2D" path="res://Assets/player/walk/walk_4.PNG" id="11_qmamg"]
-[ext_resource type="Texture2D" path="res://Assets/player/walk/walk_5.PNG" id="12_gsq2b"]
-[ext_resource type="Texture2D" path="res://Assets/player/walk/walk_6.PNG" id="13_8c2ax"]
-[ext_resource type="AudioStream" path="res://Assets/SFX/retro-wave-style-track-59892.mp3" id="14_38ogi"]
-[ext_resource type="Texture2D" path="res://Assets/player/DoubleJump.PNG" id="15_djueu"]
-[ext_resource type="Texture2D" path="res://Assets/player/crawl.PNG" id="16_eori4"]
-[ext_resource type="Texture2D" path="res://Assets/player/crouch.PNG" id="17_jjlyk"]
-[ext_resource type="Texture2D" path="res://Assets/player/Default.PNG" id="18_o5mmi"]
-[ext_resource type="Texture2D" path="res://Assets/player/Default_blink.PNG" id="19_es5p3"]
+[ext_resource type="Texture2D" uid="uid://2doc327k0vla" path="res://Scenes/tileset.png" id="7_6nfxg"]
+[ext_resource type="Texture2D" uid="uid://c76agfaj8l2j2" path="res://Assets/Sprites/main character/walk/walk_1.PNG" id="8_m44no"]
+[ext_resource type="Texture2D" uid="uid://5g3wd00viibe" path="res://Assets/Sprites/main character/walk/walk_2.PNG" id="9_ysnj5"]
+[ext_resource type="Texture2D" uid="uid://bftf5scxmt0di" path="res://Assets/Sprites/main character/walk/walk_3.PNG" id="10_hl15v"]
+[ext_resource type="Texture2D" uid="uid://dmlhbyvt0y6h3" path="res://Assets/Sprites/main character/walk/walk_4.PNG" id="11_qmamg"]
+[ext_resource type="Texture2D" uid="uid://dslp2vm825iwx" path="res://Assets/Sprites/main character/walk/walk_5.PNG" id="12_gsq2b"]
+[ext_resource type="Texture2D" uid="uid://dxvoi3pod3ua4" path="res://Assets/Sprites/main character/walk/walk_6.PNG" id="13_8c2ax"]
+[ext_resource type="Texture2D" uid="uid://b3eka285qvwax" path="res://Assets/Sprites/main character/DoubleJump.PNG" id="15_djueu"]
+[ext_resource type="AudioStream" uid="uid://cr6v0w85o584s" path="res://Assets/Music/retro-wave-style-track-59892.mp3" id="16_43qu0"]
+[ext_resource type="Texture2D" uid="uid://7djgpp8jsmj0" path="res://Assets/Sprites/main character/crawl.PNG" id="16_eori4"]
+[ext_resource type="Texture2D" uid="uid://c6gfpk1xeuo77" path="res://Assets/Sprites/main character/crouch.PNG" id="17_jjlyk"]
+[ext_resource type="Texture2D" uid="uid://cnmron137mhiq" path="res://Assets/Sprites/main character/Default.PNG" id="18_o5mmi"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e0cev"]
-load_path = "res://.godot/imported/frame0000.png-313efbe49bbf9edaabba79c074fdfc4b.ctex"
 
 [sub_resource type="LabelSettings" id="LabelSettings_vofjy"]
 line_spacing = 10.0
@@ -607,7 +604,7 @@ animations = [{
 "texture": ExtResource("18_o5mmi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_es5p3")
+"texture": null
 }],
 "loop": true,
 "name": &"fall_4",
@@ -655,7 +652,7 @@ animations = [{
 "texture": ExtResource("18_o5mmi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_es5p3")
+"texture": null
 }],
 "loop": true,
 "name": &"fall_3",
@@ -669,7 +666,7 @@ animations = [{
 "texture": ExtResource("18_o5mmi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_es5p3")
+"texture": null
 }],
 "loop": true,
 "name": &"fall_4",
@@ -724,7 +721,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_10ju4")
 text = "C Y B R O M A N I A"
 label_settings = SubResource("LabelSettings_vofjy")
 horizontal_alignment = 1
@@ -790,7 +786,7 @@ animation = &"title_sprite_animation"
 frame_progress = 0.855226
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_38ogi")
+visible = false
 
 [node name="fall_1" type="Sprite2D" parent="."]
 
@@ -822,3 +818,6 @@ position = Vector2(306, 148)
 sprite_frames = SubResource("SpriteFrames_qhlse")
 animation = &"fall_4"
 frame_progress = 0.517938
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_43qu0")
