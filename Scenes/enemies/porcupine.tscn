@@ -257,14 +257,12 @@ health = 10
 position = Vector2(0.5, -6)
 shape = SubResource("RectangleShape2D_qttbg")
 
-[node name="Hurt" type="AudioStreamPlayer" parent="."]
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_xddli")
-volume_db = -4.0
 bus = &"SFX"
 
-[node name="Die" type="AudioStreamPlayer" parent="."]
+[node name="Die" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_l0jms")
-volume_db = -2.0
 bus = &"SFX"
 
 [node name="Anim" type="AnimationPlayer" parent="."]

@@ -108,6 +108,7 @@ func _on_enemy_killed():
 
 func die():
 	# enemy health is below zero
+	$Killzone.monitoring = false
 	sprite.play("killed")
 	dieSFX.play()
 	

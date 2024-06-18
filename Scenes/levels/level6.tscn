@@ -1363,12 +1363,6 @@ position = Vector2(180, 611)
 [node name="worm" parent="Enemies" instance=ExtResource("8_hokpv")]
 position = Vector2(-253, -14)
 
-[node name="Hook2" parent="Enemies" instance=ExtResource("7_pttbk")]
-position = Vector2(22, 301)
-
-[node name="Hook3" parent="Enemies" instance=ExtResource("7_pttbk")]
-position = Vector2(-61, 323)
-
 [node name="Hook4" parent="Enemies" instance=ExtResource("7_pttbk")]
 position = Vector2(184, 362)
 
@@ -1378,8 +1372,29 @@ position = Vector2(291, 531)
 [node name="Worm4" parent="Enemies" instance=ExtResource("8_hokpv")]
 position = Vector2(-338, 532)
 
-[node name="Hook" parent="Enemies" instance=ExtResource("7_pttbk")]
-position = Vector2(-223, 234)
+[node name="Porcupine2" parent="Enemies" instance=ExtResource("6_ty0o4")]
+position = Vector2(96, 29)
+
+[node name="Porcupine4" parent="Enemies" instance=ExtResource("6_ty0o4")]
+position = Vector2(-173, 30)
+
+[node name="Hook5" parent="Enemies" instance=ExtResource("7_pttbk")]
+position = Vector2(-208, -163)
+
+[node name="Hook6" parent="Enemies" instance=ExtResource("7_pttbk")]
+position = Vector2(-16, -104)
+
+[node name="DOS4" parent="Enemies" instance=ExtResource("5_x7330")]
+position = Vector2(137, -122)
+
+[node name="DOS5" parent="Enemies" instance=ExtResource("5_x7330")]
+position = Vector2(246, -121)
+
+[node name="DOS6" parent="Enemies" instance=ExtResource("5_x7330")]
+position = Vector2(374, -122)
+
+[node name="Worm5" parent="Enemies" instance=ExtResource("8_hokpv")]
+position = Vector2(-416, -109)
 
 [node name="Labels" type="Node" parent="."]
 
@@ -1488,7 +1503,7 @@ horizontal_alignment = 1
 [node name="Coins" type="Node" parent="."]
 
 [node name="Cookie4" parent="Coins" instance=ExtResource("8_wdqw7")]
-position = Vector2(368, 750)
+position = Vector2(367, 670)
 
 [node name="Byte" parent="Coins" instance=ExtResource("21_oii7s")]
 position = Vector2(369, 377)
@@ -1552,31 +1567,19 @@ position = Vector2(-621, 15)
 [node name="RightBorder" type="Node2D" parent="."]
 position = Vector2(589, 20)
 
-[node name="Porcupine" parent="." instance=ExtResource("6_ty0o4")]
-position = Vector2(96, 29)
-
-[node name="Porcupine2" parent="." instance=ExtResource("6_ty0o4")]
-position = Vector2(-173, 30)
-
-[node name="Hook" parent="." instance=ExtResource("7_pttbk")]
-position = Vector2(-208, -163)
-
-[node name="Hook2" parent="." instance=ExtResource("7_pttbk")]
-position = Vector2(-16, -104)
-
 [node name="DOS" parent="." instance=ExtResource("5_x7330")]
-position = Vector2(137, -122)
+position = Vector2(71, 321)
 
 [node name="DOS2" parent="." instance=ExtResource("5_x7330")]
-position = Vector2(246, -121)
+position = Vector2(-37, 359)
 
 [node name="DOS3" parent="." instance=ExtResource("5_x7330")]
-position = Vector2(374, -122)
+position = Vector2(-139, 310)
 
-[node name="Porcupine3" parent="." instance=ExtResource("6_ty0o4")]
-position = Vector2(133, -118)
+[node name="DOS4" parent="." instance=ExtResource("5_x7330")]
+position = Vector2(29, 256)
 
-[node name="Worm" parent="." instance=ExtResource("8_hokpv")]
-position = Vector2(-416, -109)
+[node name="DOS5" parent="." instance=ExtResource("5_x7330")]
+position = Vector2(-227, 254)
 
 [connection signal="completed" from="NextLevel" to="." method="_on_next_level_completed"]

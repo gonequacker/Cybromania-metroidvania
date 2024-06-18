@@ -1,20 +1,32 @@
-[gd_scene load_steps=13 format=3 uid="uid://chn408wsd17td"]
+[gd_scene load_steps=16 format=3 uid="uid://chn408wsd17td"]
 
 [ext_resource type="Script" path="res://Scripts/moving_enemy.gd" id="1_h4mrx"]
-[ext_resource type="Texture2D" uid="uid://b6q06t764op1r" path="res://Assets/Sprites/enemy sprites/IMG_2422.PNG" id="2_6qc2y"]
+[ext_resource type="Texture2D" uid="uid://cmpsnihe23rmi" path="res://Assets/Sprites/enemy sprites/enemy-worm/worm_updated1.png" id="2_ijkwr"]
 [ext_resource type="PackedScene" uid="uid://bix654en2prn3" path="res://Scenes/killzone.tscn" id="3_imlor"]
+[ext_resource type="Texture2D" uid="uid://y8e7sa6riy0x" path="res://Assets/Sprites/enemy sprites/enemy-worm/worm_updated2.png" id="3_lpk61"]
+[ext_resource type="Texture2D" uid="uid://2rk60tv8qip7" path="res://Assets/Sprites/enemy sprites/enemy-worm/worm_updated3.png" id="4_2wx0l"]
 [ext_resource type="PackedScene" uid="uid://bycrnh7qsh5q" path="res://Components/hitbox_component.tscn" id="4_q8yq6"]
 [ext_resource type="AudioStream" uid="uid://ckc0rls2t7yeg" path="res://Assets/SFX/Enemies/wormDie.wav" id="5_qh0vs"]
+[ext_resource type="Texture2D" uid="uid://csh6jdxypu3oi" path="res://Assets/Sprites/enemy sprites/enemy-worm/worm_updated4.png" id="5_x2r8s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sf3r2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6qc2y")
+"texture": ExtResource("2_ijkwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lpk61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2wx0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x2r8s")
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 6.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok1e1"]
@@ -185,7 +197,7 @@ health = 2
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_r5uvh")
 
-[node name="Die" type="AudioStreamPlayer" parent="."]
+[node name="Die" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qh0vs")
 bus = &"SFX"
 
