@@ -655,7 +655,7 @@ texture = ExtResource("8_76mt0")
 position = Vector2(0, 16)
 sprite_frames = SubResource("SpriteFrames_u4ie3")
 autoplay = "default"
-frame_progress = 0.065237
+frame_progress = 0.720906
 
 [node name="Labels" type="Node" parent="."]
 
