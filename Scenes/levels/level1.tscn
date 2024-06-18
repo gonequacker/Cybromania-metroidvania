@@ -750,10 +750,10 @@ position = Vector2(624, 24)
 collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatform"]
-autoplay = "move"
 libraries = {
 "": SubResource("AnimationLibrary_iodpw")
 }
+autoplay = "move"
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(1, 0.650038, 0.48624, 1)
