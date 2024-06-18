@@ -9,7 +9,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var has_firewall = Global.inventory["spell"] > 0
+	var has_pike = Global.inventory["pike"] > 0
+	var has_daggers = Global.inventory["daggers"] > 0
+	var has_launcher = Global.inventory["launcher"] > 0
+	var has_arbalest = Global.inventory["arbalest"] > 0
+	if has_firewall: $Firewall/TextureRect.visible = true
+	if has_pike: $PQ/TextureRect.visible = true
+	if has_daggers: $DMARC/TextureRect.visible = true
+	if has_launcher: $Blackhole/TextureRect.visible = true
+	if has_arbalest: $Antivirus/TextureRect.visible = true
 
 func player_attacked(weapon):
 	get_child(weapon - 2).modulate = Color.DIM_GRAY
