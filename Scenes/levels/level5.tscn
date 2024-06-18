@@ -618,6 +618,7 @@ position = Vector2(893, 983)
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("6_3mcst")]
+visible = false
 position = Vector2(39, 619)
 collision_mask = 2
 
