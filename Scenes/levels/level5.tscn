@@ -537,11 +537,9 @@ layer_1/tile_data = PackedInt32Array()
 [node name="Enemies" type="Node" parent="."]
 
 [node name="DOS" parent="Enemies" instance=ExtResource("5_nbknh")]
-visible = false
 position = Vector2(-22, 21)
 
 [node name="DOS2" parent="Enemies" instance=ExtResource("5_nbknh")]
-visible = false
 position = Vector2(43, 22)
 
 [node name="Platforms" type="Node" parent="."]
@@ -614,7 +612,6 @@ text = "Wall
 Jump"
 
 [node name="Launcher" parent="Items" instance=ExtResource("9_gdsuc")]
-visible = false
 position = Vector2(-92, -2)
 item_name = "launcher"
 item_texture = ExtResource("10_jcew2")
@@ -639,7 +636,6 @@ Launcher"
 horizontal_alignment = 1
 
 [node name="NextLevel" parent="." instance=ExtResource("11_eiv0c")]
-visible = false
 position = Vector2(166, 23)
 
 [node name="BlackGradient" type="TextureRect" parent="."]
@@ -663,16 +659,13 @@ rotation = -1.57079
 texture = SubResource("GradientTexture1D_nkr1h")
 
 [node name="SpawnPos" type="Node2D" parent="."]
-visible = false
-position = Vector2(-136, 17)
+position = Vector2(-313, 158)
 
 [node name="LeftBorder" type="Node2D" parent="."]
-visible = false
-position = Vector2(-198, 15)
+position = Vector2(-360, 139)
 
 [node name="RightBorder" type="Node2D" parent="."]
-visible = false
-position = Vector2(212, 20)
+position = Vector2(792, 81)
 
 [node name="Door-opened" type="Sprite2D" parent="."]
 position = Vector2(-312, 160)
