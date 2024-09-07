@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://36y6grdymv2n"]
+[gd_scene load_steps=30 format=3 uid="uid://36y6grdymv2n"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_dj28m"]
 [ext_resource type="AudioStream" uid="uid://gjhjyvyrtuo" path="res://Assets/Music/wide.ogg" id="2_k231v"]
@@ -7,11 +7,48 @@
 [ext_resource type="Texture2D" uid="uid://kxx4dv24t07r" path="res://Assets/Sunnyland/environment/Props/wooden-house.png" id="6_q0t6x"]
 [ext_resource type="Texture2D" uid="uid://b8fsa3isa6bp3" path="res://Assets/Sunnyland/environment/Props/plant-house.png" id="7_k5hqp"]
 [ext_resource type="Texture2D" uid="uid://ureaf15nc3bk" path="res://Assets/Sunnyland/environment/Props/straw-house.png" id="8_76mt0"]
+[ext_resource type="Texture2D" uid="uid://c6owqoulp14hr" path="res://Assets/Sunnyland/spritesheets/player.png" id="8_hsht6"]
 [ext_resource type="FontFile" uid="uid://ctvw6s4ilmgbr" path="res://Assets/Fonts/dogicapixelbold.ttf" id="9_t5rbg"]
 [ext_resource type="PackedScene" uid="uid://odaru6vlss2r" path="res://Scenes/moving_platform.tscn" id="11_p7x10"]
 [ext_resource type="Texture2D" uid="uid://bpwhhq3ucwmy7" path="res://Assets/Sunnyland/environment/tileset.png" id="12_am540"]
 [ext_resource type="Texture2D" uid="uid://dm1vuf0paq01a" path="res://Assets/Sunnyland/environment/Props/small-platform.png" id="13_hkd55"]
 [ext_resource type="PackedScene" uid="uid://bba4lucungyjt" path="res://Scenes/next_level.tscn" id="14_6dnw6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k54x"]
+atlas = ExtResource("8_hsht6")
+region = Rect2(0, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbor2"]
+atlas = ExtResource("8_hsht6")
+region = Rect2(33, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38mw3"]
+atlas = ExtResource("8_hsht6")
+region = Rect2(66, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7tu5"]
+atlas = ExtResource("8_hsht6")
+region = Rect2(99, 0, 33, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4ie3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k54x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbor2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38mw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7tu5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_xhkep"]
 length = 0.001
@@ -614,6 +651,12 @@ texture = ExtResource("7_k5hqp")
 position = Vector2(508, -32)
 texture = ExtResource("8_76mt0")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Props"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_u4ie3")
+autoplay = "default"
+frame_progress = 0.146836
+
 [node name="Labels" type="Node" parent="."]
 
 [node name="Congrats" type="Label" parent="Labels"]
@@ -646,16 +689,20 @@ hometown."
 horizontal_alignment = 1
 
 [node name="Info" type="Label" parent="Labels"]
-offset_left = 187.0
-offset_top = -29.0
-offset_right = 389.0
-offset_bottom = 8.0
+offset_left = 234.0
+offset_top = -41.0
+offset_right = 436.0
+offset_bottom = 36.0
 theme_override_fonts/font = ExtResource("9_t5rbg")
 theme_override_font_sizes/font_size = 8
-text = "Don't forget to hit
-ESC and read the Info
-page before exiting
-the game."
+text = "Finally, your town can
+be at peace, knowing
+you will keep them safe
+with your newfound
+knowledge of
+cybersecurity.
+Return home to
+finish the game!"
 horizontal_alignment = 1
 
 [node name="Shadow" type="Label" parent="Labels/Info"]
@@ -668,10 +715,14 @@ offset_bottom = 28.0
 theme_override_colors/font_color = Color(0.18359, 0.18359, 0.18359, 1)
 theme_override_fonts/font = ExtResource("9_t5rbg")
 theme_override_font_sizes/font_size = 8
-text = "Don't forget to hit
-ESC and read the Info
-page before exiting
-the game."
+text = "Finally, your town can
+be at peace, knowing
+you will keep them safe
+with your newfound
+knowledge of
+cybersecurity.
+Return home to
+finish the game!"
 horizontal_alignment = 1
 
 [node name="RealWorld" type="Label" parent="Labels"]
